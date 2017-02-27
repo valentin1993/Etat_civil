@@ -2,23 +2,34 @@
 
 {% load staticfiles %}
 
+<style>
+
+    .form > li {
+        list-style: none;
+    }
+
+</style>
+
+{% block title %}
+    <h3> <span class="glyphicon glyphicon-file"></span> Votre formulaire a été validé </align> </h3>
+{% endblock %}
+
 {% block content %}
 
     <!-- ############### -->
     <!-- Page principale -->
     <!-- ############### -->
 
-    
-<div class="col-sm-8">
-    <form class = "form" method='POST' action=''> {% csrf_token %}
 
-    <h3> <span class="glyphicon glyphicon-file"></span>Votre formulaire a été validé </align> </h3>
+    <form class = "form" method='POST' action=''> {% csrf_token %}
 
     <br></br>
 
     L'enfant a été enregistré sous le numéro : <b>{{ birthcertificate.id }}</b> 
 
-    <h3> Récapitulatif des données enregistrées : </h3>
+    <h4> Récapitulatif des données enregistrées : </h4>
+
+    <br></br>
 
     <li> <b>Nom :</b>  {{birthcertificate.lastname}}</li>
     <li> <b>Prénom :</b>  {{birthcertificate.firstname}}</li>
@@ -51,6 +62,6 @@
 
     </form>
     </form>
-</div>
+
 
 {% endblock content %} 

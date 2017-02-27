@@ -2,180 +2,184 @@
 <html>
     <head>
 
-    {% load staticfiles %}
-    {% load static %}
-    {% load user_tags %}
+        {% load staticfiles %}
+        {% load static %}
+        {% load user_tags %}
 
-    <title> DatasystemsEC - Fiches individuelles </title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="stylesheet" type="text/css" href="{% get_static_prefix %}{{ mytheme }}/css/Base_Identity.css"/>
+        <title> DatasystemsEC - Fiches Identités </title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link rel="stylesheet" type="text/css" href="{% get_static_prefix %}{{ mytheme }}/css/Base_Identity.css"/>
     
     </head>
-    <body>
+    
     <!-- #################### -->
     <!-- Upper navigation bar -->
     <!-- #################### -->
 
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="http://www.datasystems.fr/"> DatasystemsEC </a>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="navbar-header">
+                            <a class="navbar-brand" href="http://www.datasystems.fr/"> DatasystemsEC </a>
+                        </div>
+
+                        <!-- Home tab -->
+                        <ul class="nav navbar-nav">
+                            <li><a href="{% url "accueil" %}"> <span class="glyphicon glyphicon-home"></span> Accueil </a></li> 
+                        {% if user.is_authenticated %}
+                        <li class = "dropdown">
+                                <a href = "#" class = "dropdown-toggle" data-toggle = "dropdown">
+                                    <span class="glyphicon glyphicon-info-sign">
+                                            </span> Informations Mairie
+                                <b class = "caret"></b>
+                                </a>
+                                <ul class = "dropdown-menu">
+                                    <li><a href = "{% url "Mairieform" %}"> <span class="glyphicon glyphicon-pencil"></span> Créer/Editer les informations de la Mairie </a></li>
+                                    <li><a href = "{% url "Mairieresume" %}"> <span class="glyphicon glyphicon-home"></span> Consulter les informations de la Mairie </a></li>
+                                </ul>
+                        </li>
+
+                        <!-- Resume Tab with acts -->
+
+                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> <span class="glyphicon glyphicon-file">
+                                            </span>  Actes Etat Civil <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li class="dropdown dropdown-submenu">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                            <span class="glyphicon glyphicon-user">
+                                            </span> Fiches Individuelles 
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="{% url "home" %}">Accueil Fiches Individuelles</a></li>
+                                            <li><a href="{% url "form" %}">Création Fiches Individuelles</a></li>
+                                            <li><a href="{% url "searched" %}">Consultation Fiches Individuelles</a></li>
+                                            {% if request.user|has_group:"admin" %}
+                                            <li><a href="{% url "edited" %}">Edition Fiches Individuelles</a></li>
+                                            <li><a href="{% url "deleted" %}">Suppression Fiches Individuelles</a></li>
+                                            {% endif %}
+                                        </ul>
+                                    </li>
+
+                                    <li class="dropdown dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
+                                        <span class="glyphicon glyphicon-baby-formula"></span> Actes de Naissance</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="{% url "BChome" %}">Accueil Actes de Naissance</a></li>
+                                            <li><a href="{% url "BCform" %}">Création Actes de Naissance</a></li>
+                                            <li><a href="http://demoged.datasystems.fr:8090/">Consultation Actes de Naissance</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="dropdown dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
+                                        <span class="glyphicon glyphicon-eye-open"></span> Actes de Reconnaissance / Adoption </a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="{% url "BCnotfound" %}">Accueil Actes de Reconnaissance</a></li>
+                                            <li><a href="{% url "BCnotfound" %}">Création Actes de Reconnaissance</a></li>
+                                            <li><a href="{% url "BCnotfound" %}">Consultation Actes de Reconnaissance</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="dropdown dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
+                                        <span class="glyphicon glyphicon-heart"></span> Actes de Mariage</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="{% url "BCnotfound" %}">Accueil Actes de Mariage</a></li>
+                                            <li><a href="{% url "BCnotfound" %}">Création Actes de Mariage</a></li>
+                                            <li><a href="{% url "BCnotfound" %}">Consultation Actes de Mariage</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="dropdown dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
+                                        <span class="glyphicon glyphicon-flash"></span> Actes de Divorce</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="{% url "BCnotfound" %}">Accueil Actes de Divorce</a></li>
+                                            <li><a href="{% url "BCnotfound" %}">Création Actes de Divorce</a></li>
+                                            <li><a href="{% url "BCnotfound" %}">Consultation Actes de Divorce</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="dropdown dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
+                                        <span class="glyphicon glyphicon-fire"></span> Actes de Décès</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="{% url "BCnotfound" %}">Accueil Actes de Décès</a></li>
+                                            <li><a href="{% url "BCnotfound" %}">Création Actes de Décès</a></li>
+                                            <li><a href="{% url "BCnotfound" %}">Consultation Actes de Décès</a></li>
+                                        </ul>
+                                    </li>
+                                    
+
+                                </ul>
+                            </li>
+
+                            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> <span class="glyphicon glyphicon-book">
+                                            </span> Tables Annuelles & Décennales <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li class="dropdown dropdown-submenu">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                            <span class="glyphicon glyphicon-file">
+                                            </span> Edition Tables annuelles
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="{% url "annuel" %}">Naissances</a></li>
+                                            <li><a href="{% url "BCnotfound" %}">Reconnaissances</a></li>
+                                            <li><a href="{% url "BCnotfound" %}">Mariages</a></li>
+                                            <li><a href="{% url "BCnotfound" %}">Décès</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="dropdown dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
+                                        <span class="glyphicon glyphicon-book"></span> Edition Tables décennales</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="{% url "BCnotfound" %}">Naissances</a></li>
+                                            <li><a href="{% url "BCnotfound" %}">Reconnaissances</a></li>
+                                            <li><a href="{% url "BCnotfound" %}">Mariages</a></li>
+                                            <li><a href="{% url "BCnotfound" %}">Décès</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class = "dropdown">
+                                <a href = "#" class = "dropdown-toggle" data-toggle = "dropdown">
+                                    <span class="glyphicon glyphicon-list-alt">
+                                            </span> Recensement
+                                <b class = "caret"></b>
+                                </a>
+                                <ul class = "dropdown-menu">
+                                    <li><a href = "{% url "Rhome" %}"> <span class="glyphicon glyphicon-th-list"></span> Liste Recensement </a></li>
+                                    <li><a href = "{% url "Rform" %}"> <span class="glyphicon glyphicon-file"></span> Edition de l'Attestation de Recensement </a></li>
+                                </ul>
+                        </li>
+                            {% endif %}
+                        <ul class="nav navbar-nav navbar-right">
+                                        {% if user.is_authenticated %}
+                                            <li><a href="{% url "logout" %}" ><span class="glyphicon glyphicon-log-out"></span> Déconnexion </a></li>
+                                            <li><a>{{user.username}} </a></li>
+                                        {% else %}
+                                            <li><a href="{% url "login" %}" style = "padding-left: 600px"><span class="glyphicon glyphicon-log-in"></span> Connexion </align></a></li>
+                                        {% endif %}
+
+
+                                        {% if request.user|has_group:"admin" %}
+                                            <img style="display: inline-block; height: 30px; margin-top: 10px; margin-right:30px" src="{% static 'images/admin.png' %}{{ user.get_profile.avatar }}">
+                                        {% elif request.user|has_group:"visiteur"%}
+                                            <img style="display: inline-block; height: 30px; margin-top: 10px; margin-right:30px" src="{% static 'images/visiteur.png' %}{{ user.get_profile.avatar }}">
+                                        {% elif request.user|has_group:"employé"%}
+                                            <img style="display: inline-block; height: 30px; margin-top: 10px; margin-right:30px" src="{% static 'images/employé.png' %}{{ user.get_profile.avatar }}">
+                                        {% elif request.user|has_group:"officier"%}
+                                            <img style="display: inline-block; height: 30px; margin-top: 10px; margin-right:30px" src="{% static 'images/officier.png' %}{{ user.get_profile.avatar }}">
+                                        {% elif request.user|has_group:"maire"%}
+                                            <img style="display: inline-block; height: 30px; margin-top: 10px; margin-right:30px" src="{% static 'images/maire.png' %}{{ user.get_profile.avatar }}">
+                                        {% endif %}
+
+                            </ul>
+                        </ul> 
+                    </div>
                 </div>
-
-                <!-- Home tab -->
-                <ul class="nav navbar-nav">
-                    <li><a href="{% url "accueil" %}"> <span class="glyphicon glyphicon-home"></span> Accueil </a></li> 
-                {% if user.is_authenticated %}
-                <li class = "dropdown">
-                        <a href = "#" class = "dropdown-toggle" data-toggle = "dropdown">
-                            <span class="glyphicon glyphicon-info-sign">
-                                    </span> Informations Mairie
-                        <b class = "caret"></b>
-                        </a>
-                        <ul class = "dropdown-menu">
-                            <li><a href = "{% url "Mairieform" %}"> <span class="glyphicon glyphicon-pencil"></span> Créer/Editer les informations de la Mairie </a></li>
-                            <li><a href = "{% url "Mairieresume" %}"> <span class="glyphicon glyphicon-home"></span> Consulter les informations de la Mairie </a></li>
-                        </ul>
-                </li>
-
-                <!-- Resume Tab with acts -->
-
-                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> <span class="glyphicon glyphicon-file">
-                                    </span>  Actes Etat Civil <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li class="dropdown dropdown-submenu">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <span class="glyphicon glyphicon-user">
-                                    </span> Fiches Individuelles 
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="{% url "home" %}">Accueil Fiches Individuelles</a></li>
-                                    <li><a href="{% url "form" %}">Création Fiches Individuelles</a></li>
-                                    <li><a href="{% url "searched" %}">Consultation Fiches Individuelles</a></li>
-                                    {% if request.user|has_group:"admin" %}
-                                    <li><a href="{% url "edited" %}">Edition Fiches Individuelles</a></li>
-                                    <li><a href="{% url "deleted" %}">Suppression Fiches Individuelles</a></li>
-                                    {% endif %}
-                                </ul>
-                            </li>
-
-                            <li class="dropdown dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
-                                <span class="glyphicon glyphicon-baby-formula"></span> Actes de Naissance</a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="{% url "BChome" %}">Accueil Actes de Naissance</a></li>
-                                    <li><a href="{% url "BCform" %}">Création Actes de Naissance</a></li>
-                                    <li><a href="http://demoged.datasystems.fr:8090/">Consultation Actes de Naissance</a></li>
-                                </ul>
-                            </li>
-
-                            <li class="dropdown dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
-                                <span class="glyphicon glyphicon-eye-open"></span> Actes de Reconnaissance / Adoption </a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="{% url "BCnotfound" %}">Accueil Actes de Reconnaissance</a></li>
-                                    <li><a href="{% url "BCnotfound" %}">Création Actes de Reconnaissance</a></li>
-                                    <li><a href="{% url "BCnotfound" %}">Consultation Actes de Reconnaissance</a></li>
-                                </ul>
-                            </li>
-
-                            <li class="dropdown dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
-                                <span class="glyphicon glyphicon-heart"></span> Actes de Mariage</a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="{% url "BCnotfound" %}">Accueil Actes de Mariage</a></li>
-                                    <li><a href="{% url "BCnotfound" %}">Création Actes de Mariage</a></li>
-                                    <li><a href="{% url "BCnotfound" %}">Consultation Actes de Mariage</a></li>
-                                </ul>
-                            </li>
-
-                            <li class="dropdown dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
-                                <span class="glyphicon glyphicon-flash"></span> Actes de Divorce</a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="{% url "BCnotfound" %}">Accueil Actes de Divorce</a></li>
-                                    <li><a href="{% url "BCnotfound" %}">Création Actes de Divorce</a></li>
-                                    <li><a href="{% url "BCnotfound" %}">Consultation Actes de Divorce</a></li>
-                                </ul>
-                            </li>
-
-                            <li class="dropdown dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
-                                <span class="glyphicon glyphicon-fire"></span> Actes de Décès</a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="{% url "BCnotfound" %}">Accueil Actes de Décès</a></li>
-                                    <li><a href="{% url "BCnotfound" %}">Création Actes de Décès</a></li>
-                                    <li><a href="{% url "BCnotfound" %}">Consultation Actes de Décès</a></li>
-                                </ul>
-                            </li>
-                            
-
-                        </ul>
-                    </li>
-
-                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> <span class="glyphicon glyphicon-book">
-                                    </span> Tables Annuelles & Décennales <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li class="dropdown dropdown-submenu">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <span class="glyphicon glyphicon-file">
-                                    </span> Edition Tables annuelles
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="{% url "annuel" %}">Naissances</a></li>
-                                    <li><a href="{% url "BCnotfound" %}">Reconnaissances</a></li>
-                                    <li><a href="{% url "BCnotfound" %}">Mariages</a></li>
-                                    <li><a href="{% url "BCnotfound" %}">Décès</a></li>
-                                </ul>
-                            </li>
-
-                            <li class="dropdown dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
-                                <span class="glyphicon glyphicon-book"></span> Edition Tables décennales</a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="{% url "BCnotfound" %}">Naissances</a></li>
-                                    <li><a href="{% url "BCnotfound" %}">Reconnaissances</a></li>
-                                    <li><a href="{% url "BCnotfound" %}">Mariages</a></li>
-                                    <li><a href="{% url "BCnotfound" %}">Décès</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li class = "dropdown">
-                        <a href = "#" class = "dropdown-toggle" data-toggle = "dropdown">
-                            <span class="glyphicon glyphicon-list-alt">
-                                    </span> Recensement
-                        <b class = "caret"></b>
-                        </a>
-                        <ul class = "dropdown-menu">
-                            <li><a href = "{% url "Rhome" %}"> <span class="glyphicon glyphicon-th-list"></span> Liste Recensement </a></li>
-                            <li><a href = "{% url "Rform" %}"> <span class="glyphicon glyphicon-file"></span> Edition de l'Attestation de Recensement </a></li>
-                        </ul>
-                </li>
-                    {% endif %}
-                <ul class="nav navbar-nav navbar-right">
-                                {% if user.is_authenticated %}
-                                    <li><a href="{% url "logout" %}" ><span class="glyphicon glyphicon-log-out"></span> Déconnexion </a></li>
-                                    <li><a>{{user.username}} </a></li>
-                                {% else %}
-                                    <li><a href="{% url "login" %}" style = "padding-left: 600px"><span class="glyphicon glyphicon-log-in"></span> Connexion </align></a></li>
-                                {% endif %}
-
-
-                                {% if request.user|has_group:"admin" %}
-                                    <img style="display: inline-block; height: 30px; margin-top: 10px; margin-right:30px" src="{% static 'images/admin.png' %}{{ user.get_profile.avatar }}">
-                                {% elif request.user|has_group:"visiteur"%}
-                                    <img style="display: inline-block; height: 30px; margin-top: 10px; margin-right:30px" src="{% static 'images/visiteur.png' %}{{ user.get_profile.avatar }}">
-                                {% elif request.user|has_group:"employé"%}
-                                    <img style="display: inline-block; height: 30px; margin-top: 10px; margin-right:30px" src="{% static 'images/employé.png' %}{{ user.get_profile.avatar }}">
-                                {% elif request.user|has_group:"officier"%}
-                                    <img style="display: inline-block; height: 30px; margin-top: 10px; margin-right:30px" src="{% static 'images/officier.png' %}{{ user.get_profile.avatar }}">
-                                {% elif request.user|has_group:"maire"%}
-                                    <img style="display: inline-block; height: 30px; margin-top: 10px; margin-right:30px" src="{% static 'images/maire.png' %}{{ user.get_profile.avatar }}">
-                                {% endif %}
-
-                </ul>
-            </ul>    
             </div>
         </nav>
         <script>
@@ -190,56 +194,89 @@
                 });
             })(jQuery);
         </script>   
-
-
-<div class="container-fluid">
-        <div class="row">
-            <div class="col-md-2 col-sm-4 sidebar1">
-                <div class="logo">
-                    <img src="{% static 'images/logo.png' %}" class="img-responsive center-block" alt="Logo">
-                </div>
-                <br>
-                <div class="left-navigation">
-
-                    <ul class="list">
-                        <h5><strong><span class="glyphicon glyphicon-home"></span> Accueil</strong></h5>
-                        <li><a href="{% url "accueil" %}"> Accueil</a></li>
-                    </ul>
-
-                    <ul class="list">
-                        <h5><strong><span class="glyphicon glyphicon-baby-formula"></span> Fiche identité</strong></h5>
-                        <li><a href="{% url "home" %}">Accueil</a></li>
-                        <li><a href="{% url "form" %}">Création</a></li>
-                        <li><a href="{% url "BCnotfound" %}">Copie / Extrait</a></li>
-                        <li><a href="{% url "searched" %}">Consultation</a></li>
-                        {% if request.user|has_group:"admin" %}
-                        <li><a href="{% url "edited" %}">Edition</a></li>
-                        <li><a href="{% url "deleted" %}">Suppression</a></li>
-                        {% endif %}
-                    </ul>
-                    <ul class="list">
-                        <h5><strong><span class="glyphicon glyphicon-book"></span> DatasystemsDOC</strong></h5>
-                        <li><a href="https://demoged.datasystems.fr:8090/frontend.jsp?folderId=8552450">Individus</a></li>
-                        <li><a href="https://demoged.datasystems.fr:8090/frontend.jsp?folderId=8978465">Tables</a></li>
-                        <li><a href="https://demoged.datasystems.fr:8090/frontend.jsp?folderId=8978476">Recensement</a></li>
-                    </ul>
+            {% if user.is_authenticated %}
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="logo">
+                            <img src="{% static 'images/logo.png' %}" class="img-responsive center-block" alt="Logo">
+                        </div>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="title">
+                            {% block title %}
+                            {% endblock %}
+                        </div>
+                    </div>
                 </div>
             </div>
-            
-    </div>
 
-       <body>
-    
-        {% block content %}
-        {% endblock content %} 
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-2 sidebar1">
+                        
+                        <div class="left-navigation">
 
-        </body>  
+                            <ul class="list">
+                                <h5><strong><span class="glyphicon glyphicon-home"></span> Accueil</strong></h5>
+                                <li><a href="{% url "accueil" %}"> Accueil</a></li>
+                            </ul>
+
+                            <ul class="list">
+                                <h5><strong><span class="glyphicon glyphicon-baby-formula"></span> Fiche identité</strong></h5>
+                                <li><a href="{% url "home" %}">Accueil</a></li>
+                                <li><a href="{% url "form" %}">Création</a></li>
+                                <li><a href="{% url "BCnotfound" %}">Copie / Extrait</a></li>
+                                <li><a href="{% url "searched" %}">Consultation</a></li>
+                                {% if request.user|has_group:"admin" %}
+                                <li><a href="{% url "edited" %}">Edition</a></li>
+                                <li><a href="{% url "deleted" %}">Suppression</a></li>
+                                {% endif %}
+                            </ul>
+                            <ul class="list">
+                                <h5><strong><span class="glyphicon glyphicon-book"></span> DatasystemsDOC</strong></h5>
+                                <li><a href="https://demoged.datasystems.fr:8090/frontend.jsp?folderId=8552450">Individus</a></li>
+                                <li><a href="https://demoged.datasystems.fr:8090/frontend.jsp?folderId=8978465">Tables</a></li>
+                                <li><a href="https://demoged.datasystems.fr:8090/frontend.jsp?folderId=8978476">Recensement</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <body> 
+                    {% endif %}
+                    {% if user.is_authenticated %}
+                    <div class="col-md-10">
+
+                    {% else %}
+                    <div class="col-md-12">
+
+                    {% endif %}
+
+                    {% block content %}
+                    {% endblock content %}  
+                
+                    </div>
+                    </body>
+                </div>
+            </div>
+            {% if user.is_authenticated %}
+             <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        
+                    </div>
+                </div>
+            </div>
 
 
-      <footer class="footer">
-          <div class="container">
-              <p class="text-muted"> &copy; DatasystemsEC 2017 - Tous droits réservés <br /> Version Démo</p>
-          </div>
-      </footer>
-
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <footer class="footer">
+                            <p class="text-muted footer"> &copy; DatasystemsEC 2017 - Tous droits réservés <br /> Version Démo</p>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+  
 </html>

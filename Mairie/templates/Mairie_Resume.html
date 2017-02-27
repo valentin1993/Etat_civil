@@ -2,18 +2,18 @@
 
 {% load staticfiles %}
 
+{% block title %}
+
+    
+{% endblock %}
+
 {% block content %}
 
     <!-- ############### -->
     <!-- Page principale -->
     <!-- ############### -->
 
-<div class="col-sm-8">
-   
-
-    <div class="col-sm-7">
-         <h3> <span class="glyphicon glyphicon-home"></span> Informations concernant la mairie de {{mairie.city}}</h3> 
-            <h3><b><span class="glyphicon glyphicon-home"></span> Institution : </b></h3>
+            <h4><span class="glyphicon glyphicon-home"></span> Institution :</h3>
             <table style="width:100%">
                 <tbody>
                     <p></p>
@@ -68,10 +68,8 @@
                 </tbody>
             </table>
             <br></br>
-        </div>
 
-        <div class="col-sm-6">
-            <h3><b><span class="glyphicon glyphicon-user"></span> Mandat du maire : </b></h3>
+            <h4><span class="glyphicon glyphicon-user"></span> Mandat du maire :</h3>
             <table style="width:100%">
                 <tbody>
                     <p></p>
@@ -105,9 +103,7 @@
                 </tr>
                 </tbody>
             </table>
-            <br></br>
-        </div>
 
-</div>
+
 
 {% endblock content %} 

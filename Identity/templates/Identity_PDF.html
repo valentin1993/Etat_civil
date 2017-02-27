@@ -2,32 +2,30 @@
 
 {% load staticfiles %}
 
+{% block title %}
+    <h3><span class="glyphicon glyphicon-user"> </span> Votre PDF Fiche individuelle a été généré et sauvegardé (n° {{identity.id}})</h3>
+{% endblock %}
+
 {% block content %}
 
-    <!-- ############### -->
-    <!-- Page principale -->
-    <!-- ############### -->
-
-<div class="col-sm-8">
 
         <form class = "form" method='POST' action="{% url "home" %}"> {% csrf_token %}
-        <h3> <span class="glyphicon glyphicon-user"> </span> Votre PDF Fiche individuelle a été généré et sauvegardé (n° {{identity.id}})</h3>
+       
+            <br></br>
 
-        <br></br>
+            La fiche individuelle est désormais disponible sous DatasystemsDOC : 
 
-        La fiche individuelle est désormais disponible sous DatasystemsDOC : 
+            <br></br>
+            
+            <a target="_blank" href="https://demoged.datasystems.fr:8090/frontend.jsp?folderId={{folderId}}">Consulter le dossier de {{identity.lastname}} {{identity.firstname}}</a>
+            <p></p>
+            N° du dossier de la personne : {{folderId}}
 
-        <br></br>
-        
-        <a target="_blank" href="https://demoged.datasystems.fr:8090/frontend.jsp?folderId={{folderId}}">Consulter le dossier de {{identity.lastname}} {{identity.firstname}}</a>
-        <p></p>
-        N° du dossier de la personne : {{folderId}}
+            <br></br>
 
-        <br></br>
-
-        <input class="button" type ="submit" name="retour" value="Retour à l'accueil des fiches individuelles" /> 
+            <input class="button" type ="submit" name="retour" value="Retour à l'accueil des fiches individuelles" /> 
         </form>
 
-</div>
+
 
 {% endblock content %}

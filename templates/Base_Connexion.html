@@ -275,17 +275,11 @@
                     </div>
                     <body> 
                     {% endif %}
-                    {% if user.is_authenticated %}
-                    <div class="col-md-10">
-
-                    {% else %}
                     <div class="col-md-12">
-
-                    {% endif %}
 
                     {% block content %}
                     {% endblock content %}  
-                
+
                     </div>
                     </body>
                 </div>

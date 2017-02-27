@@ -2,23 +2,22 @@
 
 {% load staticfiles %}
 
-{% block content %}
-    <!-- ############### -->
-    <!-- Page principale -->
-    <!-- ############### -->
+{% block title %}
+    <h2 align="center"> Gestion des Actes de Naissance </align> </h2>
+{% endblock %}
 
-    <div class="col-sm-8">
-            <h2 align="center"> Gestion des actes de naissance </align> </h2>
+{% block content %}
+
+
             <form class = "form" method='POST' action=''> {% csrf_token %}
                 
             <p> Veuillez cliquer sur l'opération à effectuer : </p>
             <p></p>
-            <p> <a style="color:#007A5E" href="{% url "BCform" %}"> Créer un acte de naissance </a></p>
-            <p> <a style="color:#007A5E" href="https://demoged.datasystems.fr:8090/"> Consulter un acte de naissance </a></p>
+            <p> <a style="color:red" href="{% url "BCform" %}"> Créer un acte de naissance </a></p>
+            <p> <a style="color:red" href="https://demoged.datasystems.fr:8090/"> Consulter un acte de naissance </a></p>
             <br></br>
             <p> Partie statistique concernant les actes de naissance </p>
             <p align="center"><img src="{% static 'images/stats.jpeg' %}" height="420" width="667"></p>
             </form>
-    </div>
 
 {% endblock content %}
