@@ -1,0 +1,25 @@
+{% extends 'Base_Identity.html' %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+    <!-- ############### -->
+    <!-- Page principale -->
+    <!-- ############### -->
+
+    <div class="col-sm-8">   
+            <form class = "form" method='POST' action=''> {% csrf_token %}
+                <h3><span class="glyphicon glyphicon-user"> </span>  Formulaire de fiche individuelle</h3>
+                <br></br>
+                {{ form.as_ul}} 
+                {{birthday|date:"%d/%m/%Y" }} 
+
+                <br></br>
+
+                <input class="button" type ="submit" name="_save" value="Valider la fiche individuelle" /> 
+            </form>
+
+    </div>
+
+{% endblock content %}

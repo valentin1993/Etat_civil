@@ -1,0 +1,86 @@
+/* ############################################# */
+/* CSS File about Identiy application properties */
+/* ############################################# */
+
+/* Define background color from upper navbar */
+.navbar-inverse {
+    background-color: #007A5E !important;
+    }
+
+/* DatasystemsEC tab */
+.navbar-inverse .container-fluid .navbar-header .navbar-brand {
+    color : white;
+    }
+
+/* Tab properties from navbar */
+.navbar .nav > li > a {
+    color:  white;
+    }
+
+.navbar .nav > li > a:hover {
+    color:  white !important;
+    }
+
+.active {
+    background-color: #454545;
+    }
+
+h1, h2, h4 {
+    color: #007A5E !important;
+    }
+
+/* Define button properties */
+.button {
+
+    display: inline;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: #e7e7e7;
+
+    -webkit-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+    }
+
+/* Define form fields properties */
+.form-fields {
+    border-radius: 8px;
+    margin-right: auto;
+    }
+
+.col-sm-6 {
+    display:inline-block;
+    margin-left : 10px;
+    width: 30%;
+    list-style: none;
+    }
+
+.col-sm-8 {
+    list-style: none;
+    }
+
+.col-sm-10 {
+    display:inline-block;
+    margin-left : 10px;
+    width: 800%;
+    list-style: none;
+    }
+
+/* Hoover button properties */
+.button:hover {
+    background-color: #007A5E !important;
+    color: #CE1126 !important;
+    }
+
+/* Hoover color dropdown menu */
+.dropdown-menu>li>a:hover {
+   color: #FFFFFF;
+   text-decoration: none;
+   background-color: #007A5E !important;
+    }
+
+/* Define background-color for dropdown active tab */
+.dropdown.open > .active {
+    background: #FFFFFF;
+    }

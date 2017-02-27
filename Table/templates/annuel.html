@@ -1,0 +1,70 @@
+{% extends 'Base_Table.html' %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+
+<div class="col-sm-8">
+
+        <!-- Title page -->
+        
+        <h3> <span class="glyphicon glyphicon-user"></span> Edition de la table annuelle des naissances</h3>
+
+        <!-- Body page -->
+
+        <br></br>
+
+        <form class = "form" method="GET" action="">
+            <h4 color="#0083A2"> <span class="glyphicon glyphicon-user"></span> Prévisualisation de la table annuelle des naissances </h4>
+            <input type="text"  name="q1" placeholder="Entrer une année" value="{{ request.GET.q1 }}"> &nbsp;
+            <input class="button" type="submit" value="Rechercher">
+        </form>
+
+        <br></br>
+
+        <table style="width:90%">
+            <tbody>
+                <tr>
+                    <th>Nom & prénom(s)</th>
+                    <th>Lieux de Naissance</th>
+                    <th>Date des actes</th>
+                    <th>Numéro de l'acte</th>
+                </tr>
+                {% for item in query_naissance_list %}
+                <tr>
+                    <td> {{item.lastname}} {{item.firstname}} </td>
+                    <td> {{item.birthcity}} ({{item.birthcountry.name}}) </td>
+                    <td> {{item.created}} <p></p> {{item.birthday}} (Naissance) </td>
+                    <td> {{item.id}} </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <div style = "{right : 10 px;}">
+
+        {% if query_naissance_list.has_previous %}
+        <a href="?page={{ query_naissance_list.previous_page_number }}&q1={{ request.GET.q1 }}">Page précédente</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ query_naissance_list.number }} sur {{ query_naissance_list.paginator.num_pages }}.
+        </span>
+
+        {% if query_naissance_list.has_next %}
+            <a href="?page={{ query_naissance_list.next_page_number }}&q1={{ request.GET.q1 }}">Page suivante</a>
+        {% endif %}
+        </div>
+
+        <br></br>
+
+        <form class = "col-sm-10" method='POST' action="{% url "NaissancePDF" %}"> {% csrf_token %}
+            <input class="button" type ="submit" value="Générer le PDF de la table annuelle des naissances" />
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock content %}

@@ -1,0 +1,24 @@
+{% extends 'Base_Table.html' %}
+
+{% load staticfiles %}
+
+{% block content %}
+    <!-- ############### -->
+    <!-- Page principale -->
+    <!-- ############### -->
+
+<div class="col-sm-8">
+
+        <h3> Edition de la table annuelle terminée </h3>
+
+
+        <form class = "form" method='POST' action="{% url "accueil" %}"> {% csrf_token %}
+
+            Pour consulter la table annuelle : <a style="color:#0083A2" target="_blank" href="https://demoged.datasystems.fr:8090/frontend.jsp?folderId=8978466">Cliquer ici</a>
+        <p></p>
+            <input class="button" type ="submit" value="Retour à l'accueil" />
+        </form>
+
+</div>
+
+{% endblock content %}

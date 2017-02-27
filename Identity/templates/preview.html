@@ -1,0 +1,41 @@
+{% extends 'Base_Identity.html' %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+    <!-- ############### -->
+    <!-- Page principale -->
+    <!-- ############### -->
+
+    <h2 align="center"> Prévisualisation de la fiche individuelle </align> </h2>
+
+    {% load bootstrap %}
+   
+    <form class = "col-sm-8" method='POST' action=''> {% csrf_token %}
+
+    <h3> Récapitulatif des données enregistrées : </h3>
+
+    {{form.title | bootstrap}}</li>
+    {{form.lastname | bootstrap}}</li>
+    {{form.firstname | bootstrap}}</li>
+    {{form.sex | bootstrap}}</li>
+    {{form.birthday | bootstrap}}</li>
+    {{form.birthcity | bootstrap}}</li>
+    {{form.birthcountry | bootstrap}}</li>
+    {{form.nationality | bootstrap}}</li>
+    {{form.job | bootstrap}}</li>
+    {{form.adress | bootstrap}}</li>
+    {{form.city | bootstrap}}</li>
+    {{form.zip | bootstrap}}</li>
+    {{form.country | bootstrap}}</li>
+    {{form.mail | bootstrap}}</li>
+    {{form.phone | bootstrap}}</li>
+
+    <br></br>
+
+    <input class="button" type ="submit" name="_save" value="Valider la fiche individuelle" />
+
+    </form>
+
+{% endblock content %}

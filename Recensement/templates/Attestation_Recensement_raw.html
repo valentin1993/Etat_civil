@@ -1,0 +1,222 @@
+<html>
+    <head>
+    {% load staticfiles %}
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />   
+    <link rel="stylesheet" type="text/css" href="{% static 'css/BC_base.css' %}"/>
+
+    <style>
+
+        body {
+                font-family: Courier New, Courier, monospace;
+                font-size: 12px;
+                list-style-type: none;
+            }
+
+        #upp {
+        width: 100%;
+        }
+
+        .alignleft, .alignright {
+        display: inline-block;
+        }
+
+        .alignleft {
+        padding-left : 50px;
+        }
+
+        .alignright {
+        padding-right: 50px;
+        }
+
+        .title {
+                border-top: 150px;
+                font-size: 7;
+        }
+
+       {% block style %}
+                @page {
+                size: landscape;
+                }
+            
+        {% endblock %} 
+    </style>
+
+    </head>
+
+        <h2 class = "title" align="center" > ATTESTATION DE RECENSEMENT </align> </h2>
+
+        <table id="upp">
+        <tr>
+
+            <td width="120">
+            <p></p>
+            </td>
+
+            <td align="left">
+            <p class="alignleft" >Le maire de la commune <br />de {{mairie.city}}</p>
+            </td>
+
+            <td>
+            <p></p>
+            </td>
+
+            <td>
+            <p></p>
+            </td>
+
+            <td>
+            <p></p>
+            </td>
+
+            <td align="right">
+            <p class="alignright" > Imprimé n° {{ar.id}}<br/> Loi n° ... du XX XX XXXX</p>
+            </td>
+
+            <td>
+            <p></p>
+            </td>
+            
+        </tr>
+        </table>
+
+    
+        <br></br>
+        <br></br>
+
+
+
+        <body>
+
+        {% block content %} 
+
+        <table id="next">
+            <tr>
+
+            <td width="120">
+                <p></p>
+            </td>
+        
+            <td align="left">
+                <p> Atteste que {% if ar.sex == "Masculin" %} Monsieur {{ar.lastname}} {{ar.firstname}}
+                {% else %}
+                Mademoiselle {{ar.lastname}} {{ar.firstname}}
+                {% endif %} </p>
+            </td>
+
+            <td>
+                <p></p>
+            </td>
+
+            <td>
+                <p></p>
+            </td>
+
+            <td>
+                <p></p>
+            </td>
+            
+            </tr>
+        </table>
+
+        <table id="next">
+            <tr>
+
+            <td width="120">
+                <p></p>
+            </td>
+
+            <td align="left">
+                <p> {% if ar.sex == "Masculin" %} Né le {{ar.birthday}} à {{ar.birthcity}} ({{ar.birthcountry.name}})
+                {% else %}
+                Née le {{ar.birthday}} à {{ar.birthcity}} ({{ar.birthcountry.name}})
+                {% endif %} </p>
+            </td>
+
+            </tr>
+        </table>
+
+
+        <table id="next">
+            <tr>
+
+            <td width="120">
+                <p></p>
+            </td>
+
+            <td align="left">
+                <p> {% if ar.sex == "Masculin" %} Domicilié à {{ar.city}} ({{ar.country.name}})
+                {% else %}
+                Domiciliée à {{ar.city}} ({{ar.country.name}})
+                {% endif %} </p>
+            </td>
+
+            </tr>
+        </table>
+
+        <br></br>
+        <br></br>
+
+        <table id="next">
+            <tr>
+
+            <td width="120">
+                <p></p>
+            </td>
+
+            <td align="left">
+                <p> a demandé son inscription sur les listes de recensement ; <br /> a été {% if ar.sex == "Masculin" %} informé 
+                {% else %}
+               informée {% endif %} des conditions dans lesquelles {% if ar.sex == "Masculin" %}  il
+                {% else %}
+                elle {% endif %} participera à l'appel de préparation à la défense.</p>
+            </td>
+
+            </tr>
+        </table>
+
+        <br></br>
+        <br></br>
+
+        <table id="upp">
+        <tr>
+
+            <td>
+            <p></p>
+            </td>
+
+            <td align="left">
+            <p class="alignleft" >{% if ar.sex == "Masculin" %} L'intéressé 
+                {% else %}
+               L'intéressée, {% endif %} <br />(Signature)</p>
+            </td>
+
+            <td>
+            <p></p>
+            </td>
+
+            <td align="right">
+            <p class="alignright" > Délivrée le {% now "d/m/Y" %}<br/> Le maire / L'officier d'état civil <br/> (Cachet et signature)</p>
+            </td>
+
+            <td>
+            <p></p>
+            </td>
+            
+        </tr>
+        </table>
+
+
+        
+        <!--<h3> Par la présente, l'officier d'Etat Civil certifie la conformité de la déclaration </h3>
+
+        <br></br>
+
+        <h3 align="right"> L'Officier d'Etat Civil </align> </h3>
+        <h3 align="right"> Signature et tampon </align> </h3>-->
+
+
+        {% endblock %}
+    </body>
+
+</html>

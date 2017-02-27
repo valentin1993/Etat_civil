@@ -1,0 +1,38 @@
+{% extends 'Base_Identity.html' %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+<div class='col-sm-8'>
+
+    <form class = "form" method="GET" action="">
+    <h3> <span class="glyphicon glyphicon-user"> </span> Modification des fiches individuelles </h3>
+
+    <br></br>
+
+    <h4> Rechercher l'individu à modifier : </h4>
+
+        <input type="text"  name="q4" placeholder="Entrer un nom" value="{{ request.GET.q4 }}">&nbsp;
+        <input type="text"  name="q4bis" placeholder="Entrer un prénom" value="{{ request.GET.q4bis }}">&nbsp;
+        <input type="text"  name="q4ter" placeholder="Date de naissance" value="{{ request.GET.q4ter }}">&nbsp;
+        <input class="button" type="submit" value="Rechercher le nom">
+
+        <br></br>
+
+    </form>
+
+    <form class = "form" method='POST' action= "" > {% csrf_token %}
+    <h4> Modification du formulaire : </h4>
+
+    {{form.as_ul}}
+
+    <br></br>
+
+    <input class="button" type ="submit" name ="save" value="Modifier la fiche individuelle" /> 
+
+    </form>
+
+</div>
+
+{% endblock %}

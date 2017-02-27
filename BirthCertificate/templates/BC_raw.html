@@ -1,0 +1,79 @@
+<html>
+    <head>
+    {% load staticfiles %}
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />   
+    <link rel="stylesheet" type="text/css" href="{% static 'css/BC_base.css' %}"/>
+
+    <style>
+            
+            body {
+                font-family: Courier New, Courier, monospace;
+                text-align: justify;
+                list-style-type: none;
+            }
+
+    </style>
+
+    </head>
+
+    <body>
+        
+        <img class="logo" src="{% static 'images/logo.jpeg' %}" />
+
+        <h2 align="center"> <font size="6"> ACTE DE NAISSANCE <br /> COPIE INTEGRALE </font></align> </h2>
+
+        <br></br>
+        <br></br>
+
+        {% block content %} 
+
+        <h3 align="left"> ACTE DE NAISSANCE N° {{birthcertificate.id}} / {% now "Y" %} {{birthcertificate.firstname}} {{birthcertificate.lastname}}</align> </h3>
+
+        <br></br>
+
+        <h3> Informations concernant l'enfant : </h3>
+        <li>Nom de l'enfant : {{birthcertificate.lastname}}</li>
+        <li>Prénom(s) de l'enfant : {{birthcertificate.firstname}}</li>
+        {% if birthcertificate.sex == "Masculin" %}
+        <li>Est né à : {{birthcertificate.birthcity}} - {{birthcertificate.birthcountry.name}}</li>
+        {% else %}
+        <li>Est née à : {{birthcertificate.birthcity}} - {{birthcertificate.birthcountry.name}}</li>
+        {% endif %}
+        <li>Le : {{birthcertificate.birthday}} à {{birthcertificate.birthhour}} heure locale</li>
+        <li>De sexe : {{birthcertificate.sex}}</li>
+
+        <hr width = "50%"></hr>
+
+        <h3> Informations sur le père : </h3>
+        <li>Nom Prénom(s) : {{birthcertificate.fk_parent1.lastname}} {{birthcertificate.fk_parent1.firstname}}</li> <!-- Get only firstname and lastname element -->
+        <li>Né le : {{birthcertificate.fk_parent1.birthday}}</li> <!-- Get only birthday element -->
+        <li>A : {{birthcertificate.fk_parent1.birthcity}}</li> <!-- Get only birthcity element -->
+        <li>De nationalité : {{birthcertificate.fk_parent1.nationality}}</li> <!-- Get only nationality element -->
+        <li>Domicilié au : {{birthcertificate.fk_parent1.adress}}</li> 
+        <li>A : {{birthcertificate.fk_parent1.city}} ({{birthcertificate.fk_parent1.zip}}) - {{birthcertificate.fk_parent1.country}}</li> <!-- Get only adress, zip, city, country element -->
+        <li>Exerçant la profession de : {{birthcertificate.fk_parent1.job}}</li> <!-- Get only job element -->
+
+        <hr width = "50%"></hr>
+
+        <h3> Informations sur la mère : </h3>
+        <li>Nom Prénom(s) : {{birthcertificate.fk_parent2.lastname}} {{birthcertificate.fk_parent2.firstname}}</li> <!-- Get only firstname and lastname element -->
+        <li>Née le : {{birthcertificate.fk_parent2.birthday}}</li> <!-- Get only birthday element -->
+        <li>A : {{birthcertificate.fk_parent2.birthcity}}</li> <!-- Get only birthcity element -->
+        <li>De nationalité : {{birthcertificate.fk_parent2.nationality}}</li> <!-- Get only nationality element -->
+        <li>Domiciliée au : {{birthcertificate.fk_parent2.adress}}</li> 
+        <li>A : {{birthcertificate.fk_parent2.city}} ({{birthcertificate.fk_parent2.zip}}) - {{birthcertificate.fk_parent2.country}}</li> 
+        <li>Exerçant la profession de : {{birthcertificate.fk_parent2.job}}</li> <!-- Get only job element -->
+
+        <br></br>
+
+        <h3> Par la présente, l'officier d'Etat Civil certifie la conformité de la déclaration </h3>
+
+        <br></br>
+
+        <h3 align="right"> L'Officier d'Etat Civil </align> </h3>
+        <h3 align="right"> Signature et tampon </align> </h3>
+
+        {% endblock %}
+    </body>
+</html>

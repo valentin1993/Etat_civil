@@ -1,0 +1,38 @@
+{% extends 'Base_Identity.html' %}
+
+{% load staticfiles %}
+{% load user_tags %}
+
+{% block content %}
+
+    <!-- ############### -->
+    <!-- Page principale -->
+    <!-- ############### -->
+
+<div class = "col-sm-8">
+
+    <h2 align="center"> Gestion des fiches individuelles </align> </h2>
+    <form class = "form" method='POST' action=''> {% csrf_token %}
+    
+    <br></br>
+
+    <p> Veuillez cliquer sur l'opération à effectuer : </p>
+    <p> </p>
+    <p> <a style="color:#454545" href="{% url 'form' %}"> Créer une nouvelle fiche individuelle</a></p>
+    <p> <a style="color:#454545" href="{% url 'BCnotfound' %}"> Créer une copie/extrait de fiche individuelle</a></p>
+    <p> <a style="color:#454545" href="{% url 'searched' %}"> Consulter une fiche individuelle</a></p>
+    {% if request.user|has_group:"admin" %}
+    <p> <a style="color:#454545" href="{% url 'edited' %}"> Editer une fiche individuelle</a></p>
+    <p> <a style="color:#454545" href="{% url 'deleted' %}">Supprimer une fiche individuelle </a></p>
+    {% endif %}
+
+    <br></br>
+
+    <p> Partie statistique concernant les actes de naissance </p>
+    <p align="center"><img src="{% static 'images/stats.jpeg' %}" height="420" width="667"></p>
+
+    </form>
+
+</div>
+
+{% endblock content %}

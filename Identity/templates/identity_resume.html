@@ -1,0 +1,55 @@
+{% extends 'Base_Identity.html' %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+    <!-- ############### -->
+    <!-- Page principale -->
+    <!-- ############### -->
+<div class="col-sm-8">
+
+    <h3> <span class="glyphicon glyphicon-user"> </span> L'individu {{identity.lastname}} {{identity.firstname}} a été enregistré</h3>   
+    <form class = "form" method='POST' action=''> {% csrf_token %}
+
+    Votre personne porte le numéro : <b> {{ identity.id}} </b> 
+
+    <h3> Récapitulatif des données enregistrées : </h3>
+
+    <li> <b>Civilité :</b>  {{identity.title}}</li>
+    <li> <b>Nom :</b>  {{identity.lastname}}</li>
+    <li> <b>Prénom :</b>  {{identity.firstname}}</li>
+    <li> <b>Sexe :</b>  {{identity.sex}}</li>
+    <li> <b>Date de Naissance :</b>  {{identity.birthday}}</li>
+    <li> <b>Ville de Naissance :</b>  {{identity.birthcity}}</li>
+    <li> <b>Pays de Naissance :</b>  {{identity.birthcountry}}</li>
+    <li> <b>Nationalité :</b>  {{identity.nationality}}</li>
+    <li> <b>Profession :</b>  {{identity.job}}</li>
+    <li> <b>Adresse :</b>  {{identity.adress}}</li>
+    <li> <b>Ville :</b>  {{identity.city}}</li>
+    <li> <b>Code Postal :</b>  {{identity.zip}}</li>
+    <li> <b>Pays :</b>  {{identity.country}}</li>
+    <li> <b>Email :</b>  {{identity.mail}}</li>
+    <li> <b>Téléphone :</b>  {{identity.phone}}</li>
+    
+    <br></br>
+    </form>
+
+   <form class="col-sm-10" method='POST' action="{% url "IdentityPDF" identity.id %}">{% csrf_token %}
+    {% csrf_token %}
+    <button>Générer le PDF de la fiche individuelle </button>
+    </form>
+
+    <script>
+    $(function() {
+    $('button').click(function() {
+        alert("Votre PDF a été généré dans DatasystemsDOC");
+    });
+    })(jQuery);
+    </script>
+
+    </form>
+
+</div>
+
+{% endblock content %}

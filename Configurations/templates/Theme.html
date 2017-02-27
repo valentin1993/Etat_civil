@@ -1,0 +1,66 @@
+{% extends 'Base_Configurations.html' %} 
+
+{% load staticfiles %} 
+
+{% load static %} 
+
+{% block content %}
+
+<style>
+    ul li {
+        list-style: none;
+        display: inline-block;
+    }
+    
+    .img1 {
+        position: absolute;
+        width: 17%;
+        height: 17%;
+        margin-left: 19%;
+        margin-top: -8%;
+    }
+    
+    .img2 {
+        position: absolute;
+        width: 17%;
+        height: 17%;
+        margin-left: 50%;
+        margin-top: -8.6%;
+    }
+</style>
+
+<p><img class="img1" src="{% get_static_prefix %}{{ mytheme }}/images/Thème_Datasystems.png"></p>
+<p><img class="img2" src="{% get_static_prefix %}{{ mytheme }}/images/Thème_Cameroun.png"></p>
+
+<div class="col-sm-8">
+    <form class="form" method='POST' action=''> {% csrf_token %}
+        <h3> <span class="glyphicon glyphicon-file"></span> Choix du thème DatasystemsEC </h3>
+        <br></br>
+        {{ form.as_ul }}
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <input class="button" type="submit" value="Valider le thème" />
+    </form>
+
+    <script>
+        $(function() {
+            $('form').submit(function (event) {
+                event.preventDefault();
+                $.ajax({
+                    url: "/choicetheme",
+                    data: $('form').serialize(),
+                    type: 'post',
+                    success: function (data) {
+                        alert(data.theme);
+                    }
+                });
+            });
+        })(jQuery)
+    </script>
+
+</div>
+
+{% endblock content %}

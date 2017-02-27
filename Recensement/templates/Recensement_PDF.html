@@ -1,0 +1,31 @@
+{% extends 'Base_Recensement.html' %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+    <!-- ############### -->
+    <!-- Page principale -->
+    <!-- ############### -->
+
+<div class = "col-sm-8">
+
+        <form class = "form" method='POST' action="{% url "BChome" %}"> {% csrf_token %}
+        <h3> Votre PDF Attestation de Recensement a été généré et sauvegardé (n° {{ar.id}}) </h2>
+
+        <br></br>
+
+        L'acte de naissance est désormais disponible sous DatasystemsDOC : 
+
+        <br></br>
+        
+        <a target="_blank" href="https://demoged.datasystems.fr:8090/frontend.jsp?folderId={{folderId}}">Consulter le dossier de {{ar.lastname}} {{ar.firstname}}</a>
+        <p></p>
+        N° du dossier de la personne : {{folderId}}
+
+        <br></br>
+        </form>
+
+</div>
+
+{% endblock content %}

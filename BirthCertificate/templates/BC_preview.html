@@ -1,0 +1,35 @@
+{% extends 'Base_BirthCertificate_Naissance.html' %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+    <!-- ############### -->
+    <!-- Page principale -->
+    <!-- ############### -->
+
+    <h2 align="center"> Prévisualisation de l'acte de naissance </align> </h2>
+
+    {% load bootstrap %}
+   
+    <form class = "col-sm-6" method='POST' action=''> {% csrf_token %}
+
+    <h3> Récapitulatif des données enregistrées : </h3>
+
+    <li> {{Bform.lastname|bootstrap}}</li>
+    <li> {{Bform.firstname|bootstrap}}</li>
+    <li> {{Bform.sex|bootstrap}}</li>
+    <li> {{Bform.birthday|bootstrap}}</li>
+    <li> {{Bform.birthhour|bootstrap}}</li>
+    <li> {{Bform.birthcity|bootstrap}}</li>
+    <li> {{Bform.birthcountry|bootstrap}}</li>
+    <li> {{Bform.fk_parent1|bootstrap}}</li>
+    <li> {{Bform.fk_parent2|bootstrap}}</li>
+
+<br></br>
+
+<input class="button" type ="submit" name="_save2" value="Valider l'acte de naissance" />
+
+</form>
+
+{% endblock content %} 

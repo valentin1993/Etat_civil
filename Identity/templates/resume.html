@@ -1,0 +1,135 @@
+{% extends 'Base_Identity.html' %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+    <!-- ############### -->
+    <!-- Page principale -->
+    <!-- ############### -->
+
+<div class="col-sm-8">
+
+        <h3> <span class="glyphicon glyphicon-user"> </span> Consultation des fiches individuelles </h3>
+
+        <br></br>
+
+        <!-- ###################################################### -->
+        <!-- Affichage des 3 dernières fiches individuelles créées -->
+        <!-- ###################################################### -->
+
+            <h4><b><font color="#007A5E"> <span class="glyphicon glyphicon-user"></span> Récapitulatif des 3 dernières fiches individuelles créées : </b></font></h4>
+            <table style="width:100%">
+                <tbody>
+                <tr>
+                    <th>ID</th>
+                    <th>Civilité</th>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Date de Naissance</th>
+                    <th>Ville de Naissance</th>
+                    <th>Pays de Naissance</th>
+                </tr>
+                {% for item in identity %}
+                <tr>
+                    <td>{{ item.id}}</td>
+                    <td>{{ item.title }}</td>
+                    <td>{{ item.lastname }}</td>
+                    <td>{{ item.firstname }}</td>
+                    <td>{{ item.birthday }}</td>
+                    <td>{{ item.birthcity }}</td>
+                    <td>{{ item.birthcountry }}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            <br></br>
+
+        
+
+        <!-- ############################################################################### -->
+        <!-- Affichage des 3 dernières fiches individuelles de personnes habitant en France -->
+        <!-- ############################################################################### -->
+
+        <h4> <b><font color="#007A5E"> <span class="glyphicon glyphicon-user"></span> Récapitulatif des 3 dernières fiches individuelles créées habitant en France : </b></font> </h4>
+        <table style="width:100%">
+            <tbody>
+            <tr>
+                <th>ID</th>
+                <th>Civilité</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Date de Naissance</th>
+                <th>Ville de Naissance</th>
+                <th>Pays de Naissance</th>
+            </tr>
+
+            {% for item in identity_France %}
+                <tr>
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.title }}</td>
+                    <td>{{ item.lastname }}</td>
+                    <td>{{ item.firstname }}</td>
+                    <td>{{ item.birthday }}</td>
+                    <td>{{ item.birthcity }}</td>
+                    <td>{{ item.birthcountry }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+
+
+        <!-- ######################################### -->
+        <!-- Recherche par nom dans la Base de Données -->
+        <!-- ######################################### -->
+
+        <br></br>
+        <h4> <b><font color="#007A5E"> <span class="glyphicon glyphicon-user"></span> Rechercher un individu </b></font></h4>
+
+        <form method="GET" action="">
+            <input type="text"  name="q1" placeholder="Entrer un nom" value="{{ request.GET.q1 }}"> &nbsp;
+            <input type="text"  name="q1bis" placeholder="Entrer un prénom" value="{{ request.GET.q1bis }}"> &nbsp;
+            <input type="text"  name="q1ter" placeholder="Naissance YYYY-mm_jj" value="{{ request.GET.q1ter }}"> &nbsp;
+            <input class="button" type="submit" value="Rechercher">
+        </form>
+
+        <p></p> 
+        Lien vers le dossier de l'individu {{ request.GET.q1 }} {{request.GET.q1bis}} : 
+        
+        <a target="_blank" href="https://demoged.datasystems.fr:8090/frontend.jsp?folderId={{folderId}}">Link</a>
+        <p></p>
+        N° du dossier de la personne : {{folderId}}
+
+        <br></br>
+
+        <table style="width:100%">
+            <tbody>
+                <tr>
+                    <th>ID</th>
+                    <th>Civilité</th>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Date de Naissance</th>
+                    <th>Ville de Naissance</th>
+                    <th>Pays de Naissance</th>
+                </tr>
+                {% for item in query_lastname_list %}
+                <tr>
+                    <td> {{item.id}} </td>
+                    <td> {{item.title}} </td>
+                    <td> {{item.lastname}} </td>
+                    <td> {{item.firstname}} </td>
+                    <td> {{item.birthday}} </td>
+                    <td> {{item.birthcity}} </td>
+                    <td> {{item.birthcountry}} </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <br></br>
+
+</div>
+
+{% endblock content %}

@@ -1,0 +1,87 @@
+<html>
+    <head>
+    {% load staticfiles %}
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />   
+    <link rel="stylesheet" type="text/css" href="{% static 'css/Base.css' %}"/>
+
+    <style>
+            
+            body {
+                font-family: Courier New, Courier, monospace;
+                /*text-align: justify;*/
+                list-style-type: none;
+            }
+
+            .header {
+                 line-height: 80%;
+            }
+
+            table, th, td {
+                border: 1px solid black;
+                padding: 3px;
+                border-collapse: collapse;
+                text-align: center;
+                column-width: auto;
+            }
+
+            th {
+                background-color:lightgrey;
+            }
+
+    </style>
+    </head>
+
+    <body>
+
+        <div class = "header">
+            <h3> <b>Département</b> </h3> 
+            <p></p> 
+            {{mairie.department}}
+            <h3> <b>Commune </b> </h3> 
+            <p>{{mairie.city}}</p>
+            <h3> <b> Année </b> </h3> 
+            <p>{% now "Y" %}</p>  
+        </div>
+
+        <h2 align="center"> <font size="6"> TABLE ANNUELLE DES ACTES DE NAISSANCE</font> <br /> du 01/01/{% now "Y" %} au 31/12/{% now "Y" %}</align> </h2>
+
+        <br></br>
+
+        {% block content %} 
+
+        <h3 align="center"> Dressée en exécution des décrets <p></p> n° ... du 19 janvier 2005 <p></p> n° ... du 19 janvier 2005</align> </h3>
+
+        <br></br>
+
+        <table style="width:20%">
+            <tbody>
+                <tr>
+                    <th>Nom & prénom(s)</th>
+                    <th>Lieux de Naissance</th>
+                    <th width="110%">Date des actes</th>
+                    <th width="20%">Actes</th>
+                </tr>
+                {% for item in query_naissance_list %}
+                <tr>
+                    <td> {{item.lastname}} {{item.firstname}} </td>
+                    <td> {{item.birthcity}} ({{item.birthcountry.name}}) </td>
+                    <td width="110%"> {{item.created}} <p></p> {{item.birthday}} (Naissance) </td>
+                    <td width="20%"> {{item.id}} </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+        <br></br>
+
+        <h3> Par la présente, l'officier d'Etat Civil certifie la conformité du document </h3>
+
+        <br></br>
+
+        <h3 align="right"> L'Officier d'Etat Civil </align> </h3>
+        <h3 align="right"> Signature et tampon </align> </h3>
+
+        {% endblock %}
+    </body>
+</html>

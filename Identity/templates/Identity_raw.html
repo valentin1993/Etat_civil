@@ -1,0 +1,68 @@
+<html>
+    <head>
+    {% load staticfiles %}
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />   
+    <link rel="stylesheet" type="text/css" href="{% static 'css/Base_Identity.css' %}"/>
+
+    <style>
+            
+            body {
+                font-family: Courier New, Courier, monospace;
+                text-align: justify;
+                list-style-type: none;
+            }
+
+    </style>
+
+    </head>
+
+    <body>
+        
+        <img class="logo" src="{% static 'images/logo.jpeg' %}" />
+
+        <h2 align="center"> <font size="6"> FICHE INDIVIDUELLE <br /> COPIE INTEGRALE </font></align> </h2>
+
+        <br></br>
+        <br></br>
+
+        {% block content %} 
+
+        <h3 align="left"> FICHE INDIVIDUELLE N° {{identity.id}} / {% now "Y" %} {{identity.firstname}} {{identity.lastname}}</align> </h3>
+
+        <br></br>
+
+        <h3> Informations concernant l'individu : </h3>
+        <li>Civilité : {{identity.title}}</li>
+        <li>Nom de l'individu : {{identity.lastname}}</li>
+        <li>Nom de jeune fille : {{identity.young_girl_lastname}}</li>
+        <li>Prénom(s) de l'individu : {{identity.firstname}}</li>
+        {% if identity.sex == "Masculin" %}
+        <li>Est né à : {{identity.birthcity}} - {{identity.birthcountry.name}}</li>
+        {% else %}
+        <li>Est née à : {{identity.birthcity}} - {{identity.birthcountry.name}}</li>
+        {% endif %}
+        <li>Le : {{identity.birthday}}</li>
+        <li>De sexe : {{identity.sex}}</li>
+        <li>De nationalité : {{identity.nationality}}</li>
+        <li>Exerce la profession de : {{identity.job}}</li>
+        <br></br>
+        <li>Réside au : {{identity.adress}}</li>
+        <li>A : {{identity.city}} ({{identity.zip}})</li>
+        <li>Pays de résidence : {{identity.country}}</li>
+
+        <li>Email (optionnel) : {{identity.mail}}</li>
+        <li>Téléphone (optionnel) : {{identity.phone}} </li>
+       
+        <br></br>
+
+        <h3> Par la présente, l'officier d'Etat Civil certifie la conformité de la déclaration </h3>
+
+        <br></br>
+
+        <h3 align="right"> L'Officier d'Etat Civil </align> </h3>
+        <h3 align="right"> Signature et tampon </align> </h3>
+
+        {% endblock %}
+    </body>
+</html>

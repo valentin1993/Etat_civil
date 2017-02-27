@@ -1,0 +1,33 @@
+{% extends 'Base_BirthCertificate_Naissance.html' %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+    <!-- ############### -->
+    <!-- Page principale -->
+    <!-- ############### -->
+
+     <div class="col-sm-8">
+
+        <form class = "form" method='POST' action="{% url "BChome" %}"> {% csrf_token %}
+        <h3> <span class="glyphicon glyphicon-file"></span>Votre PDF Acte de Naissance a été généré et sauvegardé (n° {{birthcertificate.id}}) </h3>
+
+        <br></br>
+
+        L'acte de naissance est désormais disponible sous DatasystemsDOC : 
+
+        <br></br>
+        
+        <a target="_blank" href="https://demoged.datasystems.fr:8090/frontend.jsp?folderId={{folderId}}">Consulter le dossier de {{birthcertificate.lastname}} {{birthcertificate.firstname}}</a>
+        <p></p>
+        N° du dossier de la personne : {{folderId}}
+
+        <br></br>
+
+        <input class="button" type ="submit" name="retour" value="Retour à l'accueil des actes de naissance" /> 
+        </form>
+    
+    </div>
+
+{% endblock content %}

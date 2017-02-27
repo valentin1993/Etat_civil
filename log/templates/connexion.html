@@ -1,0 +1,95 @@
+{% extends 'Base_Accueil.html' %}
+
+{% load staticfiles %}
+{% block content %}
+
+
+    <head>
+    <style>
+
+        form {
+            margin-left: auto;
+            margin-right: auto;
+            margin-top : 12%;
+        }
+
+        .rectangle {
+
+            margin-left : auto;
+            margin-right : auto;
+            margin-top: 10%;
+            text-align : center;
+            border: 2px solid black;
+            border-radius: 1em;
+            height: 120px;
+            width:400px;
+            list-style: none;
+            
+        }
+
+        .sidebar1 {
+            background: #0083A2;
+            padding:0px;
+            margin-top:-13%;
+            min-height: 100%;
+            width:12%;
+            height:100%;
+        }
+
+        label {
+            width: 50%;
+            background-color: #f5f5f5;
+            border-radius: 8px; 
+            margin-bottom: 6px;
+            text-align:left;
+            
+        }
+
+        .test {
+            margin-top : 100px;
+            margin-left : auto;
+            margin-right : auto;
+            color: red;
+        }
+    </style> 
+    </head>
+
+    <body>
+
+
+    <h2 align="center"> Page de connexion à DatasystemsEC</align></h2>
+
+    <p align="center"><img src="{% static 'images/logo.png' %}"></p>
+
+
+        {% if error %}
+
+        <p class="test" align="center"><strong>Utilisateur inconnu ou mauvais mot de passe.</align></strong></p>
+
+        {% endif %}
+
+
+        {% if user.is_authenticated %}
+
+        <h3 align="center"> Bienvenue {{ user.username }}, vous êtes maintenant connecté à DatasystemsEC ! </align></h3>
+
+        {% else %}
+
+
+        <form class = "rectangle" method="post" action="">{% csrf_token %}
+        <table>
+        {{ form.as_ul }}
+        </table>
+
+        <p></p>
+
+        <input class="button" type="submit" value="Se connecter" />
+
+        </form>
+
+        </body>
+
+        {% endif %}
+
+        {% endblock content %}
+

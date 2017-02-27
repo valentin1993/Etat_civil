@@ -1,0 +1,48 @@
+{% extends 'Base_Recensement.html' %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+    <!-- ############### -->
+    <!-- Page principale -->
+    <!-- ############### -->
+
+<div class="col-sm-8">
+   
+    <form class = "form" method='POST' action=''> {% csrf_token %}
+    <h3> <span class="glyphicon glyphicon-th-list"></span> L'attestation de Recensement de l'individu {{ar.lastname}} {{ar.firstname}} a été enregistré</h3>
+
+    Votre attestation porte le numéro : <b> {{ ar.id}} </b> 
+
+    <h3> Récapitulatif des données enregistrées : </h3>
+
+    <li> <b>Civilité :</b>  {{ar.title}}</li>
+    <li> <b>Nom :</b>  {{ar.lastname}}</li>
+    <li> <b>Prénom :</b>  {{ar.firstname}}</li>
+    <li> <b>Date de Naissance :</b>  {{ar.birthday}}</li>
+    <li> <b>Ville de Naissance :</b>  {{ar.birthcity}}</li>
+    <li> <b>Pays de Naissance :</b>  {{ar.birthcountry.name}}</li>
+    <li> <b>Ville :</b>  {{ar.city}}</li>
+    <li> <b>Pays :</b>  {{ar.country.name}}</li>
+    
+    <br></br>
+    </form>
+
+    <form class="col-sm-10" method='POST' action="{% url "RPDF" ar.id %}">{% csrf_token %}
+    {% csrf_token %}
+    <button>Générer le PDF de l'Attestation de Recensement </button>
+    </form>
+
+    <script>
+    $(function() {
+    $('button').click(function() {
+        alert("Votre PDF a été généré dans DatasystemsDOC");
+    });
+    })(jQuery);
+    </script>
+   
+    
+</div>
+
+{% endblock content %}

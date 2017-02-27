@@ -1,0 +1,26 @@
+{% extends 'Base_BirthCertificate_Naissance.html' %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+
+    <!-- ############### -->
+    <!-- Page principale -->
+    <!-- ############### -->
+
+    <div class="col-sm-8">
+            <form class = "form" method='POST' action=''> {% csrf_token %}
+                <h3> <span class="glyphicon glyphicon-file"></span> Création de l'acte de naissance</h3>
+                <br></br>
+                {{ Bform.as_ul}} <!-- Display child part formulary -->
+                {{ value|date:"%d/%m/%Y" }}
+                {{ value|time:"H:M" }}
+                <br></br>
+
+                <input class="button" type ="submit" name="_save2" value="Valider l'acte de naissance" /> 
+            </form>
+
+    </div>
+
+{% endblock content %}

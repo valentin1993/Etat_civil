@@ -1,0 +1,24 @@
+{% extends 'Base_Mairie.html' %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+    <!-- ############### -->
+    <!-- Page principale -->
+    <!-- ############### -->
+
+<div class ="col-sm-8">
+
+    <form class = "form" method='POST' action=''> {% csrf_token %}
+        <h3> <span class="glyphicon glyphicon-home"></span> Formulaire d'informations de la Mairie </h3>
+        <br></br>
+        {{ Mform.as_ul}} <!-- Display child part formulary -->
+        <br></br>
+
+    <input class="button" type ="submit" name="saving" value="Valider les informations" /> 
+    </form>
+
+</div>
+
+{% endblock content %}
