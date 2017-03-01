@@ -2,24 +2,30 @@
 
 {% load staticfiles %}
 
+{% block title %}
+    <h3><span class="glyphicon glyphicon-user"> </span> Consultation des Fiches Identités </h3>
+{% endblock %}
+
+
 {% block content %}
 
-    <!-- ############### -->
-    <!-- Page principale -->
-    <!-- ############### -->
+<style>
+h4, form, p { 
+    margin-left: 6vw;
+}
 
-<div class="col-sm-8">
+form > input {
+	width:20%;
+    }
 
-        <h3> <span class="glyphicon glyphicon-user"> </span> Consultation des fiches individuelles </h3>
-
-        <br></br>
+</style>
 
         <!-- ###################################################### -->
         <!-- Affichage des 3 dernières fiches individuelles créées -->
         <!-- ###################################################### -->
 
-            <h4><b><font color="#007A5E"> <span class="glyphicon glyphicon-user"></span> Récapitulatif des 3 dernières fiches individuelles créées : </b></font></h4>
-            <table style="width:100%">
+            <h4><b> <span class="glyphicon glyphicon-user"></span> Récapitulatif des 3 dernières fiches individuelles créées : </b></h4>
+            <table style="width:80%">
                 <tbody>
                 <tr>
                     <th>ID</th>
@@ -51,8 +57,8 @@
         <!-- Affichage des 3 dernières fiches individuelles de personnes habitant en France -->
         <!-- ############################################################################### -->
 
-        <h4> <b><font color="#007A5E"> <span class="glyphicon glyphicon-user"></span> Récapitulatif des 3 dernières fiches individuelles créées habitant en France : </b></font> </h4>
-        <table style="width:100%">
+        <h4> <b> <span class="glyphicon glyphicon-user"></span> Récapitulatif des 3 dernières fiches individuelles créées habitant en France : </b> </h4>
+        <table style="width:80%">
             <tbody>
             <tr>
                 <th>ID</th>
@@ -85,25 +91,25 @@
         <!-- ######################################### -->
 
         <br></br>
-        <h4> <b><font color="#007A5E"> <span class="glyphicon glyphicon-user"></span> Rechercher un individu </b></font></h4>
+        <h4> <b> <span class="glyphicon glyphicon-user"></span> Rechercher un individu </b></h4>
 
         <form method="GET" action="">
             <input type="text"  name="q1" placeholder="Entrer un nom" value="{{ request.GET.q1 }}"> &nbsp;
             <input type="text"  name="q1bis" placeholder="Entrer un prénom" value="{{ request.GET.q1bis }}"> &nbsp;
             <input type="text"  name="q1ter" placeholder="Naissance YYYY-mm_jj" value="{{ request.GET.q1ter }}"> &nbsp;
-            <input class="button" type="submit" value="Rechercher">
+            <input class="button" type="submit" value="Rechercher">&nbsp;
         </form>
 
         <p></p> 
-        Lien vers le dossier de l'individu {{ request.GET.q1 }} {{request.GET.q1bis}} : 
+        <p class = "texte"> Lien vers le dossier de l'individu {{ request.GET.q1 }} {{request.GET.q1bis}} : 
         
         <a target="_blank" href="https://demoged.datasystems.fr:8090/frontend.jsp?folderId={{folderId}}">Link</a>
         <p></p>
-        N° du dossier de la personne : {{folderId}}
+        <p class = "texte" >N° du dossier de la personne : {{folderId}} </p>
 
         <br></br>
 
-        <table style="width:100%">
+        <table style="width:80%">
             <tbody>
                 <tr>
                     <th>ID</th>
@@ -130,6 +136,5 @@
 
         <br></br>
 
-</div>
 
 {% endblock content %}

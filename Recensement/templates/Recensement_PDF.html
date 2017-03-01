@@ -2,16 +2,29 @@
 
 {% load staticfiles %}
 
+{% block title %}
+    <h3><span class="glyphicon glyphicon-user"> </span> Votre PDF Attestation de Recensement a été généré et sauvegardé (n° {{ar.id}}) </h3>
+{% endblock %}
+
 {% block content %}
 
-    <!-- ############### -->
-    <!-- Page principale -->
-    <!-- ############### -->
+<style>
 
-<div class = "col-sm-8">
+    form > input {
+	    width:20%;
+    }
+
+     form {
+        list-style: none;
+    }
+
+    .current {
+        margin-left:8vw;
+    }
+
+</style>
 
         <form class = "form" method='POST' action="{% url "BChome" %}"> {% csrf_token %}
-        <h3> Votre PDF Attestation de Recensement a été généré et sauvegardé (n° {{ar.id}}) </h2>
 
         <br></br>
 
@@ -26,6 +39,5 @@
         <br></br>
         </form>
 
-</div>
 
 {% endblock content %}

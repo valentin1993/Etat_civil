@@ -2,17 +2,31 @@
 
 {% load staticfiles %}
 
+{% block title %}
+    <h3><span class="glyphicon glyphicon-user"> </span> Prévisualisation de la liste des recensements (individus ayant 16 ans et même commune que la mairie) </h3>
+{% endblock %}
+
 {% block content %}
 
-        <!-- Title page -->
+<style>
 
-<div class = "col-sm-8">
+    form > input {
+	    width:20%;
+    }
 
-        <h3 class = "form"><span class="glyphicon glyphicon-user"></span> Prévisualisation de la liste des recensements (individus ayant 16 ans et même commune que la mairie) </h3>
+     form {
+        list-style: none;
+    }
+
+    .current {
+        margin-left:8vw;
+    }
+
+</style>
 
         <br></br>
 
-        <table style="width : 100%">
+        <table style="width : 80%">
             <tbody>
                 <tr>
                     <th>Nom & prénom(s)</th>
@@ -46,13 +60,10 @@
 
         <br></br>
 
-        <form class = "col-sm-10" method='POST' action="{% url "RecensementPDF" %}"> {% csrf_token %}
+        <form class = "form" method='POST' action="{% url "RecensementPDF" %}"> {% csrf_token %}
             <input class="button" type ="submit" value="Générer le PDF du recensement" />
         </form>
        
 
-    </div>
-
-</div>
 
 {% endblock content %}

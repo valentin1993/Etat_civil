@@ -105,14 +105,11 @@ def Identity_Researching(request) :
 
         else : 
 
-            return HttpResponseRedirect('searched')
+            return HttpResponseRedirect(reverse('searched'))
 
     else :
         query_lastname_list = Identity.objects.none() # == []
-    
 
-    if "Retour" in request.POST :
-        return HttpResponseRedirect('accueil')
 
     context = {
         "identity" : identity,

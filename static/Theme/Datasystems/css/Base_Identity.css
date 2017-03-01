@@ -203,3 +203,30 @@
     .footer > .container {
     padding-right: 15px;
     }
+
+table {
+    margin-left : 6vw;
+}
+
+table, th, td {
+        border: 1px solid black;
+        padding: 10px;
+        border-collapse: collapse;
+        text-align: left;
+        }
+
+        th {
+        background-color: #0083A2 !important;
+        }
+
+        td {
+        border: 0 none;
+        }
+
+        tr:hover td{
+        background-color:lightslategray;
+        }
+
+        table tr:nth-child(odd){
+        background-color:lightgrey;
+        }

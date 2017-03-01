@@ -2,35 +2,47 @@
 
 {% load staticfiles %}
 
+{% block title %}
+    <h3><span class="glyphicon glyphicon-th-list"> </span> L'attestation de Recensement de l'individu {{ar.lastname}} {{ar.firstname}} a été enregistré </h3>
+{% endblock %}
+
 {% block content %}
 
-    <!-- ############### -->
-    <!-- Page principale -->
-    <!-- ############### -->
+<style>
 
-<div class="col-sm-8">
+    form > input {
+	    width:20%;
+    }
+
+     form {
+        list-style: none;
+    }
+
+    .current {
+        margin-left:8vw;
+    }
+
+</style>
    
     <form class = "form" method='POST' action=''> {% csrf_token %}
-    <h3> <span class="glyphicon glyphicon-th-list"></span> L'attestation de Recensement de l'individu {{ar.lastname}} {{ar.firstname}} a été enregistré</h3>
-
+    <br></br>
     Votre attestation porte le numéro : <b> {{ ar.id}} </b> 
+    <br></br>
+    <h4> Récapitulatif des données enregistrées : </h4>
 
-    <h3> Récapitulatif des données enregistrées : </h3>
-
-    <li> <b>Civilité :</b>  {{ar.title}}</li>
-    <li> <b>Nom :</b>  {{ar.lastname}}</li>
-    <li> <b>Prénom :</b>  {{ar.firstname}}</li>
-    <li> <b>Date de Naissance :</b>  {{ar.birthday}}</li>
-    <li> <b>Ville de Naissance :</b>  {{ar.birthcity}}</li>
-    <li> <b>Pays de Naissance :</b>  {{ar.birthcountry.name}}</li>
-    <li> <b>Ville :</b>  {{ar.city}}</li>
-    <li> <b>Pays :</b>  {{ar.country.name}}</li>
+    <b>Civilité :</b>  {{ar.title}} <br />
+    <b>Nom :</b>  {{ar.lastname}} <br />
+    <b>Prénom :</b>  {{ar.firstname}} <br />
+    <b>Date de Naissance :</b>  {{ar.birthday}} <br />
+    <b>Ville de Naissance :</b>  {{ar.birthcity}} <br />
+    <b>Pays de Naissance :</b>  {{ar.birthcountry.name}} <br />
+    <b>Ville :</b>  {{ar.city}} <br />
+    <b>Pays :</b>  {{ar.country.name}} <br />
     
     <br></br>
     </form>
 
-    <form class="col-sm-10" method='POST' action="{% url "RPDF" ar.id %}">{% csrf_token %}
-    {% csrf_token %}
+    <form class="form" method='POST' action="{% url "RPDF" ar.id %}">{% csrf_token %}
     <button>Générer le PDF de l'Attestation de Recensement </button>
     </form>
 
@@ -43,6 +55,6 @@
     </script>
    
     
-</div>
+
 
 {% endblock content %}
