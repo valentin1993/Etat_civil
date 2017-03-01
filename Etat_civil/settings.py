@@ -23,7 +23,7 @@ TEMPLATE_DIRS = (
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'r$7_)2pb&z9*+)ho98^gnxs9ee^$zi^13(r0$+kooth!x(_l=3'
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -115,19 +115,7 @@ WSGI_APPLICATION = 'Etat_civil.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'DatasystemsEC',
-        'USER': 'osx',
-        'PASSWORD': '100%EC',
-        'HOST': '172.30.10.81',
-        'PORT': '3306',
-        'OPTIONS': {
-            'init_command': 'SET innodb_strict_mode=1',
-        },
-    }
-}
+
 
 LOGGING = {
 
