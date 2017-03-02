@@ -14,6 +14,7 @@ from xhtml2pdf import pisa
 import Logger, Search, Folds, Docs, Buffer
 
 
+
 @login_required
 def Identity_Home(request) :
 

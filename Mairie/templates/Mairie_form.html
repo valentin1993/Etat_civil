@@ -8,7 +8,7 @@
 
 {% block content %}
 
-    <form class="form" method='POST' action=''> {% csrf_token %}
+    <form autocomplete="off" class="form" method='POST' action=''> {% csrf_token %}
         <p></p>
         {{ Mform.as_p}} <!-- Display child part formulary -->
         <br></br>

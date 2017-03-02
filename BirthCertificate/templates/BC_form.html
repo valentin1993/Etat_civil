@@ -24,7 +24,7 @@ form > input {
     <!-- Page principale -->
     <!-- ############### -->
 
-            <form class = "form" method='POST' action=''> {% csrf_token %}
+            <form autocomplete="off" class = "form" method='POST' action=''> {% csrf_token %}
                 <br></br>
                 {{ Bform.as_p}} <!-- Display child part formulary -->
                 {{ value|date:"%d/%m/%Y" }}

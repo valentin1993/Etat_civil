@@ -20,7 +20,7 @@ form > input {
 
 </style>
 
-            <form class = "form" method='POST' action=''> {% csrf_token %}
+            <form autocomplete="off" class = "form" method='POST' action=''> {% csrf_token %}
                 <br></br>
                 {{ form.as_ul}} 
                 {{birthday|date:"%d/%m/%Y" }} 
@@ -29,6 +29,5 @@ form > input {
 
                 <input class="button" type ="submit" name="_save" value="Valider la fiche individuelle" /> 
             </form>
-
 
 {% endblock content %}

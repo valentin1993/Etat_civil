@@ -76,7 +76,7 @@
         {% else %}
 
 
-        <form class = "rectangle" method="post" action="">{% csrf_token %}
+        <form autocomplete="off" class = "rectangle" method="post" action="">{% csrf_token %}
         <table>
         {{ form.as_ul }}
         </table>

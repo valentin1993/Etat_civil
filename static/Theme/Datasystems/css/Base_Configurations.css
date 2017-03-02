@@ -40,7 +40,7 @@
     .button {
 
         display: inline;
-        margin-left: auto;
+        margin-left: 8vw;
         margin-right: auto;
         border-radius: 8px;
         font-size: 16px;
@@ -61,6 +61,7 @@
 
     .form {
         padding-left:8vw;
+
     }
 
     label {
@@ -68,8 +69,7 @@
             border-radius: 8px; 
             margin-bottom: -20px;
             list-style: none;
-            display: inline;
-        }
+    }
 
     .col-sm-8 {
         list-style: none;
@@ -80,7 +80,6 @@
     .col-sm-10 {
         display:inline-block;
         padding-left : 8vw;
-        width: 800%;
         list-style: none;
         }
 
