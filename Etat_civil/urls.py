@@ -27,6 +27,8 @@ from Table import views
 from Recensement import views
 from Configurations import views
 
+import debug_toolbar
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -38,4 +40,5 @@ urlpatterns = [
     url(r'^Table/', include('Table.urls')), 
     url(r'^Recensement/', include('Recensement.urls')),
     url(r'^Configurations/', include('Configurations.urls')),
+    url(r'^__debug__/', include(debug_toolbar.urls)),
 ] 

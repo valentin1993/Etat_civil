@@ -4,29 +4,68 @@
 
 /* Define background color from upper navbar */
 .navbar-inverse {
-    background-color: #007A5E !important;
+    background-color: #0083A2;
     }
 
 /* DatasystemsEC tab */
 .navbar-inverse .container-fluid .navbar-header .navbar-brand {
-    color : white;
+    color : white !important;
     }
 
 /* Tab properties from navbar */
 .navbar .nav > li > a {
-    color:  white;
+    color:  white !important;
     }
 
 .navbar .nav > li > a:hover {
-    color:  white !important;
+    color:  #454545;
     }
 
 .active {
     background-color: #454545;
     }
 
+    .dropdown:hover {
+            background-color: #454545;
+            color: white;
+        }
+
+        .dropdown-menu .sub-menu {
+            left: 100%;
+            position: absolute;
+            top: -4px;
+            visibility: hidden;
+            margin-top: 0;
+        }
+
+        .dropdown-menu li:hover .sub-menu {
+            visibility: visible;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .navbar .sub-menu:before {
+            border-bottom: 7px solid transparent;
+            border-left: none;
+            border-right: 7px solid rgba(0, 0, 0, 0.2);
+            border-top: 7px solid transparent;
+            left: -7px;
+            top: 10px;
+        }
+        .navbar .sub-menu:after {
+            border-top: 6px solid ;
+            border-left: none;
+            border-right: 6px solid #fff;
+            border-bottom: 6px solid ;
+            left: 10px;
+            top: 11px;
+            left: -6px;
+        }
+
 h1, h2, h4 {
-    color: #007A5E !important;
+    color: #0083A2;
     }
 
 /* Define button properties */
@@ -69,15 +108,15 @@ h1, h2, h4 {
 
 /* Hoover button properties */
 .button:hover {
-    background-color: #007A5E !important;
-    color: #CE1126 !important;
+    background-color: #0083A2;
+    color: #454545;
     }
 
 /* Hoover color dropdown menu */
 .dropdown-menu>li>a:hover {
    color: #FFFFFF;
    text-decoration: none;
-   background-color: #007A5E !important;
+   background-color: #0083A2;
     }
 
 /* Define background-color for dropdown active tab */

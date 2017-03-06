@@ -19,6 +19,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.template import RequestContext
 
 import datetime
+import Logger, Search, Folds, Docs, Buffer, EnterSearch
 
 @login_required
 def Table(request) :
@@ -58,7 +59,9 @@ def Table_annuelle_BirthCertificate(request) :
 @login_required
 def Table_Naissance_PDF(request) :
     
-    
+    SID = Logger.login("etatcivil", "100%EC67")
+    print SID
+
     today = datetime.datetime.now()
     query_naissance_list = BirthCertificate.objects.filter(created__icontains=today.year).order_by('lastname')
     mairie = get_object_or_404(Mairie, pk=Mairie.objects.last().id)
@@ -77,59 +80,43 @@ def Table_Naissance_PDF(request) :
     pisaStatus = pisa.CreatePDF(html.encode('utf-8'), dest=file, encoding='utf-8')
     file.close()
 
-    url = 'https://demoged.datasystems.fr:8090/services/rest/document/list'
-    payload = {'folderId': 8978466}
+    ###############################
+    # Queries with DatasystemsDOC #
+    ###############################
 
-    headers = {'Accept': 'application/json'}
-    r = requests.get(url,  params=payload, headers=headers, auth=('etatcivil', '100%EC67'))
+     # Search if document already exist inside by comparing expression
+    Search_Docs = EnterSearch.find_parameters(SID, title=filename_temp)
+    #print Search_Docs
+    print "Recherche des occurences de documents"
 
-    rbody = r.content
-    data = json.loads(rbody)
-
-    longueur = len(data)
-
-    i=0
-    list = []
-
-    while i < longueur :
-        
-        if data[i]["title"] == filename_temp :
+    # If folder exists but not document
+    if len(Search_Docs) == 0 :
             
-            list = [data[i]]
-        i = i+1
+        print "nombre d'élément dans la liste : " + str(len(Search_Docs))
+            
+        # Create document inside the good folder
+        Create_Docs = Docs.create(path, SID, fileName = filename, folderId = 8978466)
+        DocID = Create_Docs[0]['id']
+        print "nouveau document crée dans dossier existant"
 
-
-    if len(list) == 0 :
-
-        payload = '{{ "language":"fr","fileName":"{0}","folderId": "8978466" }}'.format(filename)  
-        upfile = path
-        files = { 
-        'document': (None, payload, 'application/json'),
-        'content': (os.path.basename(upfile), open(upfile, 'rb'), 'application/octet-stream')
-        } 
-        url = 'https://demoged.datasystems.fr:8090/services/rest/document/create'
-        headers = {'Content-Type': 'multipart/form-data'}
-        r = requests.post(url, files=files, headers=headers, auth=('etatcivil', '100%EC67'))
-
-        for element in glob.glob(path) :
-            os.remove(element)
-
-        list[:] = []
+            #############################
+            # Folder exists and doc too #
+            #############################
 
     else :
+            
+        print "Nombre d'occurence trouvée : " + str(len(Search_Docs))
+            
+        Search_Docs_ID = Search_Docs[0]['id']
+
+        # Update the document in the good folder
+        Upload_Docs = Docs.upload(path, SID, Search_Docs_ID , filename)
+        print Upload_Docs
+
+    Logger.logout(SID)
     
-        data = {"docId": 9011288, "filename":filename, "language": "fr"}
-        upfile = path
-
-        files = { 
-        'filedata': (os.path.basename(upfile), open(upfile, 'rb'), 'application/octet-stream')
-        } 
-        url = 'https://demoged.datasystems.fr:8090/services/rest/document/upload'
-        headers = {'Content-Type': 'multipart/form-data'}
-        r = requests.post(url, files=files, data=data, headers=headers, auth=('etatcivil', '100%EC67'))
-
-        for element in glob.glob(path) :
-            os.remove(element)
+    for element in glob.glob(path) :
+        os.remove(element)
 
 
     context = {

@@ -12,7 +12,7 @@ from django.template import Context
 from django.template.loader import get_template
 from xhtml2pdf import pisa
 
-import Logger, Search, Folds, Docs, Buffer
+import Logger, Search, Folds, Docs, Buffer, EnterSearch
 
 
 @login_required
@@ -86,13 +86,17 @@ def BirthCertificate_PDF(request, id) :
     pisaStatus = pisa.CreatePDF(html.encode('utf-8'), dest=file, encoding='utf-8')
     file.close()
 
-    ###############################
-    # Queries with DatasystemsDOC #
-    ###############################
+###############################
+# Queries with DatasystemsDOC #
+###############################
 
     # Search if folder exists or not 
     Folder_research = Search.find_folder(SID, filename_directory)
         
+    ########################
+    # Folder doesn't exist #
+    ########################
+
     # If folder doesn't exist
     if Folder_research == [] :
         
@@ -100,6 +104,9 @@ def BirthCertificate_PDF(request, id) :
         
         # Create Folder in "Individus" Folder
         Create_Folds = Folds.create(SID, name = filename_directory, parentId = 8552450)
+        DocID = Create_Folds[0]['id']
+
+        print DocID
 
         print "dossier créé"
 
@@ -107,34 +114,48 @@ def BirthCertificate_PDF(request, id) :
         Create_Docs = Docs.create(path, SID, fileName = filename, folderId = Create_Folds['id'] )
         print "document ajouté dans dossier créé"
 
+    #################
+    # Folder exists #
+    #################
 
     # If folder already exist
     else :
         
+        DocID = Folder_research[0]['id']
+        print DocID
         print "dossier existe déjà"
         
         # Search if document already exist inside by comparing expression
-        Search_Docs = Search.find(SID, expression = filename_init, folderId = Folder_research[0]['id'])
+        # Search_Docs = Search.find(SID, expression = filename_init, folderId = Folder_research[0]['id'])
+        Search_Docs = EnterSearch.find_parameters(SID, title=filename_init)
         print Search_Docs
         print "Recherche des occurences de documents"
 
         #Search_Docs_ID = Search_Docs['hits'][0]['id']
         #print Search_Docs_ID
 
+            ############################
+            # Folder exists but no doc #
+            ############################
+
         # If folder exists but not document
-        if Search_Docs['totalHits'] == 0 or Search_Docs['hits'][0]['score'] < 90 :
+        if len(Search_Docs) == 0 :
             
-            print "pas d'occurence"
+            print "nombre d'élément dans la liste : " + str(len(Search_Docs))
             
             # Create document inside the good folder
             Create_Docs = Docs.create(path, SID, fileName = filename, folderId = Folder_research[0]['id'])
             print "nouveau document crée dans dossier existant"
 
+            #############################
+            # Folder exists and doc too #
+            #############################
+
         else :
             
-            print "une occurence trouvée"
+            print "Nombre d'occurence trouvée : " + str(len(Search_Docs))
             
-            Search_Docs_ID = Search_Docs['hits'][0]['id']
+            Search_Docs_ID = Search_Docs[0]['id']
 
             # Update the document in the good folder
             Upload_Docs = Docs.upload(path, SID, Search_Docs_ID, filename)
@@ -145,6 +166,8 @@ def BirthCertificate_PDF(request, id) :
     context = {"birthcertificate":birthcertificate,
                "path":path,
                "folderId" : folderId,
-                   }
+               "Search_Docs_ID" : Search_Docs_ID,
+               "DocID" : DocID,
+              }
                    
     return render(request, 'BC_PDF.html', context)
