@@ -24,6 +24,18 @@ form > input {
     <!-- Page principale -->
     <!-- ############### -->
 
+             <form class = "form" method="GET" action="">
+
+                <h4> Nom de famille du père et de la mère : </h4>
+
+                <input type="text"  name="lastname_father" placeholder="Nom de famille du père" value="{{ request.GET.lastname_father }}">&nbsp;
+                <input type="text"  name="lastname_mother" placeholder="Nom de famille de la mère" value="{{ request.GET.lastname_mother }}">&nbsp;
+                <input class="button" type="submit" value="Valider">
+
+                <br></br>
+
+            </form>
+
             <form autocomplete="off" class = "form" method='POST' action=''> {% csrf_token %}
                 <br></br>
                 {{ Bform.as_p}} <!-- Display child part formulary -->

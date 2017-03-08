@@ -1,16 +1,34 @@
 {% extends 'Base_BirthCertificate_Naissance.html' %}
 
 {% load staticfiles %}
+{% load user_tags %}
 
 {% block title %}
     <h2 align="center"> Gestion des Actes de Naissance </align> </h2>
 {% endblock %}
 
+<br></br>
+
 {% block content %}
 
+<style>
+
+    img.test {
+        position: absolute;
+        width:567px;
+        height: 320px;
+        margin-left: -100px;
+        margin-top: -50px;
+    }
+</style>
+
+<div class="col-md-5">
 
             <form class = "form" method='POST' action=''> {% csrf_token %}
-                
+            
+            <br></br>
+            <br></br>
+
             <p> Veuillez cliquer sur l'opération à effectuer : </p>
             <p></p>
             {% if mytheme == "Datasystems" %}
@@ -21,10 +39,18 @@
             <p> <a style="color:#007A5E" href="https://demoged.datasystems.fr:8090/"> Consulter un acte de naissance </a></p>
             {% endif %}
 
-            <br></br>
-
-            <p> Partie statistique concernant les actes de naissance </p>
-            <p align="center"><img src="{% static 'images/stats.jpeg' %}" height="420" width="667"></p>
             </form>
+
+</div>
+<br></br>
+<br></br>
+<div class="col-md-5 col-md-offset-2">
+
+     Partie statistique concernant les actes de naissance
+        <br></br>
+        <br></br>
+        <img class="test" src="{% static 'images/stats.jpeg' %}">
+
+</div>
 
 {% endblock content %}

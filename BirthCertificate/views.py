@@ -34,23 +34,31 @@ def BirthCertificate_accueil(request) :
 def BirthCertificate_Form(request) :
     # Fonction permettant de créer le formulaire Acte de Naissance et le remplissage
 
+    query_lastname_father = request.GET.get('lastname_father')
+    query_lastname_mother = request.GET.get('lastname_mother')
+
     if request.method == 'POST':
         
-        Bform = BirthCertificateForm(request.POST or None)
-
         if Bform.is_valid() :   # Vérification sur la validité des données
-            if '_preview2' in request.POST :
-                post = Bform.save(commit=False)
-                template_name = 'BC_preview.html'
-
-            elif '_save2' in request.POST :
-                post = Bform.save()
-                return HttpResponseRedirect(reverse('BC_treated', kwargs={'id': post.id}))
+            post = Bform.save()
+            return HttpResponseRedirect(reverse('BC_treated', kwargs={'id': post.id}))
 
     else:
         Bform = BirthCertificateForm()
 
-    return render(request, 'BC_form.html', {"Bform" : Bform})
+        parent1 = Identity.objects.filter(lastname__icontains=query_lastname_father)
+        parent2 = Identity.objects.filter(lastname__icontains=query_lastname_mother)
+        Bform = BirthCertificateForm(request.POST or None)
+        Bform.fields['fk_parent1'].queryset = parent1.filter(sex="Masculin")
+        Bform.fields['fk_parent2'].queryset = parent2.filter(sex="Feminin")
+
+    context = {
+        "Bform" : Bform,
+        "query_lastname" : query_lastname_father,
+        "query_lastname_mother" : query_lastname_mother,
+    }
+
+    return render(request, 'BC_form.html', context)
 
 
         

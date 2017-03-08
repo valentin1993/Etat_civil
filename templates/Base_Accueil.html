@@ -173,9 +173,8 @@
                                             <li><a href="{% url "logout" %}" ><span class="glyphicon glyphicon-log-out"></span> Déconnexion </a></li>
                                             <li><a>{{user.username}} </a></li>
                                         {% else %}
-                                            <li><a href="{% url "login" %}"><span class="glyphicon glyphicon-log-in"></span> Connexion </align></a></li>
+                                            <li><a href="{% url "login" %}" ><span class="glyphicon glyphicon-log-in"></span> Connexion </align></a></li>
                                         {% endif %}
-
 
                                         {% if request.user|has_group:"admin" %}
                                             <img style="display: inline-block; height: 30px; margin-top: 10px; margin-right:30px" src="{% static 'images/admin.png' %}{{ user.get_profile.avatar }}">
@@ -188,8 +187,6 @@
                                         {% elif request.user|has_group:"maire"%}
                                             <img style="display: inline-block; height: 30px; margin-top: 10px; margin-right:30px" src="{% static 'images/maire.png' %}{{ user.get_profile.avatar }}">
                                         {% endif %}
-
-                            </ul>
                         </ul> 
                     </div>
                 </div>

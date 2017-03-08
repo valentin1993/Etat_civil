@@ -187,12 +187,17 @@
         text-decoration: none;
     }
 
-    .list > h5 {
+    .list > h5 > strong {
         color : white;
         padding: 2% 0% 2% 5%;
-        background-color: #454545 ;
-        font-size: 25;
+        font-size: 15px;
     }
+
+    .list > h5 {
+        padding: 2% 0% 2% 5%;
+        background-color: #454545 ;
+    }
+
     .list>li:hover {
         background-color: #454545;
         border-left: 5px solid white;

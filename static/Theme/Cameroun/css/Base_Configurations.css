@@ -25,7 +25,7 @@
         }
 
     .active {
-        background-color: #454545;
+        background-color: #CE1126;
         }
 
         .dropdown:hover {
@@ -191,10 +191,15 @@
 
     }
 
+    .list > h5 > strong {
+        color : white;
+        padding: 2% 0% 2% 5%;
+        font-size: 15px;
+    }
+
     .list > h5 {
         padding: 2% 0% 2% 5%;
-        background-color: #CE1126;
-        font-size: 25;
+        background-color: #CE1126 ;
     }
     .list>li:hover {
         background-color: #CE1126;

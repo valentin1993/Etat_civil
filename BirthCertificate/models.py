@@ -50,4 +50,4 @@ class BirthCertificate(models.Model):
                 setattr(self, field_name, val.capitalize())
 
             super(BirthCertificate, self).save(*args, **kwargs)
-            
+           

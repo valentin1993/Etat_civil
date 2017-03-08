@@ -29,7 +29,7 @@
         }
 
         .dropdown:hover {
-            background-color: #454545;
+            background-color: #CE1126;
             color: white;
         }
 
@@ -188,10 +188,15 @@
 
     }
 
+    .list > h5 > strong {
+        color : white;
+        padding: 2% 0% 2% 5%;
+        font-size: 15px;
+    }
+
     .list > h5 {
         padding: 2% 0% 2% 5%;
-        background-color: #CE1126;
-        font-size: 25;
+        background-color: #CE1126 ;
     }
     .list>li:hover {
         background-color: #CE1126;
@@ -209,8 +214,9 @@
     .navbar-right {
             /*padding-left: 400px;*/
             position:absolute; 
-            right:1vh;
+            right:5%;
         }
+
 
     .marginBottom-0 {margin-bottom:0;}
     .dropdown-submenu{position:relative;}
@@ -236,6 +242,4 @@
 
     .footer > .container {
     padding-right: 15px;
-    }
-
     }
