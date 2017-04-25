@@ -1,50 +1,66 @@
 {% extends 'Base_BirthCertificate_Naissance.html' %}
 
+<!-- Load static part -->
 {% load staticfiles %}
+{% load static %}
 
+<!--HTML template bloc title-->
 {% block title %}
-    <h3> <span class="glyphicon glyphicon-file"></span>Création de l'Acte de Naissance </align> </h3>
+    <h3> <span class="glyphicon glyphicon-file"></span>Acte de Naissance sans n° identification </align> </h3>
 {% endblock %}
 
 {% block content %}
 
+<!--CSS style part-->
 <style>
 
-form > input {
-	width:20%;
+    form > input {
+	    width:20%;
     }
 
     form {
         list-style: none;
     }
 
+    div.alert.alert-success.alert-dismissible {
+        width:63%;
+        margin-left: 10%;
+    }
+
 </style>
 
-    <!-- ############### -->
-    <!-- Page principale -->
-    <!-- ############### -->
+<!--############-->
+<!--Bloc content-->
+<!--############-->
 
-             <form class = "form" method="GET" action="">
+    {% for message in messages %}
+        <div class="alert {{ message.tags }} alert-dismissible alert-error alert-success" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            {{ message }}
+        </div>
+    {% endfor %}
 
-                <h4> Nom de famille du père et de la mère : </h4>
+    <script type="text/javascript" src="{% get_static_prefix %}{{ mytheme }}/js/notifications.js"></script>
 
-                <input type="text"  name="lastname_father" placeholder="Nom de famille du père" value="{{ request.GET.lastname_father }}">&nbsp;
-                <input type="text"  name="lastname_mother" placeholder="Nom de famille de la mère" value="{{ request.GET.lastname_mother }}">&nbsp;
-                <input class="button" type="submit" value="Valider">
+    <form class = "form" method="GET" action="">
 
-                <br></br>
+        <h4> N° identification du père et de la mère : </h4>
 
-            </form>
+        <input type="text"  name="social_number_father" placeholder="N° identification du père" value="{{ request.GET.social_number_father }}">&nbsp;
+        <input type="text"  name="social_number_mother" placeholder="N° identification de la mère" value="{{ request.GET.social_number_mother }}">&nbsp;
+        <input class="button" type="submit" value="Valider"><br></br>
 
-            <form autocomplete="off" class = "form" method='POST' action=''> {% csrf_token %}
-                <br></br>
-                {{ Bform.as_p}} <!-- Display child part formulary -->
-                {{ value|date:"%d/%m/%Y" }}
-                {{ value|time:"H:M" }}
-                <br></br>
+    </form>
 
-                <input class="button" type ="submit" name="_save2" value="Valider l'acte de naissance" /> 
-            </form>
+    <form autocomplete="off" class = "form" method='POST' action=''> {% csrf_token %} <br></br>
+        {{ form.as_p}} <!-- Display child part formulary -->
+        {{ value|date:"%d/%m/%Y" }}
+        {{ value|time:"H:M" }} <br></br>
+
+        <input type="submit" onclick="return confirm('Valider le formulaire ?')" /> 
+    </form>
 
 
 {% endblock content %}

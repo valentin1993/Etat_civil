@@ -10,3 +10,4 @@ FAVORITE_THEME = (
 
 class Theme(models.Model):
     favorite_theme = models.CharField(max_length = 20, choices=FAVORITE_THEME, verbose_name="Sélectionner le thème", default=None, blank=False)
+

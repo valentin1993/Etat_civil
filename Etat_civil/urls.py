@@ -26,11 +26,16 @@ from Mairie import views
 from Table import views
 from Recensement import views
 from Configurations import views
+from Mariage import views
 
 import debug_toolbar
 
+from django.views.generic.base import TemplateView
+
 
 urlpatterns = [
+    url(r'^$', TemplateView.as_view(template_name='/Users/valentinjungbluth/Desktop/Django/DatasystemsEC/Etat_civil/Accueil/templates/Choice.html'),
+        name='choice'),
     url(r'^admin/', admin.site.urls),
     url(r'^BirthCertificate/', include('BirthCertificate.urls')),
     url(r'^Identity/', include('Identity.urls')),
@@ -41,4 +46,5 @@ urlpatterns = [
     url(r'^Recensement/', include('Recensement.urls')),
     url(r'^Configurations/', include('Configurations.urls')),
     url(r'^__debug__/', include(debug_toolbar.urls)),
+    url(r'^Mariage/', include('Mariage.urls')),
 ] 

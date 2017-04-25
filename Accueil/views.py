@@ -1,7 +1,11 @@
 #-*- coding: utf-8 -*-
 
 import os
-from django.shortcuts import render, reverse
+from django.shortcuts import render, reverse, redirect
+
+def Choice (request) :
+    
+    return render(request, 'choice.html')
 
 def Accueil(request) :
         

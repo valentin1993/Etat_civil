@@ -1,10 +1,12 @@
 {% extends 'Base_Identity.html' %}
 
 {% load staticfiles %}
+{% load static %}
 {% load user_tags %}
 
+
 {% block title %}
-<h2 align="center"> Gestion des Fiches Identités </align> </h2>
+<h2 align="center"> Gestion des Fiches Identité </align> </h2>
 {% endblock %}
 
 <br></br>
@@ -15,10 +17,10 @@
 
     img.test {
         position: absolute;
-        width:567px;
-        height: 320px;
-        margin-left: -100px;
-        margin-top: -50px;
+        width:29.53vw;
+        height: 16.66vw;
+        margin-left: -5.20vw;
+        
     }
 </style>
 
@@ -56,11 +58,12 @@
 <br></br>
 <br></br>
 <div class="col-md-5 col-md-offset-2">
-        Partie statistique concernant les fiches identités 
+        Partie statistique concernant les fiches identité :
         <br></br>
         <br></br>
-        <img class="test" src="{% static 'images/stats.jpeg' %}">
+        <a href="{% url 'statistics' %}"><img class="test" src="{% get_static_prefix %}{{ mytheme }}/images/stats.jpeg"> </a>
 
 </div>
+
 
 {% endblock content %}

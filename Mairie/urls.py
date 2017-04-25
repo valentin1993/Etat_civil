@@ -6,5 +6,4 @@ urlpatterns = [
     url(r'^formulaire/$', views.Mairie_form, name="Mairieform"),
     url(r'^formulaire_traite/$', views.Mairie_Resume, name="Mairieresume")
 
-
 ]

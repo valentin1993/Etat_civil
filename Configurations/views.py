@@ -27,3 +27,6 @@ def ChoiceTheme(request) :
         
     return render(request, 'Theme.html', context)
 
+def Help(request) :
+
+    return render(request, 'Help.html')

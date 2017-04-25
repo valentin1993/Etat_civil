@@ -11,6 +11,8 @@ from xhtml2pdf import pisa
 from .models import Mairie
 from forms import MairieForm
 
+from django.contrib import messages 
+
 @login_required
 def Mairie_home(request) :
 
@@ -21,16 +23,24 @@ def Mairie_form(request):
 
     # Fonction permettant de créer le formulaire Mairie et le remplissage
 
-    Mform = MairieForm(request.POST or None)
-    template_name = 'Mairie_form.html'
+    success = False
 
-    if Mform.is_valid() :   # Vérification sur la validité des données
-        if 'saving' in request.POST :
+    if request.method == 'POST':
+
+        Mform = MairieForm(request.POST or None)
+
+        if Mform.is_valid() :   # Vérification sur la validité des données
             post = Mform.save()
-            template_name = 'Mairie_Resume.html'
+            messages.success(request, 'Le formulaire a été enregistré !')
             return HttpResponseRedirect(reverse('Mairieresume'))
 
-    return render(request, template_name, {"Mform" : Mform})
+        else:
+            messages.error(request, "Le formulaire est invalide !")
+
+    else:
+        Mform = MairieForm()
+
+    return render(request, 'Mairie_form.html', {"Mform" : Mform})
 
 @login_required
 def Mairie_Resume(request) :

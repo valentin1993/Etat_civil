@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 """
 Django settings for Etat_civil project.
 
@@ -11,6 +13,24 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 from django.conf import global_settings
 import os
+
+from django.contrib.messages import constants as message_constants
+MESSAGE_LEVEL = message_constants.DEBUG
+
+from django.contrib.messages import constants as messages
+
+MESSAGE_TAGS = {
+    messages.DEBUG: 'alert-info',
+    messages.INFO: 'alert-info',
+    messages.SUCCESS: 'alert-success',
+    messages.WARNING: 'alert-warning',
+    messages.ERROR: 'alert-danger',
+}
+
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
+
+
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -44,25 +64,29 @@ CACHES = {
 # Application definition
 
 INSTALLED_APPS = [
+    'Mairie',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'BirthCertificate',
-    'Identity',
     'bootstrapform',
-    'Accueil',
     'django_countries',
+    'debug_toolbar',
+    'chartit',
+    'Configurations',
+    'Accueil',
     'log',
-    'Mairie',
     'Table',
     'Recensement',
-    'Configurations',
-    'debug_toolbar',
+    'BirthCertificate',
+    'Identity',
+    'Mariage',
+    
     
 ]
+
 
 MIDDLEWARE_CLASSES = [
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -98,15 +122,16 @@ ROOT_URLCONF = 'Etat_civil.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['/Users/valentinjungbluth/Desktop/Django/Etat_civil/templates/',
-                 '/Users/valentinjungbluth/Desktop/Django/Etat_civil/Accueil/templates/',
-                 '/Users/valentinjungbluth/Desktop/Django/Etat_civil/BirthCertificate/templates/',
-                 '/Users/valentinjungbluth/Desktop/Django/Etat_civil/Identity/templates/',
-                 '/Users/valentinjungbluth/Desktop/Django/Etat_civil/Configurations/templates/',
-                 '/Users/valentinjungbluth/Desktop/Django/Etat_civil/log/templates/',
-                 '/Users/valentinjungbluth/Desktop/Django/Etat_civil/Mairie/templates/',
-                 '/Users/valentinjungbluth/Desktop/Django/Etat_civil/Recensement/templates/',
-                 '/Users/valentinjungbluth/Desktop/Django/Etat_civil/Table/templates/'],
+        'DIRS': ['/Users/valentinjungbluth/Desktop/Django/DatasystemsEC/Etat_civil/templates/',
+                 '/Users/valentinjungbluth/Desktop/Django/DatasystemsEC/Etat_civil/Accueil/templates/',
+                 '/Users/valentinjungbluth/Desktop/Django/DatasystemsEC/Etat_civil/BirthCertificate/templates/',
+                 '/Users/valentinjungbluth/Desktop/Django/DatasystemsEC/Etat_civil/Identity/templates/',
+                 '/Users/valentinjungbluth/Desktop/Django/DatasystemsEC/Etat_civil/Configurations/templates/',
+                 '/Users/valentinjungbluth/Desktop/Django/DatasystemsEC/Etat_civil/log/templates/',
+                 '/Users/valentinjungbluth/Desktop/Django/DatasystemsEC/Etat_civil/Mairie/templates/',
+                 '/Users/valentinjungbluth/Desktop/Django/DatasystemsEC/Etat_civil/MairMariageie/templates/',
+                 '/Users/valentinjungbluth/Desktop/Django/DatasystemsEC/Etat_civil/Recensement/templates/',
+                 '/Users/valentinjungbluth/Desktop/Django/DatasystemsEC/Etat_civil/Table/templates/'],
         'APP_DIRS': True,
         'OPTIONS': {
             'debug' : DEBUG,
@@ -116,11 +141,14 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'Accueil.context_processors.GetTheme',
+                'Accueil.context_processors.Test',
+                'Accueil.context_processors.get_infos',
                 'BirthCertificate.context_processors.GetTheme',
                 'Configurations.context_processors.GetTheme',
                 'Identity.context_processors.GetTheme',
                 'log.context_processors.GetTheme',
                 'Mairie.context_processors.GetTheme',
+                'Mariage.context_processors.GetTheme',
                 'Recensement.context_processors.GetTheme',
                 'Table.context_processors.GetTheme',],
         },
@@ -133,19 +161,34 @@ WSGI_APPLICATION = 'Etat_civil.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 DATABASES = {
+
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'DatasystemsEC',
+        'NAME': 'EC_local',
         'USER': 'osx',
-        'PASSWORD': '100%EC',
-        'HOST': '172.30.10.81',
+        'PASSWORD': '100%django',
+        'HOST': '172.30.10.80',
         'PORT': '3306',
         'OPTIONS': {
             'init_command': 'SET innodb_strict_mode=1',
-        },
-    }
+        }
+    },
+
+    'EC_global': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'EC_global',
+        'USER': 'osx',
+        'PASSWORD': '100%django',
+        'HOST': '172.30.10.115',
+        'PORT': '3306',
+        'OPTIONS': {
+            'init_command': 'SET innodb_strict_mode=1',
+        }
+    },
 }
 
+DATABASE_ROUTERS = ['Etat_civil.routersLocal.LocalRouter', 'Etat_civil.routersGlobal.GlobalRouter']
+# DATABASE_ROUTERS = ['BirthCertificate.routerBirthCertificate.BirthCertificateRouter']
 
 
 LOGGING = {
@@ -228,7 +271,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'fr-FR'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Paris'
 
 USE_I18N = True
 
@@ -241,7 +284,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (os.path.join(BASE_DIR, "/Users/valentinjungbluth/Desktop/Django/Etat_civil/static/Theme/"),)
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"), "/Users/valentinjungbluth/Desktop/Django/DatasystemsEC/Etat_civil/static/Theme", ]
 
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
@@ -249,9 +292,10 @@ STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
 LOGIN_URL = '/Home/login/'
 
 # SESSION AGE 5 Minutes
-SESSION_COOKIE_AGE = 100*60 # X * 60s
+SESSION_COOKIE_AGE = 1*60 # X * 60s
 
 # Simple Math
 # CAPTCHA_CHALLENGE_FUNCT = 'captcha.helpers.math_challenge'
 
 INTERNAL_IPS = ('127.0.0.1',)
+

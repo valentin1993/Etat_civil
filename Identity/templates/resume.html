@@ -1,6 +1,7 @@
 {% extends 'Base_Identity.html' %}
 
 {% load staticfiles %}
+{% load static %}
 
 {% block title %}
     <h3><span class="glyphicon glyphicon-user"> </span> Consultation des Fiches Identités </h3>
@@ -36,7 +37,7 @@ form > input {
                     <th>Ville de Naissance</th>
                     <th>Pays de Naissance</th>
                 </tr>
-                {% for item in identity %}
+                {% for item in person %}
                 <tr>
                     <td>{{ item.id}}</td>
                     <td>{{ item.title }}</td>
@@ -70,7 +71,7 @@ form > input {
                 <th>Pays de Naissance</th>
             </tr>
 
-            {% for item in identity_France %}
+            {% for item in person_France %}
                 <tr>
                     <td>{{ item.id }}</td>
                     <td>{{ item.title }}</td>
@@ -93,10 +94,21 @@ form > input {
         <br></br>
         <h4> <b> <span class="glyphicon glyphicon-user"></span> Rechercher un individu </b></h4>
 
+        {% for message in messages %}
+        <div class="alert {{ message.tags }} alert-dismissible alert-error alert-success" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    <script type="text/javascript" src="{% get_static_prefix %}{{ mytheme }}/js/notifications.js"></script>
+
         <form method="GET" action="">
-            <input type="text"  name="q1" placeholder="Entrer un nom" value="{{ request.GET.q1 }}"> &nbsp;
-            <input type="text"  name="q1bis" placeholder="Entrer un prénom" value="{{ request.GET.q1bis }}"> &nbsp;
-            <input type="text"  name="q1ter" placeholder="Naissance YYYY-mm_jj" value="{{ request.GET.q1ter }}"> &nbsp;
+            <input type="text"  name="q1" placeholder="Nom (ex:TEST) " value="{{ request.GET.q1 }}"> &nbsp;
+            <input type="text"  name="q1bis" placeholder="Prénom (ex:Test)" value="{{ request.GET.q1bis }}"> &nbsp;
+            <input type="text"  name="q1social" placeholder="N° identification" value="{{ request.GET.q1social }}"> &nbsp;
             <input class="button" type="submit" value="Rechercher">&nbsp;
         </form>
 

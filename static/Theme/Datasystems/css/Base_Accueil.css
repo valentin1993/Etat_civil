@@ -17,6 +17,8 @@
 
     /* Tab properties from navbar */
     .navbar .nav > li > a {
+        padding-right: -20px;
+        padding-left: -20px;
         color:  white !important;
         }
 
@@ -120,6 +122,12 @@
         color: #454545;
         }
 
+    /*a.dropdown-toggle, a.dropdown {
+
+        margin-left:-0.7vw;
+        margin-right:-0.7vw;
+    }*/
+
     .dropdown-toggle:active, .open > .dropdown-toggle {
         background-color:#454545 !important;
     }
@@ -149,12 +157,10 @@
         width:30vh;
         height:100%;
     }
-    .logo {
-        max-height: 10%;
-    }
-    .logo>img {
-        padding-top: -10px;
 
+    img.img-responsive.center-block {
+        width:13.77vw;
+        padding-right:1vw;
     }
 
     .list {
@@ -214,7 +220,7 @@
     .navbar-right {
             /*padding-left: 400px;*/
             position:absolute; 
-            right:3vh;
+            right: 3vw;
         }
 
     .marginBottom-0 {margin-bottom:0;}
@@ -222,25 +228,26 @@
     .dropdown-submenu>.dropdown-menu{top:0;left:100%;margin-top:0%;margin-left:0%;-webkit-border-radius:0 6px 6px 6px;-moz-border-radius:0 6px 6px 6px;border-radius:0 6px 6px 6px;}
     .dropdown-submenu>a:after{display:block;content:" ";float:right;width:0;height:0;border-color:transparent;border-style:solid;border-width:3% 0 5px 5px;border-left-color:#cccccc;margin-top:5px;margin-right:-10px;}
     .dropdown-submenu:hover>a:after{border-left-color:#555;}
-    .dropdown-submenu.pull-left{float:none;}.dropdown-submenu.pull-left>.dropdown-menu{left:-100%;margin-left:10px;-webkit-border-radius:6px 0 6px 6px;-moz-border-radius:6px 0 6px 6px;border-radius:6px 0 6px 6px;}
+    .dropdown-submenu.pull-left{float:none;}
+    .dropdown-submenu.pull-left>.dropdown-menu{left:-100%;margin-left:10px;-webkit-border-radius:6px 0 6px 6px;-moz-border-radius:6px 0 6px 6px;border-radius:6px 0 6px 6px;}
     
     .footer {
         position: absolute;
         bottom: 1vh;
-        width: 100%;
+        width: 99%;
         height: 6vh;
-        background-color: #f5f5f5;
+        background-color: transparent;
     }
 
     .container-fluid .text-muted {
     color:#0083A2 !important;
     padding-left:auto;
     padding-right:5%;
-    background-color: #f5f5f5;
+    background-color: transparent;
     }
 
     .footer > .container {
     padding-right: 15px;
     }
 
-    }
+

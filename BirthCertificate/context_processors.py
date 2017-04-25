@@ -1,5 +1,6 @@
 from django.conf import settings
 from Configurations.models import Theme
+
 #from django.core.cache import cache
 
 def GetTheme(request):

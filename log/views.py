@@ -30,4 +30,4 @@ def deconnexion(request):
     
     logout(request)
 
-    return redirect(reverse(connexion))
+    return redirect(reverse('choice'))

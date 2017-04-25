@@ -7,10 +7,10 @@ from django.contrib.auth.decorators import login_required
 
 from Recensement.models import Attestation_Recensement
 from Mairie.models import Mairie 
-from Identity.models import Identity
+from Identity.models import Person
 
 from Recensement.forms import Attestation_Recensement_Form
-from Identity.forms import IdentityForm
+from Identity.forms import PersonForm
 from Mairie.forms import MairieForm
 
 from django.views.generic.edit import UpdateView
@@ -32,9 +32,9 @@ def Recensement_array(request) :
     today = datetime.now()
     age_16 = (today - relativedelta(years=16))
 
-    mairie = get_object_or_404(Mairie)
+    mairie = Mairie.objects.all().last()
 
-    result = Identity.objects.filter(birthday__year = age_16.year, city__iexact=mairie.city)
+    result = Person.objects.filter(birthday__year = age_16.year, city__iexact=mairie.city)
 
     paginator = Paginator(result, 3)
     page = request.GET.get('page', 1)
@@ -47,7 +47,7 @@ def Recensement_array(request) :
         result = paginator.page(paginator.num_pages)
 
     context = {
-    "Identity":Identity,
+    "Person":Person,
     "mairie":mairie,
     "age_16":age_16,
     "datetime" : datetime,
@@ -67,9 +67,9 @@ def Liste_Recensement_PDF(request) :
     today = datetime.now()
     age_16 = (today - relativedelta(years=16))
 
-    mairie = get_object_or_404(Mairie)
+    mairie = mairie = Mairie.objects.all().last()
 
-    result = Identity.objects.filter(birthday__year = age_16.year, city__iexact=mairie.city)
+    result = Person.objects.filter(birthday__year = age_16.year, city__iexact=mairie.city)
 
     data = {"mairie" : mairie, "result":result, "today":today}
 
@@ -206,7 +206,7 @@ def Attestation_Recensement_PDF(request, id) :
     print SID
 
     ar = get_object_or_404(Attestation_Recensement, pk=id)
-    mairie = get_object_or_404(Mairie)
+    mairie = mairie = Mairie.objects.all().last()
 
     data = {"ar" : ar, "mairie":mairie}
 

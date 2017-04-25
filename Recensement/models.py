@@ -42,6 +42,7 @@ class Attestation_Recensement(models.Model):
     birthcountry = CountryField(blank_label='Sélectionner un pays', verbose_name='Pays de naissance')
     city = models.CharField(max_length=30, verbose_name='Ville')
     country = CountryField(blank_label='Sélectionner un pays', verbose_name='Pays')
+    mairie = models.CharField(max_length=30, null=False, verbose_name='Mairie', default=' ')
     created = models.DateTimeField(auto_now_add=True)
 
 

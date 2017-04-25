@@ -1,33 +1,59 @@
 {% extends 'Base_Identity.html' %}
 
+<!-- Load static part -->
 {% load staticfiles %}
+{% load static %}
 
+<!--HTML template bloc title-->
 {% block title %}
-    <h3><span class="glyphicon glyphicon-user"> </span>  Formulaire de fiche individuelle</h3>
+    <h3><span class="glyphicon glyphicon-user"> </span>  Fiche individuelle sans n° identification</h3>
 {% endblock %}
 
 {% block content %}
 
+<!--CSS style part-->
 <style>
 
-form > input {
-	width:20%;
+    form > input {
+	    width:20%;
     }
 
     form {
         list-style: none;
     }
 
+    div.alert.alert-success.alert-dismissible {
+        width:63%;
+        margin-left: 10%;
+        
+    }
+
+    #id_sex, #id_status, #id_birthcountry, #id_country, #id_title {
+        width:25.83vw;
+    }
+
 </style>
 
-            <form autocomplete="off" class = "form" method='POST' action=''> {% csrf_token %}
-                <br></br>
-                {{ form.as_ul}} 
-                {{birthday|date:"%d/%m/%Y" }} 
+<!--############-->
+<!--Bloc content-->
+<!--############-->
 
-                <br></br>
+    {% for message in messages %}
+        <div class="alert {{ message.tags }} alert-dismissible alert-error alert-success" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            {{ message }}
+        </div>
+    {% endfor %}
 
-                <input class="button" type ="submit" name="_save" value="Valider la fiche individuelle" /> 
-            </form>
+    <script type="text/javascript" src="{% get_static_prefix %}{{ mytheme }}/js/notifications.js"></script>
+
+    <form autocomplete="off" class = "form" method='POST' action=''> {% csrf_token %} <br></br>
+        {{ form.as_ul}} 
+        {{birthday|date:"%d/%m/%Y" }} <br></br>
+
+        <input class="button" type="submit" onclick="return confirm('Valider le formulaire ?')" /> 
+    </form>
 
 {% endblock content %}

@@ -19,7 +19,7 @@
 
     <body>
         
-        <img class="logo" src="{% static 'images/logo.jpeg' %}" />
+        <img class="logo" src=<script type="text/javascript" src="{% get_static_prefix %}{{ mytheme }}/images/logo.jpeg" />
 
         <h2 align="center"> <font size="6"> ACTE DE NAISSANCE <br /> ORIGINAL & INTEGRALE </font></align> </h2>
 
@@ -28,11 +28,12 @@
 
         {% block content %} 
 
-        <h3 align="left"> ACTE DE NAISSANCE N° {{birthcertificate.id}} / {% now "Y" %} {{birthcertificate.firstname}} {{birthcertificate.lastname}}</align> </h3>
+        <h3 align="left"> ACTE DE NAISSANCE N° IDENTIFICATION {{birthcertificate.social_number}} / {% now "Y" %} {{birthcertificate.firstname}} {{birthcertificate.lastname}}</align> </h3>
 
         <br></br>
 
         <h3> Informations concernant l'enfant : </h3>
+        <li>N° identification : {{birthcertificate.social_number}}</li>
         <li>Nom de l'enfant : {{birthcertificate.lastname}}</li>
         <li>Prénom(s) de l'enfant : {{birthcertificate.firstname}}</li>
         {% if birthcertificate.sex == "Masculin" %}

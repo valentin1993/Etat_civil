@@ -1,6 +1,7 @@
 <html>
     <head>
     {% load staticfiles %}
+    {% load static %}
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />   
     <link rel="stylesheet" type="text/css" href="{% static 'css/Base_Identity.css' %}"/>
@@ -19,7 +20,7 @@
 
     <body>
         
-        <img class="logo" src="{% static 'images/logo.jpeg' %}" />
+        <img class="logo" src="{% get_static_prefix %}{{ mytheme }}/images/logo.jpeg" />
 
         <h2 align="center"> <font size="6"> FICHE INDIVIDUELLE <br /> ORIGINALE & INTEGRALE </font></align> </h2>
 
@@ -28,31 +29,32 @@
 
         {% block content %} 
 
-        <h3 align="left"> FICHE INDIVIDUELLE N° {{identity.id}} / {% now "Y" %} {{identity.firstname}} {{identity.lastname}}</align> </h3>
+        <h3 align="left"> FICHE INDIVIDUELLE N° IDENTIFICATION {{person.social_number}} / {% now "Y" %} {{person.firstname}} {{person.lastname}}</align> </h3>
 
         <br></br>
 
         <h3> Informations concernant l'individu : </h3>
-        <li>Civilité : {{identity.title}}</li>
-        <li>Nom de l'individu : {{identity.lastname}}</li>
-        <li>Nom de jeune fille : {{identity.young_girl_lastname}}</li>
-        <li>Prénom(s) de l'individu : {{identity.firstname}}</li>
-        {% if identity.sex == "Masculin" %}
-        <li>Est né à : {{identity.birthcity}} - {{identity.birthcountry.name}}</li>
+        <li>N° identification : {{person.social_number}}</li>
+        <li>Civilité : {{person.title}}</li>
+        <li>Nom de l'individu : {{person.lastname}}</li>
+        <li>Nom de jeune fille : {{person.young_girl_lastname}}</li>
+        <li>Prénom(s) de l'individu : {{person.firstname}}</li>
+        {% if person.sex == "Masculin" %}
+        <li>Est né à : {{person.birthcity}} - {{person.birthcountry.name}}</li>
         {% else %}
-        <li>Est née à : {{identity.birthcity}} - {{identity.birthcountry.name}}</li>
+        <li>Est née à : {{person.birthcity}} - {{person.birthcountry.name}}</li>
         {% endif %}
-        <li>Le : {{identity.birthday}}</li>
-        <li>De sexe : {{identity.sex}}</li>
-        <li>De nationalité : {{identity.nationality}}</li>
-        <li>Exerce la profession de : {{identity.job}}</li>
+        <li>Le : {{person.birthday}}</li>
+        <li>De sexe : {{person.sex}}</li>
+        <li>De nationalité : {{person.nationality}}</li>
+        <li>Exerce la profession de : {{person.job}}</li>
         <br></br>
-        <li>Réside au : {{identity.adress}}</li>
-        <li>A : {{identity.city}} ({{identity.zip}})</li>
-        <li>Pays de résidence : {{identity.country}}</li>
+        <li>Réside au : {{person.adress}}</li>
+        <li>A : {{person.city}} ({{person.zip}})</li>
+        <li>Pays de résidence : {{person.country}}</li>
 
-        <li>Email (optionnel) : {{identity.mail}}</li>
-        <li>Téléphone (optionnel) : {{identity.phone}} </li>
+        <li>Email (optionnel) : {{person.mail}}</li>
+        <li>Téléphone (optionnel) : {{person.phone}} </li>
        
         <br></br>
 
