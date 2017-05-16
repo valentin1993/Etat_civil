@@ -10,13 +10,117 @@ This script lets to define a basic template for "BirthCertificate" -->
         {% load staticfiles %}
         {% load static %}
         {% load user_tags %}
+        {% load variables %}
 
         <title> DatasystemsEC - Actes de Naissance </title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link rel="stylesheet" type="text/css" href="{% get_static_prefix %}{{ mytheme }}/css/Base_Birthcertificate.css"/>
+    
+
+    </head>
+    
+    <!-- #################### -->
+    <!-- Upper navigation bar -->
+    <!-- #################### -->
+
+    {% include 'Common/Navbar.html' %}
+	
+	<body>
+
+		{% if user.is_authenticated %}
+
+        <div class="row">
+            {% include 'Common/Logo.html' %}
+            <div class="col-lg-8 col-lg-offset-1">
+                {% block title %}
+                {% endblock %}
+            </div>
+        </div>
+
+
+        {% include 'Common/Blank.html' %}
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-lg-4 sidebar1">
+						<div class="left-navigation">
+							<ul class="list">
+								<h5><strong><span class="glyphicon glyphicon-home"></span> Accueil</strong></h5>
+								<li><a href="{% url 'accueil' %}"> Accueil</a></li>
+							</ul>
+							<ul class="list">
+								<h5><strong><span class="glyphicon glyphicon-baby-formula"></span> Actes de Naissance</strong></h5>
+								<li><a href="{% url 'BChome' %}">Accueil</a></li>
+								<li><a href="{% url 'BCform' %}">Création (sans n° unique)</a></li>
+								<li><a href="{% url 'BCform2' %}">Création (à partir n° unique)</a></li>
+								<li><a href="{% url 'BCnotfound' %}">Copie / Extrait</a></li>
+								<li><a href="{% GED_url %}/">Consultation</a></li>
+							</ul>
+							<ul class="list">
+								<h5><strong><span class="glyphicon glyphicon-book"></span> DatasystemsDOC</strong></h5>
+								<li><a target="_blank" href="{% GED_url %}/frontend.jsp?folderId=8552450">Individus</a></li>
+								<li><a target="_blank" href="{% GED_url %}/frontend.jsp?folderId=8978465">Tables</a></li>
+								<li><a target="_blank" href="{% GED_url %}/frontend.jsp?folderId=8978476">Recensement</a></li>
+							</ul>
+						</div>
+					</div>
+		{% endif %}
+	
+		{% if user.is_authenticated %}	
+					<div class="row">
+						<div class="blank"> 
+						</div>
+						<div class="col-lg-7 col-lg-offset-1"> 
+		{% else %}
+					<div class="row">
+						<div class="blank">
+						</div>
+						<div class="col-lg-8 col-lg-offset-2"> 
+		{% endif %}
+		
+		{% block content %}
+		{% endblock content %}
+                    
+						</div>
+					</div>	
+				</div>			
+			</div>
+		</div>
+		
+		{% include 'Common/Blank.html' %}
+
+    {% include 'Common/Footer.html' %}
+
+    </body>
+	
+</html>
+
+{% comment %}<!-- Copyright (C) 2017     Valentin JUNGBLUTH  <valentin@datasystems.fr>
+     Copyright (C) 2017     Alexis MOLTER       <amolter@datasystems.fr>
+
+This script lets to define a basic template for "BirthCertificate" -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+
+        {% load staticfiles %}
+        {% load static %}
+        {% load user_tags %}
+        {% load variables %}
+
+        <title> DatasystemsEC - Actes de Naissance </title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="{% get_static_prefix %}{{ mytheme }}/css/Base_Birthcertificate.css"/>
     
@@ -37,7 +141,21 @@ This script lets to define a basic template for "BirthCertificate" -->
 
     {% if user.is_authenticated %}
 
-    {% include 'Common/Logo.html' %}
+        <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2">
+                <div class="logo">
+                    <img src="{% get_static_prefix %}{{ mytheme }}/images/logo.png" class="img-responsive center-block" alt="Logo">
+                </div>
+            </div>
+            <div class="col-md-10">
+                <div class="title">
+                    {% block title %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
 
             <div class="container-fluid">
                 <div class="row">
@@ -56,13 +174,13 @@ This script lets to define a basic template for "BirthCertificate" -->
                                 <li><a href="{% url "BCform" %}">Création (sans n° unique)</a></li>
                                 <li><a href="{% url "BCform2" %}">Création (à partir n° unique)</a></li>
                                 <li><a href="{% url "BCnotfound" %}">Copie / Extrait</a></li>
-                                <li><a href="https://demoged.datasystems.fr:8090/">Consultation</a></li>
+                                <li><a href="{% GED_url %}/">Consultation</a></li>
                             </ul>
                             <ul class="list">
                                 <h5><strong><span class="glyphicon glyphicon-book"></span> DatasystemsDOC</strong></h5>
-                                <li><a target="_blank" href="https://demoged.datasystems.fr:8090/frontend.jsp?folderId=8552450">Individus</a></li>
-                                <li><a target="_blank" href="https://demoged.datasystems.fr:8090/frontend.jsp?folderId=8978465">Tables</a></li>
-                                <li><a target="_blank" href="https://demoged.datasystems.fr:8090/frontend.jsp?folderId=8978476">Recensement</a></li>
+                                <li><a target="_blank" href="{% GED_url %}/frontend.jsp?folderId=8552450">Individus</a></li>
+                                <li><a target="_blank" href="{% GED_url %}/frontend.jsp?folderId=8978465">Tables</a></li>
+                                <li><a target="_blank" href="{% GED_url %}/frontend.jsp?folderId=8978476">Recensement</a></li>
                             </ul>
                         </div>
                     </div>
@@ -96,4 +214,4 @@ This script lets to define a basic template for "BirthCertificate" -->
 
             {% endif %}
   
-</html>
+</html>{% endcomment %}

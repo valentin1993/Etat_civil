@@ -1,3 +1,8 @@
+<!-- Copyright (C) 2017     Valentin JUNGBLUTH  <valentin@datasystems.fr>
+     Copyright (C) 2017     Alexis MOLTER       <amolter@datasystems.fr>
+
+This script lets to define the form template for "Identity" -->
+
 {% extends 'Base_Identity.html' %}
 
 <!-- Load static part -->
@@ -6,37 +11,14 @@
 
 <!--HTML template bloc title-->
 {% block title %}
-    <h3><span class="glyphicon glyphicon-user"> </span>  Fiche individuelle sans n° identification</h3>
+    <div class="title">
+        <h3><span class="glyphicon glyphicon-user"> </span>  Fiche individuelle sans n° identification</h3>
+    </div>
 {% endblock %}
 
 {% block content %}
 
-<!--CSS style part-->
-<style>
-
-    form > input {
-	    width:20%;
-    }
-
-    form {
-        list-style: none;
-    }
-
-    div.alert.alert-success.alert-dismissible {
-        width:63%;
-        margin-left: 10%;
-        
-    }
-
-    #id_sex, #id_status, #id_birthcountry, #id_country, #id_title {
-        width:25.83vw;
-    }
-
-</style>
-
-<!--############-->
-<!--Bloc content-->
-<!--############-->
+    <div class="title_subtitle_space"></div>
 
     {% for message in messages %}
         <div class="alert {{ message.tags }} alert-dismissible alert-error alert-success" role="alert">
@@ -50,10 +32,10 @@
     <script type="text/javascript" src="{% get_static_prefix %}{{ mytheme }}/js/notifications.js"></script>
 
     <form autocomplete="off" class = "form" method='POST' action=''> {% csrf_token %} <br></br>
-        {{ form.as_ul}} 
+        {{ form.as_p}} 
         {{birthday|date:"%d/%m/%Y" }} <br></br>
 
-        <input class="button" type="submit" onclick="return confirm('Valider le formulaire ?')" /> 
+        <input type="submit" onclick="return confirm('Valider le formulaire ?')" /> 
     </form>
 
-{% endblock content %}
+{% endblock content %} 

@@ -2,31 +2,32 @@
 
 {% load staticfiles %}
 {% load static %}
+{% load variables %}
 
 {% block title %}
-    <h3><span class="glyphicon glyphicon-user"> </span> Consultation des Fiches Identités </h3>
+<div class="title">
+    <h3><span class="glyphicon glyphicon-user"> </span> Consultation des Fiches individuelles </h3>
+</div>
 {% endblock %}
 
 
 {% block content %}
 
-<style>
-h4, form, p { 
-    margin-left: 6vw;
-}
+    <div class="title_subtitle_space"></div>
 
-form > input {
-	width:20%;
-    }
+    {% for message in messages %}
+        <div class="alert {{ message.tags }} alert-dismissible alert-error alert-success" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            {{ message }}
+        </div>
+    {% endfor %}
 
-</style>
-
-        <!-- ###################################################### -->
-        <!-- Affichage des 3 dernières fiches individuelles créées -->
-        <!-- ###################################################### -->
+    <div class="resume">
 
             <h4><b> <span class="glyphicon glyphicon-user"></span> Récapitulatif des 3 dernières fiches individuelles créées : </b></h4>
-            <table style="width:80%">
+            <table style="width:90%">
                 <tbody>
                 <tr>
                     <th>ID</th>
@@ -52,14 +53,9 @@ form > input {
             </table>
             <br></br>
 
-        
-
-        <!-- ############################################################################### -->
-        <!-- Affichage des 3 dernières fiches individuelles de personnes habitant en France -->
-        <!-- ############################################################################### -->
 
         <h4> <b> <span class="glyphicon glyphicon-user"></span> Récapitulatif des 3 dernières fiches individuelles créées habitant en France : </b> </h4>
-        <table style="width:80%">
+        <table style="width:90%">
             <tbody>
             <tr>
                 <th>ID</th>
@@ -92,36 +88,78 @@ form > input {
         <!-- ######################################### -->
 
         <br></br>
-        <h4> <b> <span class="glyphicon glyphicon-user"></span> Rechercher un individu </b></h4>
+        <h4> <b> <span class="glyphicon glyphicon-user"></span> Rechercher le n° identification d'un individu </b></h4>
 
-        {% for message in messages %}
+    <script type="text/javascript" src="{% get_static_prefix %}{{ mytheme }}/js/notifications.js"></script>
+
+        <form autocomplete="off" method="GET" action="">
+            <input type="text"  name="q1ID" placeholder="Nom (ex:TEST) " value="{{ request.GET.q1ID }}"> et/ou
+            <input type="text"  name="q1bisID" placeholder="Prénom (ex:Test)" value="{{ request.GET.q1bisID }}"> &nbsp;
+            <input class="button" type="submit" value="Rechercher">&nbsp;
+        </form>
+
+        <br></br>
+
+        <table style="width:90%">
+            <tbody>
+                <tr>
+                    <th>ID</th>
+                    <th>N° Identification</th>
+                    <th>Civilité</th>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Date de Naissance</th>
+                    <th>Ville de Naissance</th>
+                    <th>Pays de Naissance</th>
+                </tr>
+                {% for item in query_ID_list %}
+                <tr>
+                    <td> {{item.id}} </td>
+                    <td> {{item.social_number}} </td>
+                    <td> {{item.title}} </td>
+                    <td> {{item.lastname}} </td>
+                    <td> {{item.firstname}} </td>
+                    <td> {{item.birthday}} </td>
+                    <td> {{item.birthcity}} </td>
+                    <td> {{item.birthcountry}} </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <br></br>
+
+
+        <h4> <b> <span class="glyphicon glyphicon-user"></span> Rechercher un individu dans DatasystemsDOC</b></h4>
+
+        {% comment %}{% for message in messages %}
         <div class="alert {{ message.tags }} alert-dismissible alert-error alert-success" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
             {{ message }}
         </div>
-    {% endfor %}
+    {% endfor %}{% endcomment %}
 
     <script type="text/javascript" src="{% get_static_prefix %}{{ mytheme }}/js/notifications.js"></script>
 
         <form method="GET" action="">
-            <input type="text"  name="q1" placeholder="Nom (ex:TEST) " value="{{ request.GET.q1 }}"> &nbsp;
-            <input type="text"  name="q1bis" placeholder="Prénom (ex:Test)" value="{{ request.GET.q1bis }}"> &nbsp;
+            <input type="text"  name="q1" placeholder="Nom (ex:TEST) " value="{{ request.GET.q1 }}"> et
+            <input type="text"  name="q1bis" placeholder="Prénom (ex:Test)" value="{{ request.GET.q1bis }}"> et
             <input type="text"  name="q1social" placeholder="N° identification" value="{{ request.GET.q1social }}"> &nbsp;
             <input class="button" type="submit" value="Rechercher">&nbsp;
         </form>
 
-        <p></p> 
+        <br></br>
         <p class = "texte"> Lien vers le dossier de l'individu {{ request.GET.q1 }} {{request.GET.q1bis}} : 
         
-        <a target="_blank" href="https://demoged.datasystems.fr:8090/frontend.jsp?folderId={{folderId}}">Link</a>
+        <a target="_blank" href="{% GED_url %}/frontend.jsp?folderId={{folderId}}">Accéder au dossier</a>
         <p></p>
         <p class = "texte" >N° du dossier de la personne : {{folderId}} </p>
 
         <br></br>
 
-        <table style="width:80%">
+        <table style="width:90%">
             <tbody>
                 <tr>
                     <th>ID</th>
@@ -147,6 +185,8 @@ form > input {
         </table>
 
         <br></br>
+
+    </div>
 
 
 {% endblock content %}

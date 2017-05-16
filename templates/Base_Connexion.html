@@ -10,13 +10,14 @@ This script lets to define a basic template for "Connexion" -->
         {% load staticfiles %}
         {% load static %}
         {% load user_tags %}
+        {% load variables %}
 
         <title> DatasystemsEC - Accueil </title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="{% get_static_prefix %}{{ mytheme }}/css/Base_Accueil.css"/>
     
@@ -60,7 +61,7 @@ This script lets to define a basic template for "Connexion" -->
 
                             <ul class="list">
                                 <h5><strong><span class="glyphicon glyphicon-file"></span> Actes Etat Civil</strong></h5>
-                                <li><a href="{% url "home" %}">Fiches Identités</a></li>
+                                <li><a href="{% url "home" %}">Fiches individuelles</a></li>
                                 <li><a href="{% url "BChome" %}">Actes de Naissance</a></li>
                                 <li><a href="{% url "BCnotfound" %}">Actes de Reconnaissance / Adoption</a></li>
                                 <li><a href="{% url "BCnotfound" %}">Actes de Mariage</a></li>
@@ -82,9 +83,9 @@ This script lets to define a basic template for "Connexion" -->
 
                             <ul class="list">
                                 <h5><strong><span class="glyphicon glyphicon-book"></span> DatasystemsDOC</strong></h5>
-                                <li><a target="_blank" href="https://demoged.datasystems.fr:8090/frontend.jsp?folderId=8552450">Individus</a></li>
-                                <li><a target="_blank" href="https://demoged.datasystems.fr:8090/frontend.jsp?folderId=8978465">Tables</a></li>
-                                <li><a target="_blank" href="https://demoged.datasystems.fr:8090/frontend.jsp?folderId=8978476">Recensement</a></li>
+                                <li><a target="_blank" href="{% GED_url %}/frontend.jsp?folderId=8552450">Individus</a></li>
+                                <li><a target="_blank" href="{% GED_url %}/frontend.jsp?folderId=8978465">Tables</a></li>
+                                <li><a target="_blank" href="{% GED_url %}/frontend.jsp?folderId=8978476">Recensement</a></li>
                             </ul>
 
                             {% if request.user|has_group:"admin" %}
@@ -101,8 +102,8 @@ This script lets to define a basic template for "Connexion" -->
                             </ul>
                         </div>
                     </div>
-                    <body> 
-                    {% endif %}
+                <body> 
+            {% endif %}
                     <div class="col-md-12">
 
                     {% block content %}
@@ -122,6 +123,30 @@ This script lets to define a basic template for "Connexion" -->
             </div>
 
             {% include 'Common/Footer.html' %}
+
+            {% else %}
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+
+
+    {% include 'Common/Footer.html' %}
 
             {% endif %}
 

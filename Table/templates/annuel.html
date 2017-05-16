@@ -3,32 +3,29 @@
 {% load staticfiles %}
 
 {% block title %}
+<div class="title">
     <h3><span class="glyphicon glyphicon-user"> </span> Edition de la table annuelle des naissances </h3>
+</div>
 {% endblock %}
 
 {% block content %}
 
 <style>
 
-    form > input {
-	    width:20%;
-    }
-
-     form {
-        list-style: none;
-    }
-
     .current {
-        margin-left:8vw;
+        margin-left:6vw; 
     }
 
 </style>
         
+    <div class="title_subtitle_space"></div>
 
+    <div class="subtitle-form">
+        <h4> <span class="glyphicon glyphicon-user"></span> Prévisualisation de la table annuelle des naissances </h4>
+    </div>
 
         <form class = "form" method="GET" action="">
-            <h4 color="#0083A2"> <span class="glyphicon glyphicon-user"></span> Prévisualisation de la table annuelle des naissances </h4>
-            <input type="text"  name="q1" placeholder="Entrer une année" value="{{ request.GET.q1 }}"> &nbsp;
+            <input class="identification-field" type="text"  name="q1" placeholder="Saisir une année" value="{{ request.GET.q1 }}"> &nbsp;
             <input class="button" type="submit" value="Rechercher">
         </form>
 
@@ -37,16 +34,18 @@
         <table style="width:80%">
             <tbody>
                 <tr>
+                    <th>N° Identification</th>
                     <th>Nom & prénom(s)</th>
-                    <th>Lieux de Naissance</th>
-                    <th>Date des actes</th>
+                    <th>Lieu de Naissance</th>
+                    <th>Date de l'acte</th>
                     <th>Numéro de l'acte</th>
                 </tr>
                 {% for item in query_naissance_list %}
                 <tr>
+                    <td> {{item.social_number}} </td>
                     <td> {{item.lastname}} {{item.firstname}} </td>
                     <td> {{item.birthcity}} ({{item.birthcountry.name}}) </td>
-                    <td> {{item.created}} <p></p> {{item.birthday}} (Naissance) </td>
+                    <td> {{item.created}} (Edition) <p></p> {{item.birthday}} (Naissance) </td>
                     <td> {{item.id}} </td>
                 </tr>
                 {% endfor %}
@@ -70,7 +69,7 @@
         <br></br>
 
         <form class = "form" method='POST' action="{% url "NaissancePDF" %}"> {% csrf_token %}
-            <input class="button" type ="submit" value="Générer le PDF" />
+            <input type="submit" onclick="return confirm('Générer le PDF ?')" />
         </form>
 
 

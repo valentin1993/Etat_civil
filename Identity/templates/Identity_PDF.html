@@ -1,15 +1,21 @@
 {% extends 'Base_Identity.html' %}
 
 {% load staticfiles %}
+{% load variables %}
 
 {% block title %}
+<div class="title">
     <h3><span class="glyphicon glyphicon-user"> </span> Votre PDF Fiche individuelle a été généré et sauvegardé (n° {{person.id}})</h3>
+</div>
 {% endblock %}
 
 {% block content %}
 
+    <div class="title_subtitle_space"></div>
 
-        <form class = "form" method='POST' action="{% url "home" %}"> {% csrf_token %}
+        <div class="resume">
+
+        <form method='POST' action="{% url "home" %}"> {% csrf_token %}
        
             <br></br>
 
@@ -17,13 +23,13 @@
 
             <br></br>
             
-            <a style="color:#0083A2;" target="_blank" href="https://demoged.datasystems.fr:8090/frontend.jsp?folderId={{folderId}}">Consulter le dossier de {{person.lastname}} {{person.firstname}}</a>
+            <a style="color:#0083A2;" target="_blank" href="{% GED_url %}/frontend.jsp?folderId={{folderId}}">Consulter le dossier de {{person.lastname}} {{person.firstname}} (n° identification : {{person.social_number}})</a>
             <p></p>
             N° du dossier de la personne : {{folderId}}
 
             <br></br>
 
-            <input class="button_numero" type ="submit" name="retour" value="Retour à l'accueil des fiches individuelles" /> 
+            <button>Retour à l'accueil des fiches individuelles</button>
         </form>
 
 

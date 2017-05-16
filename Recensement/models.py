@@ -33,6 +33,7 @@ SEX_CHOICES = (
 
 class Attestation_Recensement(models.Model):
 
+    social_number = models.CharField(max_length=30, null=True, verbose_name='numero social', unique=True)
     title = models.CharField(max_length=12,choices=TITLE_CHOICES, verbose_name='Civilité')
     lastname = models.CharField(max_length=30, verbose_name='Nom de famille')
     firstname = models.CharField(max_length=30, verbose_name='Prénom(s)')
@@ -40,10 +41,11 @@ class Attestation_Recensement(models.Model):
     birthday = models.DateField(verbose_name='Date de naissance')
     birthcity = models.CharField(max_length=30, verbose_name='Ville de naissance')
     birthcountry = CountryField(blank_label='Sélectionner un pays', verbose_name='Pays de naissance')
+    adress = models.CharField(max_length=30, verbose_name='Adresse', null=True)
     city = models.CharField(max_length=30, verbose_name='Ville')
     country = CountryField(blank_label='Sélectionner un pays', verbose_name='Pays')
     mairie = models.CharField(max_length=30, null=False, verbose_name='Mairie', default=' ')
-    created = models.DateTimeField(auto_now_add=True)
+    created = models.DateTimeField(auto_now_add=True) 
 
 
     def save(self, *args, **kwargs):
@@ -67,5 +69,5 @@ class Attestation_Recensement(models.Model):
 
 
     def __unicode__(self):
-         return '%s %s %s %s %s %s %s %s %s %s' % (self.id, self.title, self.lastname, self.firstname, self.sex, self.birthday, self.birthcity, self.birthcountry,
+         return '%s %s %s %s %s %s %s %s %s %s %s %s' % (self.adress, self.social_number, self.id, self.title, self.lastname, self.firstname, self.sex, self.birthday, self.birthcity, self.birthcountry,
                                                                      self.city, self.country)

@@ -1,1 +1,3 @@
-GEDurl = 'https://demoged.datasystems.fr:8090'
+import Global_variables
+
+GEDurl = Global_variables.GED_url.url

@@ -1,67 +1,61 @@
+<!-- Copyright (C) 2017     Valentin JUNGBLUTH  <valentin@datasystems.fr>
+     Copyright (C) 2017     Alexis MOLTER       <amolter@datasystems.fr>
+
+This script lets to define the homepage template for "Identity" -->
+
 {% extends 'Base_Identity.html' %}
 
 {% load staticfiles %}
 {% load static %}
 {% load user_tags %}
+{% load variables %}
 
 
 {% block title %}
-<h2 align="center"> Gestion des Fiches Identité </align> </h2>
+<h2 class="hometitle" align="center"> Gestion des Fiches individuelles </align> </h2>
 {% endblock %}
 
 <br></br>
 
 {% block content %}
 
-<style>
-
-    img.test {
-        position: absolute;
-        width:29.53vw;
-        height: 16.66vw;
-        margin-left: -5.20vw;
-        
-    }
-</style>
-
-<div class="col-md-5">
-
-    <form class = "form" method='POST' action=''> {% csrf_token %}
-    
-        <br></br>
-        <br></br>
+<br></br>
+<br></br>
+<div class="col-lg-6">
 
         <p> Veuillez cliquer sur l'opération à effectuer : </p>
         
         <br></br>
 
          {% if mytheme == "Datasystems" %}
-            <p> <a style="color:#0083A2" href="{% url 'form' %}"> Créer une nouvelle fiche identité</a></p>
-            <p> <a style="color:#0083A2" href="{% url 'BCnotfound' %}"> Créer une copie/extrait de fiche identité</a></p>
-            <p> <a style="color:#0083A2" href="{% url 'searched' %}"> Consulter une fiche identité</a></p>
+            <p> <a style="color:#0083A2" href="{% url 'form' %}"> Créer une nouvelle fiche individuelle (sans n° identification unique)</a></p>
+            <p> <a style="color:#0083A2" href="{% url 'form2' %}"> Créer une nouvelle fiche individuelle (à partir n° identification unique)</a></p>
+            <p> <a style="color:#0083A2" href="{% url 'BCnotfound' %}"> Créer une copie/extrait de fiche individuelle </a></p>
+            <p> <a style="color:#0083A2" href="{% url 'searched' %}"> Consulter une fiche individuelle</a></p>
          {% elif mytheme == "Cameroun" %}
-            <p> <a style="color:#007A5E" href="{% url 'form' %}"> Créer une nouvelle fiche identité</a></p>
-            <p> <a style="color:#007A5E" href="{% url 'BCnotfound' %}"> Créer une copie/extrait de fiche identité</a></p>
-            <p> <a style="color:#007A5E" href="{% url 'searched' %}"> Consulter une fiche identité</a></p>
+            <p> <a style="color:#007A5E" href="{% url 'form' %}"> Créer une nouvelle fiche individuelle (sans n° identification unique)</a></p>
+            <p> <a style="color:#007A5E" href="{% url 'form2' %}"> Créer une nouvelle fiche individuelle (à partir n° identification unique)</a></p>
+            <p> <a style="color:#007A5E" href="{% url 'BCnotfound' %}"> Créer une copie/extrait de fiche individuelle</a></p>
+            <p> <a style="color:#007A5E" href="{% url 'searched' %}"> Consulter une fiche individuelle</a></p>
         {% endif %}
 
         {% if  mytheme == "Datasystems" and request.user|has_group:"admin" %}
-            <p> <a style="color:#0083A2" href="{% url 'edited' %}"> Editer une fiche identité</a></p>
-            <p> <a style="color:#0083A2" href="{% url 'deleted' %}">Supprimer une fiche identité </a></p>
+            <p> <a style="color:#0083A2" href="{% url 'edited' %}"> Editer une fiche individuelle</a></p>
+            <p> <a style="color:#0083A2" href="{% url 'deleted' %}">Supprimer une fiche individuelle </a></p>
         {% elif  mytheme == "Datasystems" and request.user|has_group:"admin" %}
-            <p> <a style="color:#007A5E" href="{% url 'edited' %}"> Editer une fiche identité</a></p>
-            <p> <a style="color:#007A5E" href="{% url 'deleted' %}">Supprimer une fiche identité </a></p>
+            <p> <a style="color:#007A5E" href="{% url 'edited' %}"> Editer une fiche individuelle</a></p>
+            <p> <a style="color:#007A5E" href="{% url 'deleted' %}">Supprimer une fiche individuelle </a></p>
         {% endif %}
-    </form>
 
 </div>
-<br></br>
-<br></br>
-<div class="col-md-5 col-md-offset-2">
-        Partie statistique concernant les fiches identité :
+
+
+<div class="col-lg-5 offset-2">
+
+    Partie statistique concernant les fiches individuelles
         <br></br>
         <br></br>
-        <a href="{% url 'statistics' %}"><img class="test" src="{% get_static_prefix %}{{ mytheme }}/images/stats.jpeg"> </a>
+        <a href="{% url 'statistics' %}"><img class="stats" src="{% get_static_prefix %}{{ mytheme }}/images/stats.jpeg"> </a>
 
 </div>
 

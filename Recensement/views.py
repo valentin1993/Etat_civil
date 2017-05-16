@@ -1,6 +1,6 @@
 #-*- coding: utf-8 -*-
 
-import requests, os, json, glob
+import requests, os, json, glob 
 from django.shortcuts import render, reverse, get_object_or_404
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.decorators import login_required
@@ -24,6 +24,10 @@ from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
 import Logger, Search, Folds, Docs, Buffer, EnterSearch
+
+from django.contrib import messages 
+
+import Global_variables 
 
 
 @login_required
@@ -79,8 +83,8 @@ def Liste_Recensement_PDF(request) :
     filename_dir = 'Recensement'
     filename_temp = 'Recensement_' + str(today.year) 
     filename = filename_temp + '.pdf'
-    path = '/Users/valentinjungbluth/Desktop/Django/Individus/' + filename
-
+    
+    path = Global_variables.Individu_path.path + filename
     
     file = open(path, "w+b") 
     pisaStatus = pisa.CreatePDF(html.encode('utf-8'), dest=file, encoding='utf-8')
@@ -173,19 +177,49 @@ def Liste_Recensement_PDF(request) :
 
 @login_required
 def Attestation_Recensement_Formulary(request) :
+    
+    query_social_number = request.GET.get('social_number')
+
+    success = False 
 
     if request.method == 'POST':
         
         form = Attestation_Recensement_Form(request.POST or None)
 
         if form.is_valid() :    
-            if 'save' in request.POST :
-                post = form.save()
-                return HttpResponseRedirect(reverse('Rtreated', kwargs={'id': post.id}))
+            post = form.save()
+            messages.success(request, 'Le formulaire a été enregistré !')
+            return HttpResponseRedirect(reverse('Rtreated', kwargs={'id': post.id}))
 
-    else :
+        else:
+            messages.error(request, "Le formulaire est invalide !")
+
+    elif request.method == 'GET':
+    
         form = Attestation_Recensement_Form()
         
+        if query_social_number :
+            if Person.objects.filter(social_number = query_social_number).exists() == True :
+                
+                individu = get_object_or_404(Person, social_number = query_social_number)
+                messages.success(request, 'Le numéro unique existe !')
+
+                form.fields['title'].initial = individu.title
+                form.fields['lastname'].initial = individu.lastname
+                form.fields['firstname'].initial = individu.firstname
+                form.fields['birthday'].initial = individu.birthday
+                form.fields['birthcity'].initial = individu.birthcity
+                form.fields['birthcountry'].initial = individu.birthcountry
+                form.fields['adress'].initial = individu.adress
+                form.fields['city'].initial = individu.city
+                form.fields['country'].initial = individu.country
+                form.fields['sex'].initial = individu.sex
+                form.fields['social_number'].initial = individu.social_number
+
+            elif BirthCertificate.objects.filter(social_number = query_social_number).exists() == False :
+
+                messages.error(request, "Le numéro unique est invalide ou déjà existant !")
+                
 
     context = {
         "form" : form
@@ -213,12 +247,14 @@ def Attestation_Recensement_PDF(request, id) :
     template = get_template('Attestation_Recensement_raw.html')
     html  = template.render(Context(data))
 
+    social_number = str(Attestation_Recensement.objects.get(pk=id).social_number.encode('utf-8'))
+    social_number_2 = social_number.replace(" ", "")
 
-    filename_directory = str(Attestation_Recensement.objects.get(pk=id).lastname.encode('utf-8')) + "_" + str(Attestation_Recensement.objects.get(pk=id).firstname.encode('utf-8')) + "_" + str(Attestation_Recensement.objects.get(pk=id).birthday)
+    filename_directory = str(Attestation_Recensement.objects.get(pk=id).lastname.encode('utf-8')) + "_" + str(Attestation_Recensement.objects.get(pk=id).firstname.encode('utf-8')) + "_" + social_number_2
     filename_init = 'Attestation_Recensement_' + filename_directory 
     filename = filename_init + '.pdf'
-    path = '/Users/valentinjungbluth/Desktop/Django/Individus/' + filename
-
+    
+    path = Global_variables.Individu_path.path + filename
     
     file = open(path, "w+b") 
     pisaStatus = pisa.CreatePDF(html.encode('utf-8'), dest=file, encoding='utf-8')
@@ -294,6 +330,8 @@ def Attestation_Recensement_PDF(request, id) :
             print "Nombre d'occurence trouvée : " + str(len(Search_Docs))
             
             Search_Docs_ID = Search_Docs[0]['id']
+
+            print Search_Docs
 
             # Update the document in the good folder
             Upload_Docs = Docs.upload(path, SID, Search_Docs_ID, filename)

@@ -10,13 +10,14 @@ This script lets to define a basic template for "Recensement" -->
         {% load staticfiles %}
         {% load static %}
         {% load user_tags %}
+        {% load variables %}
 
         <title> DatasystemsEC - Recensement </title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="{% get_static_prefix %}{{ mytheme }}/css/Base_Recensement.css"/>
     
@@ -26,24 +27,27 @@ This script lets to define a basic template for "Recensement" -->
     <!-- Upper navigation bar -->
     <!-- #################### -->
 
-     <style>
-        body {
-            background-image:url("{% get_static_prefix %}{{ mytheme }}/images/bg.jpg");
-        }
-
-    </style>
-
     {% include 'Common/Navbar.html' %}
 
     {% if user.is_authenticated %}
 
-    {% include 'Common/Logo.html' %}
+    <div class="row">
+            {% include 'Common/Logo.html' %}
+            <div class="col-lg-8 col-lg-offset-1">
+                {% block title %}
+                {% endblock %}
+            </div>
+        </div>
 
-            <div class="container-fluid">
+
+        {% include 'Common/Blank.html' %}
+    
+
+        <div class="row">
+            <div class="col-lg-12">
                 <div class="row">
-                    <div class="col-md-2 sidebar1">
-                        
-                        <div class="left-navigation">
+                    <div class="col-lg-4 sidebar1">
+						<div class="left-navigation">
 
                             <ul class="list">
                                 <h5><strong><span class="glyphicon glyphicon-home"></span> Accueil</strong></h5>
@@ -57,41 +61,38 @@ This script lets to define a basic template for "Recensement" -->
                             </ul>
                             <ul class="list">
                                 <h5><strong><span class="glyphicon glyphicon-book"></span> DatasystemsDOC</strong></h5>
-                                <li><a target="_blank" href="https://demoged.datasystems.fr:8090/frontend.jsp?folderId=8552450">Individus</a></li>
-                                <li><a target="_blank" href="https://demoged.datasystems.fr:8090/frontend.jsp?folderId=8978465">Tables</a></li>
-                                <li><a target="_blank" href="https://demoged.datasystems.fr:8090/frontend.jsp?folderId=8978476">Recensement</a></li>
+                                <li><a target="_blank" href="{% GED_url %}/frontend.jsp?folderId=8552450">Individus</a></li>
+                                <li><a target="_blank" href="{% GED_url %}/frontend.jsp?folderId=8978465">Tables</a></li>
+                                <li><a target="_blank" href="{% GED_url %}/frontend.jsp?folderId=8978476">Recensement</a></li>
                             </ul>
                         </div>
                     </div>
                     <body> 
                     {% endif %}
-                    {% if user.is_authenticated %}
-                    <div class="col-md-10">
-
-                    {% else %}
-                    <div class="col-md-12">
-
-                    {% endif %}
+                    
+                    {% if user.is_authenticated %}	
+					<div class="row">
+						<div class="blank"></div>
+						<div class="col-lg-7 col-lg-offset-1"> 
+		            {% else %}
+					<div class="row">
+						<div class="blank"></div>
+						<div class="col-lg-8 col-lg-offset-2"> 
+		            {% endif %}
 
                     {% block content %}
                     {% endblock content %}  
                 
-                    </div>
-                    </body>
-                </div>
-            </div>
-            {% if user.is_authenticated %}
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-12">
-                        
-                    </div>
-                </div>
-            </div>
+						</div>
+					</div>	
+				</div>			
+			</div>
+		</div>
+		
+		{% include 'Common/Blank.html' %}
 
+    {% include 'Common/Footer.html' %}
 
-            {% include 'Common/Footer.html' %}
-
-            {% endif %}
-  
+    </body>
+	
 </html>

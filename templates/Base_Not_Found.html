@@ -10,13 +10,14 @@ This script lets to define a basic template for "Not_Found" -->
         {% load staticfiles %}
         {% load static %}
         {% load user_tags %}
+        {% load variables %}
 
         <title> DatasystemsEC - Page non trouvée </title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="{% get_static_prefix %}{{ mytheme }}/css/Base_Not_Found.css"/>
     
@@ -37,7 +38,22 @@ This script lets to define a basic template for "Not_Found" -->
 
     {% if user.is_authenticated %}
 
-    {% include 'Common/Logo.html' %}
+        <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2">
+                <div class="logo">
+                    <img src="{% get_static_prefix %}{{ mytheme }}/images/logo.png" class="img-responsive center-block" alt="Logo">
+                </div>
+            </div>
+            <div class="col-md-10">
+                <div class="title">
+                    {% block title %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+    
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-2 sidebar1">
@@ -59,7 +75,7 @@ This script lets to define a basic template for "Not_Found" -->
 
                             <ul class="list">
                                 <h5><strong><span class="glyphicon glyphicon-file"></span> Actes Etat Civil</strong></h5>
-                                <li><a href="{% url "home" %}">Fiches Identités</a></li>
+                                <li><a href="{% url "home" %}">Fiches individuelles</a></li>
                                 <li><a href="{% url "BChome" %}">Actes de Naissance</a></li>
                                 <li><a href="{% url "BCnotfound" %}">Actes de Reconnaissance / Adoption</a></li>
                                 <li><a href="{% url "BCnotfound" %}">Actes de Mariage</a></li>
@@ -81,9 +97,9 @@ This script lets to define a basic template for "Not_Found" -->
 
                             <ul class="list">
                                 <h5><strong><span class="glyphicon glyphicon-book"></span> DatasystemsDOC</strong></h5>
-                                <li><a target="_blank" href="https://demoged.datasystems.fr:8090/frontend.jsp?folderId=8552450">Individus</a></li>
-                                <li><a target="_blank" href="https://demoged.datasystems.fr:8090/frontend.jsp?folderId=8978465">Tables</a></li>
-                                <li><a target="_blank" href="https://demoged.datasystems.fr:8090/frontend.jsp?folderId=8978476">Recensement</a></li>
+                                <li><a target="_blank" href="{% GED_url %}/frontend.jsp?folderId=8552450">Individus</a></li>
+                                <li><a target="_blank" href="{% GED_url %}/frontend.jsp?folderId=8978465">Tables</a></li>
+                                <li><a target="_blank" href="{% GED_url %}/frontend.jsp?folderId=8978476">Recensement</a></li>
                             </ul>
 
                             {% if request.user|has_group:"admin" %}

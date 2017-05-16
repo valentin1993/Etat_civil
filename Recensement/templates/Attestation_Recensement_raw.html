@@ -99,10 +99,14 @@
             </td>
         
             <td align="left">
-                <p> Atteste que {% if ar.sex == "Masculin" %} Monsieur {{ar.lastname}} {{ar.firstname}}
+                <p> Atteste que :</p>
+                <p>{% if ar.sex == "Masculin" %} Monsieur {{ar.lastname}} {{ar.firstname}}
                 {% else %}
                 Mademoiselle {{ar.lastname}} {{ar.firstname}}
                 {% endif %} </p>
+                <p> ayant le numéro d'identification : </p>
+                {{ar.social_number}}
+                <p></p>
             </td>
 
             <td>

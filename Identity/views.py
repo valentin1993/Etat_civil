@@ -23,6 +23,8 @@ import time
 from random import randint
 from django.contrib import messages 
 
+import Global_variables
+
 
 
 @login_required
@@ -48,7 +50,7 @@ def Chartview(request) :
             datasource = weatherdata,
             series_options =
               [{'options':{
-                  'type': 'pie',
+                  'type': 'column',
                   'stacking': False},
                 'terms':{
                   'city': [
@@ -56,7 +58,7 @@ def Chartview(request) :
                   }}],
             chart_options =
               {'title': {
-                   'text': "Nombre d'habitant par ville"},
+                   'text': "Nombre d'habitants par ville"},
                 'xAxis': {
                     'title': {
                        'text': 'Villes'}}})
@@ -77,7 +79,7 @@ def Chartview(request) :
             datasource = ds,
             series_options =
               [{'options':{
-                  'type': 'pie',
+                  'type': 'column',
                   'stacking': False},
                 'terms':{
                   'birthcountry': [
@@ -85,7 +87,7 @@ def Chartview(request) :
                   }}],
             chart_options =
               {'title': {
-                   'text': "Proportion des Pays de Naissance"},
+                   'text': "Visualisation globale des Pays de Naissance"},
                 'xAxis': {
                     'title': {
                        'text': 'Pays de Naissance'}}})
@@ -106,7 +108,7 @@ def Chartview(request) :
             datasource = ds2,
             series_options =
               [{'options':{
-                  'type': 'column',
+                  'type': 'pie',
                   'stacking': False},
                 'terms':{
                   'sex': [
@@ -114,7 +116,7 @@ def Chartview(request) :
                   }}],
             chart_options =
               {'title': {
-                   'text': "Nombre Homme/Femme"},
+                   'text': "Proportion Homme/Femme"},
                 'xAxis': {
                     'title': {
                        'text': 'Sexe'}}})
@@ -188,7 +190,7 @@ def Identity_Form_unique_number(request) :
                 validity = False
                 messages.error(request, "Le numéro unique est invalide !")
                 
-
+ 
     context = {
         "form" : form,
         "validity" : validity,
@@ -282,6 +284,8 @@ def Identity_Resume(request, id) :
 def Identity_Researching(request) :
     
     folderId = None
+    success = False
+    error = False
     
     #######################
     # Display some arrays #
@@ -291,9 +295,46 @@ def Identity_Researching(request) :
     person = persons[:3] #The 3 last created forms
     person_France = persons.filter(country=64)[:3] #The 3 last created form with BirthCity = France
 
-    ############################
-    # People searching process #
-    ############################
+    ##########################
+    # People searching n° ID #
+    ##########################
+
+    query_lastname_ID = request.GET.get('q1ID')
+    query_firstname_ID = request.GET.get('q1bisID')
+
+    if query_firstname_ID and query_lastname_ID :
+        
+        query_ID_list = Person.objects.filter(lastname__iexact=query_lastname_ID, firstname__iexact=query_firstname_ID)
+        if len(query_ID_list) != 0 :
+            messages.success(request, 'Miracle .. Vous avez un résultat !')
+        else :
+            messages.error(request, "Oh non .. Vous n'avez aucun résultat !")
+        
+
+    elif query_firstname_ID :
+        
+        query_ID_list = Person.objects.filter(lastname__iexact=query_firstname_ID)
+        if len(query_ID_list) != 0 :
+            messages.success(request, 'Miracle .. Vous avez un résultat !')
+        else :
+            messages.error(request, "Oh non .. Vous n'avez aucun résultat !")
+
+    elif query_lastname_ID :
+        
+        query_ID_list = Person.objects.filter(lastname__iexact=query_lastname_ID)
+        if len(query_ID_list) != 0 :
+            messages.success(request, 'Miracle .. Vous avez un résultat !')
+        else :
+            messages.error(request, "Oh non .. Vous n'avez aucun résultat !")
+
+    else :
+        query_ID_list = Person.objects.none() # == []
+
+
+
+    ##############################################
+    # People searching process in DatasystemsDOC #
+    ##############################################
 
     query_lastname = request.GET.get('q1')
     query_firstname = request.GET.get('q1bis')
@@ -311,7 +352,7 @@ def Identity_Researching(request) :
         # Look if people directory already exist #
         ##########################################
 
-        url = 'https://demoged.datasystems.fr:8090/services/rest/folder/listChildren?folderId=8552450'
+        url = Global_variables.GED_url.url + '/services/rest/folder/listChildren?folderId=8552450'
         payload = {'folderId': 8552450}
 
         headers = {'Accept': 'application/json'}
@@ -348,11 +389,14 @@ def Identity_Researching(request) :
     else :
         query_lastname_list = Person.objects.none() # == []
 
-        messages.error(request, "Individu non trouvé et/ou formulaire invalide !")
+        # messages.error(request, "Individu non trouvé et/ou formulaire invalide !")
 
 
     context = {
         "person" : person,
+        "query_lastname_ID" : query_lastname_ID,
+        "query_firstname_ID": query_firstname_ID,
+        "query_ID_list" : query_ID_list,
         # "social_number2" : social_number2,
         "person_France" : person_France,
         "query_lastname" : query_lastname,
@@ -368,6 +412,7 @@ def Identity_Researching(request) :
 
 @login_required
 def Identity_Update(request) :
+    
     
     # Partie qui recherche une fiche par nom
     query_lastname = request.GET.get('q4')
@@ -451,8 +496,9 @@ def Identity_PDF(request, id) :
     filename_directory = str(Person.objects.get(pk=id).lastname.encode('utf-8')) + "_" + str(Person.objects.get(pk=id).firstname.encode('utf-8')) + "_" + social_number_2
     filename_init = 'Fiche_Individuelle_' + filename_directory 
     filename = filename_init + '.pdf'
-    path = '/Users/valentinjungbluth/Desktop/Django/Individus/' + filename
-  
+    
+    path = Global_variables.Individu_path.path + filename
+
     file = open(path, "w+b") 
     pisaStatus = pisa.CreatePDF(html.encode('utf-8'), dest=file, encoding='utf-8')
     file.close()

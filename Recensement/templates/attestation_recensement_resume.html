@@ -1,60 +1,109 @@
 {% extends 'Base_Recensement.html' %}
 
 {% load staticfiles %}
+{% load static %}
 
 {% block title %}
+<div class="title">
     <h3><span class="glyphicon glyphicon-th-list"> </span> L'attestation de Recensement de l'individu {{ar.lastname}} {{ar.firstname}} a été enregistré </h3>
+</div>
 {% endblock %}
 
 {% block content %}
 
-<style>
+    <div class="title_subtitle_space"></div>
 
-    form > input {
-	    width:20%;
-    }
+    {% for message in messages %}
+        <div class="alert {{ message.tags }} alert-dismissible alert-error alert-success" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            {{ message }}
+        </div>
+    {% endfor %}
 
-     form {
-        list-style: none;
-    }
+    <script type="text/javascript" src="{% get_static_prefix %}{{ mytheme }}/js/notifications.js"></script>
 
-    .current {
-        margin-left:8vw;
-    }
+    <div class="resume">
 
-</style>
-   
-    <form class = "form" method='POST' action=''> {% csrf_token %}
-    <br></br>
-    Votre attestation porte le numéro : <b> {{ ar.id}} </b> 
-    <br></br>
-    <h4> Récapitulatif des données enregistrées : </h4>
+        Votre attestation porte le numéro : <b> {{ ar.id}} </b> 
+    
+    </div>
 
-    <b>Civilité :</b>  {{ar.title}} <br />
-    <b>Nom :</b>  {{ar.lastname}} <br />
-    <b>Prénom :</b>  {{ar.firstname}} <br />
-    <b>Date de Naissance :</b>  {{ar.birthday}} <br />
-    <b>Ville de Naissance :</b>  {{ar.birthcity}} <br />
-    <b>Pays de Naissance :</b>  {{ar.birthcountry.name}} <br />
-    <b>Ville :</b>  {{ar.city}} <br />
-    <b>Pays :</b>  {{ar.country.name}} <br />
+        <br></br>
+
+        <div class="subtitle">
+            <h4> Récapitulatif des données enregistrées : </h4>
+        </div>
+            <table style="width:90%">
+                <tbody>
+                    <p></p>
+                <tr>
+                    <th> Informations sur l'individu </th>
+                    <th> Données renseignées </th>
+                </tr>
+                <tr>
+                    <td>N° Identification</td>
+                    <td>{{ar.social_number}}</td>
+                </tr>
+                <tr>
+                    <td>Civilité</td>
+                    <td>{{ar.title}}</td>
+                </tr>
+                <tr>
+                    <td>Nom de famille</td>
+                    <td>{{ar.lastname}}</td>
+                </tr>
+                <tr>
+                    <td>Prénom(s)</td>
+                    <td>{{ar.firstname}}</td>
+                </tr>
+                <tr>
+                    <td>Sexe</td>
+                    <td>{{ar.sex}}</td>
+                </tr>
+                <tr>
+                    <td>Date de naissance</td>
+                    <td>{{ar.birthday}}</td>
+                </tr>
+                <tr>
+                    <td>Ville de naissance</td>
+                    <td>{{ar.birthcity}}</td>
+                </tr>
+                <tr>
+                    <td>Pays de naissance</td>
+                    <td>{{ar.birthcountry}}</td>
+                </tr>
+                <tr>
+                    <td>Adresse</td>
+                    <td>{{ar.adress}}</td>
+                </tr>
+                <tr>
+                    <td>Ville</td>
+                    <td>{{ar.city}}</td>
+                </tr>
+                <tr>
+                    <td>Pays</td>
+                    <td>{{ar.country.name}}</td>
+                </tr>
+                </tbody>
+            </table>
     
     <br></br>
-    </form>
 
-    <form class="form" method='POST' action="{% url "RPDF" ar.id %}">{% csrf_token %}
-    <button>Générer le PDF de l'Attestation de Recensement </button>
-    </form>
+    <div class="resume">
+        <form method='POST' action="{% url "RPDF" ar.id %}">{% csrf_token %}
+        <button>Générer le PDF de l'Attestation de Recensement </button>
+        </form>
 
-    <script>
-    $(function() {
-    $('button').click(function() {
-        alert("Votre PDF a été généré dans DatasystemsDOC");
-    });
-    })(jQuery);
-    </script>
-   
-    
+        <script>
+        $(function() {
+        $('button').click(function() {
+            alert("Votre PDF a été généré dans DatasystemsDOC");
+        });
+        })(jQuery);
+        </script>
 
+    </div>
 
 {% endblock content %}

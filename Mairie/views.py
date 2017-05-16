@@ -46,4 +46,4 @@ def Mairie_form(request):
 def Mairie_Resume(request) :
     
     mairie = Mairie.objects.latest('id')
-    return render(request, 'Mairie_resume.html', {"mairie" : mairie})
+    return render(request, 'Mairie_Resume.html', {"mairie" : mairie})

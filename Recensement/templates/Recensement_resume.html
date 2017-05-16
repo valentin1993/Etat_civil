@@ -3,39 +3,40 @@
 {% load staticfiles %}
 
 {% block title %}
-    <h3><span class="glyphicon glyphicon-user"> </span> Prévisualisation de la liste des recensements (individus ayant 16 ans et même commune que la mairie) </h3>
+<div class="title">
+    <h3><span class="glyphicon glyphicon-user"> </span> Liste des recensements (individus ayant 16 ans et même commune que la mairie) </h3>
+</div>
 {% endblock %}
 
 {% block content %}
 
 <style>
 
-    form > input {
-	    width:20%;
-    }
-
-     form {
-        list-style: none;
-    }
-
     .current {
-        margin-left:8vw;
+        margin-left:6vw;
     }
 
 </style>
 
-        <br></br>
+    <div class="title_subtitle_space"></div>
+
+    <div class="subtitle-form">
+        <h4> Prévisualisation de la liste des recensements </h4>
+    </div>
+        
 
         <table style="width : 80%">
             <tbody>
                 <tr>
+                    <th>N° Identification</th>
                     <th>Nom & prénom(s)</th>
-                    <th>Lieux de naissance</th>
+                    <th>Lieu de naissance</th>
                     <th>Date de naissance</th>
                     <th>Adresse - Ville (Pays)</th>
                 </tr>
                 {% for item in result %}
                 <tr>
+                    <td> {{item.social_number}} </td>
                     <td> {{item.lastname}} {{item.firstname}} </td>
                     <td> {{item.birthcity}} ({{item.birthcountry.name}}) </td>
                     <td> {{item.birthday}}  </td>
@@ -61,9 +62,7 @@
         <br></br>
 
         <form class = "form" method='POST' action="{% url "RecensementPDF" %}"> {% csrf_token %}
-            <input class="button" type ="submit" value="Générer le PDF du recensement" />
+            <input type="submit" onclick="return confirm('Générer le PDF ?')" />
         </form>
-       
-
 
 {% endblock content %}

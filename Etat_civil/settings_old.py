@@ -34,19 +34,9 @@ MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-TEMPLATE_DIRS = [
-	os.path.join(BASE_DIR, "templates"),
-	os.path.join(BASE_DIR, "Accueil/templates/"),
-	os.path.join(BASE_DIR, "BirthCertificate/templates/"),
-	os.path.join(BASE_DIR, "Identity/templates"),
-	os.path.join(BASE_DIR, "Mairie/templates"),
-	os.path.join(BASE_DIR, "Table/templates"),
-	os.path.join(BASE_DIR, "log/templates"),
-	os.path.join(BASE_DIR, "Mariage/templates"),
-	os.path.join(BASE_DIR, "Configurations/templates"),
-	os.path.join(BASE_DIR, "Recensement/templates"),
-]
+TEMPLATE_DIRS = (
+        os.path.join(BASE_DIR, 'templates'),
+)
 
 
 # Quick-start development settings - unsuitable for production
@@ -132,7 +122,16 @@ ROOT_URLCONF = 'Etat_civil.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': TEMPLATE_DIRS,
+        'DIRS': ['/Users/valentinjungbluth/Desktop/Django/DatasystemsEC/Etat_civil/templates/',
+                 '/Users/valentinjungbluth/Desktop/Django/DatasystemsEC/Etat_civil/Accueil/templates/',
+                 '/Users/valentinjungbluth/Desktop/Django/DatasystemsEC/Etat_civil/BirthCertificate/templates/',
+                 '/Users/valentinjungbluth/Desktop/Django/DatasystemsEC/Etat_civil/Identity/templates/',
+                 '/Users/valentinjungbluth/Desktop/Django/DatasystemsEC/Etat_civil/Configurations/templates/',
+                 '/Users/valentinjungbluth/Desktop/Django/DatasystemsEC/Etat_civil/log/templates/',
+                 '/Users/valentinjungbluth/Desktop/Django/DatasystemsEC/Etat_civil/Mairie/templates/',
+                 '/Users/valentinjungbluth/Desktop/Django/DatasystemsEC/Etat_civil/MairMariageie/templates/',
+                 '/Users/valentinjungbluth/Desktop/Django/DatasystemsEC/Etat_civil/Recensement/templates/',
+                 '/Users/valentinjungbluth/Desktop/Django/DatasystemsEC/Etat_civil/Table/templates/'],
         'APP_DIRS': True,
         'OPTIONS': {
             'debug' : DEBUG,
@@ -218,7 +217,7 @@ LOGGING = {
             },
         'logfile': {
             'level': 'DEBUG',
-            'filename': os.path.join(BASE_DIR, "/Log/info.log")
+            'filename': BASE_DIR + "/Log/info.log"
         },
         'console': {
             'level': 'INFO',
@@ -245,7 +244,7 @@ LOGGING = {
     'applogfile': {
         'level':'DEBUG',
         'class':'logging.handlers.RotatingFileHandler',
-        'filename': os.path.join(BASE_DIR, "APPNAME.log"),
+        'filename': os.path.join('/Users/valentinjungbluth/Desktop/APPNAME.log'),
         'maxBytes': 1024*1024*15, # 15MB
         'backupCount': 10,
     },
@@ -290,11 +289,10 @@ USE_TZ = True
 # http://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
-THEME_DIRS = os.path.join(BASE_DIR, "static", "Theme/")
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"), THEME_DIRS, ]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"), "/Users/valentinjungbluth/Desktop/Django/DatasystemsEC/Etat_civil/static/Theme", ]
 
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
-STATIC_ROOT = os.path.join(PROJECT_DIR, 'static/')
+STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
 
 LOGIN_URL = '/Home/login/'
 

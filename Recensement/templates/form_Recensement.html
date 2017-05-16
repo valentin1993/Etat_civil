@@ -1,39 +1,43 @@
 {% extends 'Base_Recensement.html' %}
 
 {% load staticfiles %}
+{% load static %}
 
 {% block title %}
+<div class="title">
     <h3><span class="glyphicon glyphicon-th-list"> </span> Création de l'Attestation de Recensement </h3>
+</div>
 {% endblock %}
 
 {% block content %}
 
-<style>
+    <div class="title_subtitle_space"></div>
 
-    form > input {
-	    width:20%;
-    }
-
-     form {
-        list-style: none;
-    }
-
-    .current {
-        margin-left:8vw;
-    }
-
-</style>
+        <form class = "form" method="GET" action=""> 
+            <input class="identification-field" type="text"  name="social_number" placeholder="Entrer le n° identification" value="{{request.GET.social_number}}">&nbsp;
+            <input class="button" type="submit" value="Valider"><br></br>
+        </form>
         
-   
+        {% for message in messages %}
+        <div class="alert {{ message.tags }} alert-dismissible alert-error alert-success" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    <script type="text/javascript" src="{% get_static_prefix %}{{ mytheme }}/js/notifications.js"></script>
+
         <form autocomplete="off" class = "form" method='POST' action=''> {% csrf_token %}
 
         <br></br>
-        {{ form.as_ul}} 
+        {{ form.as_p}} 
         {{birthday|date:"%d/%m/%Y" }} 
 
         <br></br>
 
-        <input class="button" type ="submit" name="save" value="Valider l'attestation de recensement" /> 
+        <input type="submit" onclick="return confirm('Valider le document ?')" />
 
         </form>
 

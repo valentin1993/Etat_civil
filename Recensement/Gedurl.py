@@ -1,1 +1,1 @@
-GEDurl = 'https://demoged.datasystems.fr:8090'
+GEDurl = 'http://demoged.datasystems.fr:8080'

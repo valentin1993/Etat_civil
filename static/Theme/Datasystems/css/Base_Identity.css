@@ -2,8 +2,32 @@
 /* CSS File about Identiy application properties */
 /* ############################################# */
 
-@import url("http://bootswatch.com/flatly/bootstrap.min.css");
+    /*table {
+        margin-left : 6vw;
+    }*/
 
+    table, th, td {
+        border: 1px solid black;
+        padding-left : 1vw;
+        border-collapse: collapse;
+        text-align: left;
+        }
+
+    th {
+        background-color: #0083A2 !important;
+        }
+
+    td {
+        border: 0 none;
+        }
+
+    tr:hover td{
+        background-color:lightslategray;
+        }
+
+    table tr:nth-child(odd){
+        background-color:lightgrey;
+        }
 
     /* Define background color from upper navbar */
     .navbar-inverse {
@@ -17,6 +41,8 @@
 
     /* Tab properties from navbar */
     .navbar .nav > li > a {
+        padding-right: -20px;
+        padding-left: -20px;
         color:  white !important;
         }
 
@@ -28,154 +54,95 @@
         background-color: #454545;
         }
 
-.dropdown:hover {
-            background-color: #454545;
-            color: white;
+    .navbar .sub-menu:before {
+        border-bottom: 7px solid transparent;
+        border-left: none;
+        border-right: 7px solid rgba(0, 0, 0, 0.2);
+        border-top: 7px solid transparent;
+        left: -7px;
+        top: 10px;
         }
 
-        .dropdown-menu .sub-menu {
-            left: 100%;
-            position: absolute;
-            top: -4px;
-            visibility: hidden;
-            margin-top: 0;
+    .navbar .sub-menu:after {
+        border-top: 6px solid ;
+        border-left: none;
+        border-right: 6px solid #fff;
+        border-bottom: 6px solid ;
+        left: 10px;
+        top: 11px;
+        left: -6px;
         }
 
-        .dropdown-menu li:hover .sub-menu {
-            visibility: visible;
+    /* Hoover button properties */
+    .button:hover {
+        background-color: #0083A2;
+        color: #454545;
         }
-
-        .dropdown:hover .dropdown-menu {
-            display: block;
-        }
-
-        .navbar .sub-menu:before {
-            border-bottom: 7px solid transparent;
-            border-left: none;
-            border-right: 7px solid rgba(0, 0, 0, 0.2);
-            border-top: 7px solid transparent;
-            left: -7px;
-            top: 10px;
-        }
-        .navbar .sub-menu:after {
-            border-top: 6px solid ;
-            border-left: none;
-            border-right: 6px solid #fff;
-            border-bottom: 6px solid ;
-            left: 10px;
-            top: 11px;
-            left: -6px;
-        }
-
-    h1, h2, h4, h3 {
+    
+    h1, h2, h4 {
         color: #0083A2;
         }
-
-    h4 {
-        padding-left: 8vw;
-    }
-    
-    h3 {
-        padding-left : 6vw;
-    }
 
     /* Define button properties */
     .button {
 
         display: inline;
-        margin-left: 18.5vw;
+        margin-left: auto;
+        margin-right: auto;
         border-radius: 8px;
         font-size: 16px;
         background-color: #e7e7e7;
 
-        -webkit-transition-duration: 0.2s;
-        transition-duration: 0.2s;
-        }
-
-    .button_numero {
-
-        display: inline;
-        border-radius: 8px;
-        font-size: 16px;
-        background-color: #e7e7e7;
         -webkit-transition-duration: 0.2s;
         transition-duration: 0.2s;
         }
 
     /* Define form fields properties */
-    .form-fields {
+    #id_sex, #id_status, #id_country, #id_birthcountry, #id_title{
+        width:25.83vw;
+    }
+
+    /*#id {
+        width:25.83vw;
+    }*/
+
+
+    /* Define form fields properties */
+    /*.form-fields {
         border-radius: 4px;
         margin-right: auto;
         background-color: #f5f5f5;
         width:25.83vw;
-        }
+        }*/
 
     .form {
-        padding-left:8vw;
+        padding-left:10vw;
+        list-style: none;
+    }
+
+    form > input {
+	    width:20%;
+    }
+
+    input  {
+        width: 25.83vw;
+        background-color: #f5f5f5;
+        border-radius: 4px; 
+        margin-bottom: -20px; 
+        }
+
+    .identification-field {
+        width: 15vw;
+        background-color: #f5f5f5;
+        border-radius: 8px; 
+        margin-bottom: -20px; 
     }
 
     label  {
         width: 15vw;
-        /*background-color: #f5f5f5;*/
         border-radius: 8px; 
         margin-bottom: -20px; 
         }
-
-    input {
-        width: 25.83vw;
-        background-color: #f5f5f5;
-        border-radius: 8px; 
-        margin-bottom: 10px; 
-        }
-
-    .col-sm-8 {
-        list-style: none;
-        margin-left:20%;
-        margin-top:-68%;
-        }
-
-    .col-sm-10 {
-        display:inline-block;
-        padding-left : 8vw;
-        width: 800%;
-        list-style: none;
-        }
-
-    /* Hoover button properties */
-    .button:hover, .button_numero:hover {
-        background-color: #0083A2;
-        color: #454545;
-        }
-
-    .dropdown-toggle:active, .open > .dropdown-toggle {
-        background-color:#454545 !important;
-    }
-
-    /* Hoover color dropdown menu */
-    .dropdown-menu>li>a:hover {
-    color: white;
-    text-decoration: none;
-    background-color: #454545;
-        }
-
-    /* Define background-color for dropdown active tab */
-    .dropdown.open > .active {
-        background: #FFFFFF;
-        }
-
-    .sidebar1 {
-        background: #0083A2;
-        padding:0%;
-        margin-top:0.3vw;
-        min-height: 100%;
-        width:30vh;
-        height:100%;
-    }
-    
-    img.img-responsive.center-block {
-        width:13.77vw;
-        padding-right:1vw;
-    }
 
     .list {
         color: #fff;
@@ -205,7 +172,6 @@
     ul.list li.active a {
         color: white !important;
         text-decoration: none;
-
     }
 
     .list > h5 > strong {
@@ -218,6 +184,7 @@
         padding: 2% 0% 2% 5%;
         background-color: #454545 ;
     }
+
     .list>li:hover {
         background-color: #454545;
         border-left: 5px solid white;
@@ -226,67 +193,134 @@
         padding-left: 35px;
     }
 
-    .main-content{
-        text-align:center;
+
+    .sidebar1 {
+        background: #0083A2;
+        padding:0%;
+        margin-top:1vw;
+        min-height: 100%;
+        width:40vh;
+        height:100%;
+        
     }
 
-    
-    .navbar-right {
-            /*padding-left: 400px;*/
-            position:absolute; 
-            right:4vw;
-        }
+    img.img-responsive.center-block {
+        width:17vw;
+        padding-right:3vw;
+    }
 
-    .marginBottom-0 {margin-bottom:0;}
-    .dropdown-submenu{position:relative;}
-    .dropdown-submenu>.dropdown-menu{top:0;left:100%;margin-top:0%;margin-left:0%;-webkit-border-radius:0 6px 6px 6px;-moz-border-radius:0 6px 6px 6px;border-radius:0 6px 6px 6px;}
-    .dropdown-submenu>a:after{display:block;content:" ";float:right;width:0;height:0;border-color:transparent;border-style:solid;border-width:3% 0 5px 5px;border-left-color:#cccccc;margin-top:5px;margin-right:-10px;}
-    .dropdown-submenu:hover>a:after{border-left-color:#555;}
-    .dropdown-submenu.pull-left{float:none;}.dropdown-submenu.pull-left>.dropdown-menu{left:-100%;margin-left:10px;-webkit-border-radius:6px 0 6px 6px;-moz-border-radius:6px 0 6px 6px;border-radius:6px 0 6px 6px;}
-    
+    .blank {
+        margin : 0 0 1% 0;
+    }
+
     .footer {
         position: absolute;
-        bottom: 1vh;
-        width: 99%;
-        height: 6vh;
+        margin : 9% 0 0 0;
+        width: 100%;
         text-align: center;
-
-        margin-bottom: -8%;
     }
 
     .container-fluid .text-muted {
+
     color:#0083A2 !important;
     padding-left:auto;
-    padding-right:5%;
     background-color: transparent;
     }
 
-    .footer > .container {
-    padding-right: 15px;
+    .navbar-right {
+            /*padding-left: 400px;*/
+            position:absolute; 
+            right: 3vw;
+        }
+
+    .marginBottom-0 {
+        margin-bottom:0;
+        }
+
+    .carousel-inner > .item > img,
+    .carousel-inner > .item > a > img {
+                width: 100%;
+                margin: auto;
+            }
+
+    .dropdown-submenu{
+        position:relative;
+        }
+
+    .dropdown-submenu>.dropdown-menu{
+        top:0;
+        left:100%;
+        margin-top:0%;
+        margin-left:0%;
+        -webkit-border-radius:0 6px 6px 6px;
+        -moz-border-radius:0 6px 6px 6px;
+        border-radius:0 6px 6px 6px;
+        }
+
+    .dropdown-submenu>a:after{
+        display:block;
+        content:" ";
+        float:right;
+        width:0;
+        height:0;
+        border-color:transparent;
+        border-style:solid;
+        border-width:3% 0 5px 5px;
+        border-left-color:#cccccc;
+        margin-top:5px;
+        margin-right:-10px;
+        }
+
+    .dropdown-submenu:hover>a:after{
+        border-left-color:#555;
+        }
+
+    .dropdown-submenu.pull-left{
+        float:none;
+        }
+
+    .dropdown-submenu.pull-left>.dropdown-menu{
+        left:-100%;
+        margin-left:10px;
+        -webkit-border-radius:6px 0 6px 6px;
+        -moz-border-radius:6px 0 6px 6px;
+        border-radius:6px 0 6px 6px;
+        }
+
+    div.alert.alert-success.alert-dismissible {
+        width:63%;
+        margin-left: 10%;   
     }
 
-table {
-    margin-left : 8vw;
-}
+    .title {
+        color: #0083A2;
+    }
 
-table, th, td {
-        border: 1px solid black;
-        border-collapse: collapse;
-        text-align: left;
-        }
+    .hometitle {
+        margin : 2vw 20vw 0 0;
+    }
 
-        th {
-        background-color: #0083A2 !important;
-        }
+    .subtitle {
+        padding-left : 6vw;
+        color: #0083A2;
+    }
 
-        td {
-        border: 0 none;
-        }
+    .subtitle-form {
+        padding-left: 10vw;
+    }
 
-        tr:hover td{
-        background-color:lightslategray;
-        }
+    .title_subtitle_space{
+        margin-top: 3vh;
+    }
 
-        table tr:nth-child(odd){
-        background-color:lightgrey;
-        }
+    img.stats {
+        position: absolute;
+        width:17vw;
+        height: 17vh;
+        margin-right: 10vw;
+        margin-bottom: -50px;
+    }
+
+    .resume {
+        padding-left:6vw;
+    }

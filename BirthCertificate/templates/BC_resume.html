@@ -4,27 +4,14 @@
 {% load static %}
 
 {% block title %}
-    <h3> <span class="glyphicon glyphicon-file"></span> Votre formulaire a été validé </align> </h3>
+    <div class="title">
+        <h3> <span class="glyphicon glyphicon-file"></span> Votre formulaire a été validé </align> </h3>
+    </div>
 {% endblock %}
 
 {% block content %}
 
-<style>
-
-    form > input {
-	    width:20%;
-    }
-
-     form {
-        list-style: none;
-    }
-
-    div.alert.alert-success.alert-dismissible {
-        width:63%;
-        margin-left: 10%;
-    }
-
-</style>
+    <div class="title_subtitle_space"></div>
 
     {% for message in messages %}
         <div class="alert {{ message.tags }} alert-dismissible alert-error alert-success" role="alert">
@@ -37,50 +24,89 @@
 
     <script type="text/javascript" src="{% get_static_prefix %}{{ mytheme }}/js/notifications.js"></script>
 
-    <form class = "form" method='POST' action=''> {% csrf_token %}
+    <div class="resume">
+        {% comment %}<form class = "form" method='POST' action=''> {% csrf_token %}{% endcomment %}
 
-    <br></br>
+        <br></br>
+        
+        La personne a été enregistré sous le numéro : <b>{{ birthcertificate.id }}</b> 
 
-    L'enfant a été enregistré sous le numéro : <b>{{ birthcertificate.id }}</b> 
+        <p></p>
 
-    <p></p>
+        N° identification attribué : <b>{{birthcertificate.social_number}}</b>
 
-    N° identification attribué : <b>{{birthcertificate.social_number}}</b>
+        <br></br>
 
-    <br></br>
+        <h4> Récapitulatif des données enregistrées : </h4>
 
-    <h4> Récapitulatif des données enregistrées : </h4>
+        <br></br>
 
-    <br></br>
+        <table style="width:90%">
+                <tbody>
+                    <p></p>
+                <tr>
+                    <th> Informations sur l'individu </th>
+                    <th> Données renseignées </th>
+                </tr>
+                <tr>
+                    <td>ID</td>
+                    <td>{{birthcertificate.id}}</td>
+                </tr>
+                <tr>
+                    <td>Nom de famille</td>
+                    <td>{{birthcertificate.lastname}}</td>
+                </tr>
+                <tr>
+                    <td>Prénom(s)</td>
+                    <td>{{birthcertificate.firstname}}</td>
+                </tr>
+                <tr>
+                    <td>Sexe</td>
+                    <td>{{birthcertificate.sex}}</td>
+                </tr>
+                <tr>
+                    <td>Heure de naissance</td>
+                    <td>{{birthcertificate.birthhour}}</td>
+                </tr>
+                <tr>
+                    <td>Date de naissance</td>
+                    <td>{{birthcertificate.birthday}}</td>
+                </tr>
+                <tr>
+                    <td>Ville de naissance</td>
+                    <td>{{birthcertificate.birthcity}}</td>
+                </tr>
+                <tr>
+                    <td>Pays de naissance</td>
+                    <td>{{birthcertificate.birthcountry.name}} ({{birthcertificate.birthcountry}})</td>
+                </tr>
+                <tr>
+                    <td>Père</td>
+                    <td>{{birthcertificate.fk_parent1}}</td>
+                </tr>
+                <tr>
+                    <td>Mère</td>
+                    <td>{{birthcertificate.fk_parent2}}</td>
+                </tr>
+            </tbody>
+        </table>
 
-    <li> <b>Nom :</b>  {{birthcertificate.lastname}}</li>
-    <li> <b>Prénom :</b>  {{birthcertificate.firstname}}</li>
-    <li> <b>Sexe : </b> {{birthcertificate.sex}}</li>
-    <li> <b>Date de Naissance :</b>  {{birthcertificate.birthday}}</li>
-    <li> <b>Heure de Naissance :</b>  {{birthcertificate.birthhour}}</li>
-    <li> <b>Ville de Naissance :</b>  {{birthcertificate.birthcity}}</li>
-    <li> <b>Pays de Naissance :</b>  {{birthcertificate.birthcountry.name}}</li>
-    <li> <b>Père :</b>  {{birthcertificate.fk_parent1}}</li>
-    <li> <b>Mère :</b>  {{birthcertificate.fk_parent2}}</li>
+        <br></br>
 
-    <br></br>
-    </form>
+        <form  method='POST' action="{% url "PDF" birthcertificate.id %}">
+        {% csrf_token %}
+        <button>Générer le PDF des acte de naissance </button>
+        </form>
 
-    <form class="col-sm-10" method='POST' action="{% url "PDF" birthcertificate.id %}">
-    {% csrf_token %}
-    <button>Générer le PDF des acte de naissance </button>
-    </form>
+        <script>
+        $(function() {
+        $('button').click(function() {
+            alert("Votre PDF a été généré dans DatasystemsDOC");
+        });
+        })(jQuery);
+        </script>
 
-    <script>
-    $(function() {
-    $('button').click(function() {
-        alert("Votre PDF a été généré dans DatasystemsDOC");
-    });
-    })(jQuery);
-    </script>
-
-    </form>
-    </form>
+    </div>
 
 
 {% endblock content %} 

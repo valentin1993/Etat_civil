@@ -1,3 +1,8 @@
+<!-- Copyright (C) 2017     Valentin JUNGBLUTH  <valentin@datasystems.fr>
+     Copyright (C) 2017     Alexis MOLTER       <amolter@datasystems.fr>
+
+This script lets to define the form template for "BirthCertificate" -->
+
 {% extends 'Base_BirthCertificate_Naissance.html' %}
 
 <!-- Load static part -->
@@ -6,32 +11,14 @@
 
 <!--HTML template bloc title-->
 {% block title %}
-    <h3> <span class="glyphicon glyphicon-file"></span>Acte de Naissance sans n° identification </align> </h3>
+    <div class="title">
+        <h3> <span class="glyphicon glyphicon-file"></span>Acte de Naissance sans n° identification </align> </h3>
+    </div>
 {% endblock %}
 
 {% block content %}
 
-<!--CSS style part-->
-<style>
-
-    form > input {
-	    width:20%;
-    }
-
-    form {
-        list-style: none;
-    }
-
-    div.alert.alert-success.alert-dismissible {
-        width:63%;
-        margin-left: 10%;
-    }
-
-</style>
-
-<!--############-->
-<!--Bloc content-->
-<!--############-->
+    <div class="title_subtitle_space"></div>
 
     {% for message in messages %}
         <div class="alert {{ message.tags }} alert-dismissible alert-error alert-success" role="alert">
@@ -44,14 +31,14 @@
 
     <script type="text/javascript" src="{% get_static_prefix %}{{ mytheme }}/js/notifications.js"></script>
 
-    <form class = "form" method="GET" action="">
-
+    <div class="subtitle-form">
         <h4> N° identification du père et de la mère : </h4>
+    </div>
 
-        <input type="text"  name="social_number_father" placeholder="N° identification du père" value="{{ request.GET.social_number_father }}">&nbsp;
-        <input type="text"  name="social_number_mother" placeholder="N° identification de la mère" value="{{ request.GET.social_number_mother }}">&nbsp;
+    <form class = "form" method="GET" action="">
+        <input class="identification-field" type="text"  name="social_number_father" placeholder="N° identification du père" value="{{ request.GET.social_number_father }}">&nbsp;
+        <input class="identification-field" type="text"  name="social_number_mother" placeholder="N° identification de la mère" value="{{ request.GET.social_number_mother }}">&nbsp;
         <input class="button" type="submit" value="Valider"><br></br>
-
     </form>
 
     <form autocomplete="off" class = "form" method='POST' action=''> {% csrf_token %} <br></br>

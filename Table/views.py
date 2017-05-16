@@ -20,6 +20,7 @@ from django.template import RequestContext
 
 import datetime
 import Logger, Search, Folds, Docs, Buffer, EnterSearch
+import Global_variables
 
 @login_required
 def Table(request) :
@@ -73,7 +74,7 @@ def Table_Naissance_PDF(request) :
 
     filename_temp = 'Table_annuelle_Naissance_' + str(today.year) 
     filename = filename_temp + '.pdf'
-    path = '/Users/valentinjungbluth/Desktop/Django/Individus/' + filename
+    path = Global_variables.Individu_path.path + filename
 
     
     file = open(path, "w+b") 

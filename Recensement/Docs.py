@@ -79,7 +79,7 @@ def create(path, sid, **parameters):
 
     Workflow.workflow(sid, [doc['id']])
 
-    time.sleep(2)
+    time.sleep(10)
 
     client.service.reindex(sid, doc['id'], None) 
 
@@ -95,7 +95,7 @@ def upload(path, sid, fileid, filename):
 
     Workflow.workflow(sid, [fileid])
 
-    time.sleep(2)
+    time.sleep(10)
 
     client.service.reindex(sid, fileid, None) 
     

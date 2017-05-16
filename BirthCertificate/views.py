@@ -1,14 +1,12 @@
 #-*- coding: utf-8 -*-
 
-import requests, os, json, glob
+import requests, os, glob
 from django.shortcuts import render, reverse, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponseRedirect, HttpResponse
+from django.http import HttpResponseRedirect
 from models import BirthCertificate
 from Identity.models import Person
-from Mairie.models import Mairie
 from .forms import BirthCertificateForm, BirthCertificateForm2
-from django.db import connection
 from django.template import Context
 from django.template.loader import get_template
 from xhtml2pdf import pisa
@@ -16,7 +14,9 @@ from xhtml2pdf import pisa
 from django.contrib import messages 
 from random import randint
 
-import Logger, Search, Folds, Docs, Buffer, EnterSearch
+import Logger, Search, Folds, Docs, EnterSearch
+
+import Global_variables
 
 
 @login_required
@@ -77,6 +77,7 @@ def BirthCertificate_Form(request) :
 @login_required
 def BirthCertificate_Form_unique_number(request) :
     
+    global form
     validity = []
     submission = []
     #User fill some fields
@@ -106,7 +107,7 @@ def BirthCertificate_Form_unique_number(request) :
         parent2 = Person.objects.filter(social_number=query_social_number_mother)
 
         if query_social_number :
-            if Person.objects.filter(social_number = query_social_number).exists() == True :
+            if Person.objects.filter(social_number=query_social_number).exists():
                 
                 individu = get_object_or_404(Person, social_number = query_social_number)
                 messages.success(request, 'Le numéro unique existe !')
@@ -228,7 +229,7 @@ def BirthCertificate_PDF(request, id) :
     filename_directory = str(BirthCertificate.objects.get(pk=id).lastname.encode('utf-8')) + "_" + str(BirthCertificate.objects.get(pk=id).firstname.encode('utf-8')) + "_" + social_number_2
     filename_init = 'Acte_Naissance_' + filename_directory 
     filename = filename_init + '.pdf'
-    path = '/Users/valentinjungbluth/Desktop/Django/Individus/' + filename
+    path = Global_variables.Individu_path.path + filename
 
     file = open(path, "w+b") 
     pisaStatus = pisa.CreatePDF(html.encode('utf-8'), dest=file, encoding='utf-8')

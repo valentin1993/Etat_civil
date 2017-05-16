@@ -1,20 +1,23 @@
 {% extends 'Base_Mairie.html' %}
 
 {% load staticfiles %}
+{% load static %}
 
 {% block title %}
-    <h3> <span class="glyphicon glyphicon-info-sign"></span> Informations concernant la mairie de {{mairie.city}} </align> </h3>
+    <div class = "title">
+        <h3> <span class="glyphicon glyphicon-info-sign"></span> Informations concernant la Mairie de {{mairie.city}} </align> </h3>
+    </div>
 {% endblock %}
 
 
 {% block content %}
 
-    <!-- ############### -->
-    <!-- Page principale -->
-    <!-- ############### -->
-
-            <h4><span class="glyphicon glyphicon-home"></span> Institution :</h3>
-            <table style="width:70%">
+    <div class="title_subtitle_space"></div>
+    
+    <div class="subtitle">
+        <h4><span class="glyphicon glyphicon-home"></span> Institution :</h4>
+    </div>
+            <table style="width:80%">
                 <tbody>
                     <p></p>
                 <tr>
@@ -69,8 +72,11 @@
             </table>
             <br></br>
 
-            <h4><span class="glyphicon glyphicon-user"></span> Mandat du maire en cours :</h3>
-            <table style="width:70%">
+
+    <div class="subtitle">  
+        <h4><span class="glyphicon glyphicon-user"></span> Mandat du maire en cours :</h4>
+    </div>
+            <table style="width:80%">
                 <tbody>
                     <p></p>
                 <tr>
@@ -103,7 +109,5 @@
                 </tr>
                 </tbody>
             </table>
-
-
 
 {% endblock content %} 
