@@ -4,13 +4,17 @@
 
 @import url("http://bootswatch.com/flatly/bootstrap.min.css");
 
+    .row{
+        margin-right:0;
+    }
+
 
     /* Define background color from upper navbar */
     .navbar-inverse {
         background-color: #0083A2;
         }
 
-    /* DatasystemsEC tab */
+    /* DatasystemsCORE tab */
     .navbar-inverse .container-fluid .navbar-header .navbar-brand {
         color : white !important;
         }
@@ -212,7 +216,7 @@
     .navbar-right {
             /*padding-left: 400px;*/
             position:absolute; 
-            right:4vw;
+            right:1vw;
         }
 
     .marginBottom-0 {margin-bottom:0;}
@@ -241,4 +245,6 @@
     padding-right: 15px;
     }
 
-    }
+    html, body {
+    height: 100%;
+}

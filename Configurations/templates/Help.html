@@ -1,0 +1,85 @@
+{% extends 'Base_Configurations.html' %} 
+
+{% load staticfiles %} 
+
+{% load static %} 
+
+{% block title %}
+<div class="title">
+    <h3> <span class="glyphicon glyphicon-globe"></span> Centre d'assistance DatasystemsCORE  </align> </h3>
+</div>
+{% endblock %}
+
+{% block content %}
+
+<style> 
+
+    .text {
+        margin-left : 15vh;
+    }
+
+    @media screen and (max-width: 1700px)
+
+{
+    .text .rectangle {
+        padding-left : 3%;
+        padding-bottom: 3%;
+        border: 1px solid black;
+        border-radius: 1em;
+        height: 21vh;
+        width:300px;
+        background-color: red;
+        }
+}
+
+        @media screen and (min-width: 1920px)
+
+{
+    .text .rectangle {
+        padding-left : 3%;
+        padding-bottom: 3%;
+        border: 1px solid black;
+        border-radius: 1em;
+        height: 18vh;
+        width:300px;
+        background-color:blue;
+        }
+}
+
+     .img1 {
+        position: absolute;
+        width:40%;
+        height:30%;
+        margin-right: 60vw;
+        margin-top: 8vh;
+    }
+
+</style>
+
+<br></br>
+
+<div class="text">
+
+    <p> Pour toutes demandes d'informations sur le logiciel DatasystemsCORE, veuillez contacter :</p>
+
+     <p align="center"><img class="img1" src="{% get_static_prefix %}{{ mytheme }}/images/logo.png"></p>
+
+    <br></br>
+
+    <div class="rectangle">
+
+        <p>Datasystems Ingénierie <br>
+        13, rue du Maréchal Foch <br>
+        67000 STRASBOURG (FRANCE)</p> <br>
+
+
+        <span class="glyphicon glyphicon-earphone"></span> Téléphone : (+33) 03 88 60 39 38 <br>
+        <span class="glyphicon glyphicon-phone-alt"></span> Fax : (+33) 03 88 51 84 44 <br>
+        <span class="glyphicon glyphicon-send"></span> Mail : info@datasystems.fr <br>
+        <span class="glyphicon glyphicon-globe"></span> Web : <a href = "http://www.datasystems.fr"> http://www.datasystems.fr</a>
+
+    </div>
+
+</div>
+
+{% endblock content %}

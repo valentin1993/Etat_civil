@@ -1,0 +1,66 @@
+{% extends 'Base_Informations.html' %}
+
+{% load staticfiles %}
+{% load static %}
+
+{% block title %}
+    <div class = "title">
+        <h3> <span class="glyphicon glyphicon-info-sign"></span> Informations concernant l'Institution' de {{institution.Ville}} </align> </h3>
+    </div>
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="title_subtitle_space"></div>
+    
+    <div class="subtitle">
+        <h4><span class="glyphicon glyphicon-home"></span> Institution :</h4>
+    </div>
+            <table style="width:80%">
+                <tbody>
+                    <p></p>
+                <tr>
+                    <th> Informations sur l'institution </th>
+                    <th> Valeur </th>
+                </tr>
+                <tr>
+                    <td>Institution</td>
+                    <td>{{institution.Institution}}</td>
+                </tr>
+                <tr>
+                    <td>Adresse</td>
+                    <td>{{institution.Adresse}}</td>
+                </tr>
+                <tr>
+                    <td>Code Postal</td>
+                    <td>{{institution.Zip}}</td>
+                </tr>
+                <tr>
+                    <td>Ville</td>
+                    <td>{{institution.Ville}}</td>
+                </tr>
+                <tr>
+                    <td>Pays</td>
+                    <td>{{institution.Pays}}</td>
+                </tr>
+                <tr>
+                    <td>Département/Canton</td>
+                    <td>{{institution.Region}}</td>
+                </tr>
+                <tr>
+                    <td>Téléphone fixe</td>
+                    <td>{{institution.TelephoneFixe}}</td>
+                </tr>
+                <tr>
+                    <td>Fax</td>
+                    <td>{{institution.Fax}}</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>{{institution.Email}}</td>
+                </tr>
+                </tbody>
+            </table>
+            
+{% endblock content %} 

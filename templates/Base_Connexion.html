@@ -1,7 +1,8 @@
 <!-- Copyright (C) 2017     Valentin JUNGBLUTH  <valentin@datasystems.fr>
      Copyright (C) 2017     Alexis MOLTER       <amolter@datasystems.fr>
 
-This script lets to define a basic template for "Connexion" -->
+This script lets to define a basic template for "Accueil" -->
+
 
 <!DOCTYPE html>
 <html>
@@ -12,7 +13,8 @@ This script lets to define a basic template for "Connexion" -->
         {% load user_tags %}
         {% load variables %}
 
-        <title> DatasystemsEC - Accueil </title>
+        <title> DatasystemsCORE - Accueil </title>
+
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -20,134 +22,139 @@ This script lets to define a basic template for "Connexion" -->
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="{% get_static_prefix %}{{ mytheme }}/css/Base_Accueil.css"/>
-    
+
     </head>
-
-    <style>
-        body {
-            background-image:url("{% get_static_prefix %}{{ mytheme }}/images/bg.jpg");
-        }
-
-    </style>
     
-    <!-- #################### -->
-    <!-- Upper navigation bar -->
-    <!-- #################### -->
 
     {% include 'Common/Navbar.html' %}
 
+    <body>
+
     {% if user.is_authenticated %}
 
-    {% include 'Common/Logo.html' %}
 
-            <div class="container-fluid">
+        <div class="row">
+            {% include 'Common/Logo.html' %}
+            <div class="col-lg-8 col-lg-offset-1">
+                {% comment %}<h3> Title </h3>{% endcomment %}
+            </div>
+        </div>
+
+
+        {% include 'Common/Blank.html' %}
+
+
+        <div class="row">
+            <div class="col-lg-12">
                 <div class="row">
-                    <div class="col-md-2 sidebar1">
-                        
+                    <div class="col-lg-4 sidebar1">
                         <div class="left-navigation">
 
                             <ul class="list">
-                                <h5><strong><span class="glyphicon glyphicon-home"></span> Accueil</strong></h5>
-                                <li><a href="{% url "accueil" %}"> Accueil</a></li>
+                                <h5><strong><span class="glyphicon glyphicon-info-sign"></span> Informations Institution</strong></h5>
+                                    {% if request.user|has_group:"admin" %}
+                                    <li><a href="{% url "InstitutionFormulaire" %}">Créer/Editer les informations</a></li>
+                                    {% endif %}
+                                    <li><a href="{% url "InstitutionResume" %}">Consulter les informations</a></li>
                             </ul>
 
                             <ul class="list">
-                                <h5><strong><span class="glyphicon glyphicon-info-sign"></span> Informations Mairie</strong></h5>
-                                {% if request.user|has_group:"admin" %}
-                                <li><a href="{% url "Mairieform" %}">Créer/Editer les informations</a></li>
-                                {% endif %}
-                                <li><a href="{% url "Mairieresume" %}">Consulter les informations</a></li>
+                                    <h5><strong><span class="glyphicon glyphicon-file"></span> Gestion des Fiches d'Identifications </strong></h5>
+                                        <li><a href="{% url "Home" %}">Fiches d'Identifications</a></li>
                             </ul>
 
                             <ul class="list">
-                                <h5><strong><span class="glyphicon glyphicon-file"></span> Actes Etat Civil</strong></h5>
-                                <li><a href="{% url "home" %}">Fiches individuelles</a></li>
-                                <li><a href="{% url "BChome" %}">Actes de Naissance</a></li>
-                                <li><a href="{% url "BCnotfound" %}">Actes de Reconnaissance / Adoption</a></li>
-                                <li><a href="{% url "BCnotfound" %}">Actes de Mariage</a></li>
-                                <li><a href="{% url "BCnotfound" %}">Actes de Divorce</a></li>
-                                <li><a href="{% url "BCnotfound" %}">Actes de Décès</a></li>
-                            </ul>
-
-                            <ul class="list">
-                                <h5><strong><span class="glyphicon glyphicon-book"></span> Tables Annuelles & Décennales</strong></h5>
-                                <li><a href="{% url "annuel" %}">Tables Annuelles</a></li>
-                                <li><a href="{% url "BCnotfound" %}">Tables Décennales</a></li>
-                            </ul>
-
-                            <ul class="list">
-                                <h5><strong><span class="glyphicon glyphicon-list-alt"></span> Recensement</strong></h5>
-                                <li><a href="{% url "Rhome" %}">Liste de Recensement</a></li>
-                                <li><a href="{% url "Rform" %}">Attestation de Recensement</a></li>
-                            </ul>
-
-                            <ul class="list">
-                                <h5><strong><span class="glyphicon glyphicon-book"></span> DatasystemsDOC</strong></h5>
-                                <li><a target="_blank" href="{% GED_url %}/frontend.jsp?folderId=8552450">Individus</a></li>
-                                <li><a target="_blank" href="{% GED_url %}/frontend.jsp?folderId=8978465">Tables</a></li>
-                                <li><a target="_blank" href="{% GED_url %}/frontend.jsp?folderId=8978476">Recensement</a></li>
+                                    <h5><strong><span class="glyphicon glyphicon-book"></span> DatasystemsDOC</strong></h5>
+                                        <li><a target="_blank" href="{% GED_url %}/frontend.jsp?folderId=11304975">Individus</a></li>
                             </ul>
 
                             {% if request.user|has_group:"admin" %}
                             <ul class="list">
-                                <h5><strong><span class="glyphicon glyphicon-cog"></span> Configuration</strong></h5>
-                                <li><a href="{% url "options" %}">Thème</a></li>
+                                    <h5><strong><span class="glyphicon glyphicon-cog"></span> Configuration</strong></h5>
+                                        <li><a href="{% url "theme" %}">Thème</a></li>
                             </ul>
                             {% endif %}
 
                             <ul class="list">
-                                <h5><strong><span class="glyphicon glyphicon-globe"></span> Aide & Support</strong></h5>
-                                <li><a href="{% url "BCnotfound" %}">Besoin d'aide ?</a></li>
-                                <li><a href="{% url "BCnotfound" %}">Mentions légales</a></li>
+                                    <h5><strong><span class="glyphicon glyphicon-globe"></span> Aide & Support</strong></h5>
+                                        <li><a href="{% url "help" %}">Besoin d'aide ?</a></li>
+                                        <li><a href="#">Mentions légales</a></li>
                             </ul>
                         </div>
                     </div>
-                <body> 
-            {% endif %}
-                    <div class="col-md-12">
+                {% endif %}
 
-                    {% block content %}
-                    {% endblock content %}  
+                        {% if user.is_authenticated %}
+                            <div class="row">
+                                <div class="blank"> </div>
+                                <div class="col-lg-7 col-lg-offset-1"> 
+                        {% else %}
+                            <div class="row">
+                                <div class="blank"> </div>
+                                <div class="col-lg-8 col-lg-offset-2"> 
+                        {% endif %}
+                                {% block content %}
+                                {% endblock content %}
+                            
+                            <br><br>
+                                <!--<div id="myCarousel" class="carousel slide" data-ride="carousel">
+                                    
+                                    <ol class="carousel-indicators">
+                                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                                    <li data-target="#myCarousel" data-slide-to="3"></li>
+                                    </ol>
 
-                    </div>
-                    </body>
+                                    
+                                    <div class="carousel-inner" role="listbox">
+
+                                        <div class="item active">
+                                            <img src="{% get_static_prefix %}{{ mytheme }}/images/caroussel1.jpg" alt="Chania" width="600" height="461">
+                                            <div class="carousel-caption"></div>
+                                        </div>
+
+                                        <div class="item">
+                                            <img src="{% get_static_prefix %}{{ mytheme }}/images/caroussel2.jpg" alt="Chania" width="600" height="461">
+                                            <div class="carousel-caption"></div>
+                                        </div>
+                                        
+                                        <div class="item">
+                                            <img src="{% get_static_prefix %}{{ mytheme }}/images/caroussel3.jpg" alt="Flower" width="600" height="461">
+                                            <div class="carousel-caption"></div>
+                                        </div>
+                                
+                                    </div>
+                                
+                                    
+                                    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                                    <span class="sr-only">Précédent</span>
+                                    </a>
+                                    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                    <span class="sr-only">Suivant</span>
+                                    </a>
+                                </div>
+
+                            </div>-->
+
+
+
                 </div>
             </div>
-            {% if user.is_authenticated %}
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-12">
-                        
-                    </div>
-                </div>
-            </div>
-
-            {% include 'Common/Footer.html' %}
-
-            {% else %}
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
+        </div>
 
 
-    {% include 'Common/Footer.html' %}
+        {% if user.is_authenticated %}
+        <footer>
+        {% include 'Common/Footer.html' %}
+        </footer>
+        {% else %}
+        <footer>
+        {% include 'Common/Footer.html' %}
+        </footer>
+        {% endif %}
 
-            {% endif %}
-
+    </body>
 </html>

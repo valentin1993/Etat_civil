@@ -1,0 +1,21 @@
+<!-- Copyright (C) 2017     Valentin JUNGBLUTH  <valentin@datasystems.fr>
+     Copyright (C) 2017     Alexis MOLTER       <amolter@datasystems.fr>
+
+This script lets to define logo picture to each template  -->
+
+{% load staticfiles %}
+{% load static %}
+{% load user_tags %}
+{% load variables %}
+        
+<style>
+    body {
+        background-image:url("{% get_static_prefix %}{{ mytheme }}/images/bg.jpg");
+        }
+</style>
+
+<div class="col-lg-3">
+    <div class="logo">
+        <img src="{% get_static_prefix %}{{ mytheme }}/images/logo.png" class="img-responsive center-block" alt="Logo">
+    </div>
+</div>

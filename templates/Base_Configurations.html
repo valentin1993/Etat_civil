@@ -12,7 +12,7 @@ This script lets to define a basic template for "Configurations" -->
         {% load user_tags %}
         {% load variables %}
 
-        <title> DatasystemsEC - Configurations </title>
+        <title> DatasystemsCORE - Configurations </title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -34,84 +34,78 @@ This script lets to define a basic template for "Configurations" -->
 
     </style>
 
-    {% include 'Common/Navbar.html' %}
+    <body>
 
-    {% if user.is_authenticated %}
+        {% include 'Common/Navbar.html' %}
 
-        <div class="container-fluid">
+        {% if user.is_authenticated %}
+
         <div class="row">
-            <div class="col-md-2">
-                <div class="logo">
-                    <img src="{% get_static_prefix %}{{ mytheme }}/images/logo.png" class="img-responsive center-block" alt="Logo">
-                </div>
-            </div>
-            <div class="col-md-10">
-                <div class="title">
-                    {% block title %}
-                    {% endblock %}
-                </div>
+            {% include 'Common/Logo.html' %}
+            <div class="col-lg-8 col-lg-offset-1">
+                {% block title %}
+                {% endblock %}
             </div>
         </div>
-    </div>
 
-            <div class="container-fluid">
+
+        {% include 'Common/Blank.html' %}
+
+        <div class="row">
+            <div class="col-lg-12">
                 <div class="row">
-                    <div class="col-md-2 sidebar1">
-                        
-                        <div class="left-navigation">
+                    <div class="col-lg-4 sidebar1">
+						<div class="left-navigation">
+							    <ul class="list">
+                                    <h5><strong><span class="glyphicon glyphicon-home"></span> Accueil</strong></h5>
+                                    <li><a href="{% url "accueil" %}"> Accueil</a></li>
+                                </ul>
 
-                            <ul class="list">
-                                <h5><strong><span class="glyphicon glyphicon-home"></span> Accueil</strong></h5>
-                                <li><a href="{% url "accueil" %}"> Accueil</a></li>
-                            </ul>
+                                <ul class="list">
+                                    <h5><strong><span class="glyphicon glyphicon-cog"></span> Configuration</strong></h5>
+                                    <li><a href="{% url "theme" %}">Thème</a></li>
+                                </ul>
 
-                            <ul class="list">
-                                <h5><strong><span class="glyphicon glyphicon-cog"></span> Configuration</strong></h5>
-                                <li><a href="{% url "options" %}">Thème</a></li>
-                            </ul>
+                                <ul class="list">
+                                    <h5><strong><span class="glyphicon glyphicon-book"></span> DatasystemsDOC</strong></h5>
+                                    <li><a target="_blank" href="{% GED_url %}/frontend.jsp?folderId=11304975">Individus</a></li>
+                                </ul>
 
-                            <ul class="list">
-                                <h5><strong><span class="glyphicon glyphicon-book"></span> DatasystemsDOC</strong></h5>
-                                <li><a target="_blank" href="{% GED_url %}/frontend.jsp?folderId=8552450">Individus</a></li>
-                                <li><a target="_blank" href="{% GED_url %}/frontend.jsp?folderId=8978465">Tables</a></li>
-                                <li><a target="_blank" href="{% GED_url %}/frontend.jsp?folderId=8978476">Recensement</a></li>
-                            </ul>
-
-                            <ul class="list">
-                                <h5><strong><span class="glyphicon glyphicon-globe"></span> Aide & Support</strong></h5>
-                                <li><a href="{% url "BCnotfound" %}">Besoin d'aide ?</a></li>
-                                <li><a href="{% url "BCnotfound" %}">Mentions légales</a></li>
-                            </ul>
+                                <ul class="list">
+                                    <h5><strong><span class="glyphicon glyphicon-globe"></span> Aide & Support</strong></h5>
+                                    <li><a href="{% url "help" %}">Besoin d'aide ?</a></li>
+                                    <li><a href="#">Mentions légales</a></li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                    <body> 
-                    {% endif %}
-                    {% if user.is_authenticated %}
-                    <div class="col-md-10">
 
-                    {% else %}
-                    <div class="col-md-12">
+                        {% endif %}
 
-                    {% endif %}
-
-                    {% block content %}
-                    {% endblock content %}  
-                
-                    </div>
-                    </body>
-                </div>
-            </div>
-            {% if user.is_authenticated %}
-             <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-12">
-                        
-                    </div>
-                </div>
-            </div>
-
-            {% include 'Common/Footer.html' %}
-
-            {% endif %}
-  
+        {% if user.is_authenticated %}	
+					<div class="row">
+						<div class="blank"> 
+						</div>
+						<div class="col-lg-7 col-lg-offset-1"> 
+		{% else %}
+					<div class="row">
+						<div class="blank">
+						</div>
+						<div class="col-lg-8 col-lg-offset-2"> 
+		{% endif %}
+		
+		{% block content %}
+		{% endblock content %}
+                    
+						</div>
+					</div>	
+				</div>			
+			</div>
+		</div>
+		
+    <footer>
+    {% include 'Common/Footer.html' %}
+    </footer>
+    
+    </body>
+	
 </html>

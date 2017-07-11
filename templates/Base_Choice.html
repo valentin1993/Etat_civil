@@ -1,0 +1,93 @@
+<!-- Copyright (C) 2017     Valentin JUNGBLUTH  <valentin@datasystems.fr>
+     Copyright (C) 2017     Alexis MOLTER       <amolter@datasystems.fr>
+
+This script lets to define a basic template for "Choix du logiciel" -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+
+        {% load staticfiles %}
+        {% load static %}
+        {% load user_tags %}
+        {% load version %}
+        {% load variables %}
+
+
+        <title> Datasystems </title>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link rel="stylesheet" type="text/css" href="{% get_static_prefix %}{{ mytheme }}/css/Base_Accueil.css"/>
+
+    </head>
+
+    <style>
+        
+        body {
+            background-image:url("{% get_static_prefix %}{{ mytheme }}/images/test.jpg");
+        }
+
+        img {
+        margin-top: 36vh;
+        width: 100%;
+        height: 20%;
+        opacity: 0.5 ;
+        }
+
+        img:hover {
+        margin-top: 36vh;
+        width: 100%;
+        height: 20%;
+        opacity: 1 ;
+        }
+
+        .version {
+            margin-top : 24vw;
+            text-align: center;
+            color: #0083A2;
+        }
+        
+    </style>
+
+    <body>
+            
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="logiciel1">
+                            <a href="http://www.datasystems.fr">
+                            <img src="{% get_static_prefix %}{{ mytheme }}/images/DatasystemsERP.png"></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="logiciel2">
+                            <a href="http://localhost:8000/Accueil/Accueil/">
+                            <img src="{% get_static_prefix %}{{ mytheme }}/images/DatasystemsCORE.png"></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                            <div class="logiciel3">
+
+                                <a href="{% GED_url %}">
+                                <img src="{% get_static_prefix %}{{ mytheme }}/images/DatasystemsGED.png"></a>
+                            </div>
+                        </div>
+                </div>
+            </div>
+
+            <footer>
+                <div class="version">
+                    <p> Nous sommes le : {{date_actuelle}}</p>
+                </div>
+            </footer>
+            {% comment %}{% block content %}
+            {% endblock content %}  
+ {% endcomment %}
+        </body>
+</html>

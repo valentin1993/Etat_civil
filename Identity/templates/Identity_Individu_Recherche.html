@@ -1,0 +1,212 @@
+{% extends 'Base_Identity.html' %}
+
+{% load staticfiles %}
+{% load static %}
+{% load variables %}
+
+{% block title %}
+<div class="title">
+    <h3><span class="glyphicon glyphicon-user"></span> </span> Consultation des Fiches d'Identifications </h3>
+</div>
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="title_subtitle_space"></div>
+
+    {% for message in messages %}
+        <div class="alert {{ message.tags }} alert-dismissible alert-error alert-success" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    <div class="resume">
+
+            <h4><b> <span class="glyphicon glyphicon-user"></span></span> Récapitulatif des 3 dernières Fiches d'Identifications créées : <a><span title="Récapitulatif des 3 dernières fiches d'identification créées dans la Base de Données Nationale tout type d'administration confondue."
+        class="glyphicon glyphicon-info-sign"></a>
+            </b></h4>
+            <table style="width:120%">
+                <tbody>
+                <tr>
+                    <th>ID</th>
+                    <th>État</th>
+                    <th>N° Identification</th>
+                    <th>Civilité</th>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Date de Naissance</th>
+                    <th>Ville de Naissance</th>
+                    <th>Pays de Naissance</th>
+                    <th>Institution</th>
+                </tr>
+                {% for item in person %}
+                <tr>
+                    <td>{{ item.id}}</td>
+                    <td>{{ item.Etat}}</td>
+                    <td>{{ item.NumeroIdentification}}</td>
+                    <td>{{ item.Civilite }}</td>
+                    <td>{{ item.Nom }}</td>
+                    <td>{{ item.Prenom }}</td>
+                    <td>{{ item.DateNaissance }}</td>
+                    <td>{{ item.VilleNaissance }}</td>
+                    <td>{{ item.PaysNaissance }}</td>
+                    <td>{{ item.InformationsInstitution }}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            <br></br>
+
+
+        <h4> <b> <span class="glyphicon glyphicon-user"></span></span> Récapitulatif des 3 dernières Fiches d'Identifications créées habitant en France : <a><span title="Récapitulatif des 3 dernières fiches d'identification créées dans la Base de Données Nationale tout type d'administration confondue avec l'individu habitant en France. "
+        class="glyphicon glyphicon-info-sign"></a>
+        </b> </h4>
+        <table style="width:120%">
+            <tbody>
+            <tr>
+                <th>ID</th>
+                <th>État</th>
+                <th>N° Identification</th>
+                <th>Civilité</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Date de Naissance</th>
+                <th>Ville de Naissance</th>
+                <th>Pays de Naissance</th>
+                <th>Institution</th>
+            </tr>
+
+            {% for item in person_France %}
+                <tr>
+                    <td>{{ item.id}}</td>
+                    <td>{{ item.Etat}}</td>
+                    <td>{{ item.NumeroIdentification}}</td>
+                    <td>{{ item.Civilite }}</td>
+                    <td>{{ item.Nom }}</td>
+                    <td>{{ item.Prenom }}</td>
+                    <td>{{ item.DateNaissance }}</td>
+                    <td>{{ item.VilleNaissance }}</td>
+                    <td>{{ item.PaysNaissance }}</td>
+                    <td>{{ item.InformationsInstitution }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+
+
+        <!-- ######################################### -->
+        <!-- Recherche par nom dans la Base de Données -->
+        <!-- ######################################### -->
+
+        <br></br>
+        <h4> <b> <span class="glyphicon glyphicon-user"></span></span> Rechercher le n° identification d'un individu <a><span title="Outil permettant de rechercher le N° Identification d'un individu. Il est nécessaire d'inscrire au minimum le Nom et le Prénom (entièrement ou en partie) pour effectuer une recherche."
+        class="glyphicon glyphicon-info-sign"></a>
+        </b></h4>
+
+    <script type="text/javascript" src="{% get_static_prefix %}{{ mytheme }}/js/notifications.js"></script>
+
+        <form autocomplete="off" method="GET" action="">
+            <input type="text"  name="q1ID" placeholder="Nom (ex:TEST) " value="{{ request.GET.q1ID }}"> et
+            <input type="text"  name="q1bisID" placeholder="Prénom (ex:Test)" value="{{ request.GET.q1bisID }}"> &nbsp;
+            <input type="text"  name="q1terID" placeholder="Ville Naissance" value="{{ request.GET.q1terID }}"> (optionnel)
+            <input class="button" type="submit" value="Rechercher">&nbsp;
+        </form>
+
+        <br></br>
+
+        <table style="width:120%">
+            <tbody>
+                <tr>
+                    <th>ID</th>
+                    <th>État</th>
+                    <th>N° Identification</th>
+                    <th>Civilité</th>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Date de Naissance</th>
+                    <th>Ville de Naissance</th>
+                    <th>Pays de Naissance</th>
+                    <th>Institution</th>
+                </tr>
+                {% for item in query_ID_list %}
+                <tr>
+                    <td>{{ item.id}}</td>
+                    <td>{{ item.Etat}}</td>
+                    <td>{{ item.NumeroIdentification}}</td>
+                    <td>{{ item.Civilite }}</td>
+                    <td>{{ item.Nom }}</td>
+                    <td>{{ item.Prenom }}</td>
+                    <td>{{ item.DateNaissance }}</td>
+                    <td>{{ item.VilleNaissance }}</td>
+                    <td>{{ item.PaysNaissance }}</td>
+                    <td>{{ item.InformationsInstitution }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <br></br>
+
+        <h4> <b> <span class="glyphicon glyphicon-user"></span></span> Rechercher un individu dans DatasystemsDOC <a><span title="Outil permettant d'être directement redirigé vers le dossier de l'individu recherché dans DatasystemsDOC. En renseignant obligatoirement le Nom, Prénom et N° Identification intégralement, vous pourrez accéder au dossier dans DatasystemsDOC."
+        class="glyphicon glyphicon-info-sign"></a>
+        </b></h4>
+
+    <script type="text/javascript" src="{% get_static_prefix %}{{ mytheme }}/js/notifications.js"></script>
+
+        <form method="GET" action="">
+            <input type="text"  name="q1" placeholder="Nom (ex:TEST) " value="{{ request.GET.q1 }}"> et
+            <input type="text"  name="q1bis" placeholder="Prénom (ex:Test)" value="{{ request.GET.q1bis }}"> et
+            <input type="text"  name="q1social" placeholder="N° identification" value="{{ request.GET.q1social }}"> &nbsp;
+            <input class="button" type="submit" value="Rechercher">&nbsp;
+        </form>
+
+        <br></br>
+        <p class = "texte"> Lien vers le dossier de l'individu {{ request.GET.q1 }} {{request.GET.q1bis}} : 
+        
+        <a target="_blank" href="{% GED_url %}/frontend.jsp?folderId={{folderId}}">Accéder au dossier</a>
+        <p></p>
+        <p class = "texte" >N° du dossier de la personne : {{folderId}} </p>
+
+        Informations complémentaires concernant la personne recherchée :
+        <br></br>
+
+        <table style="width:120%">
+            <tbody>
+                <tr>
+                    <th>ID</th>
+                    <th>État</th>
+                    <th>N° Identification </th>
+                    <th>Civilité</th>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Date de Naissance</th>
+                    <th>Ville de Naissance</th>
+                    <th>Pays de Naissance</th>
+                </tr>
+                {% for item in query_lastname_list %}
+                <tr>
+                    <td>{{ item.id}}</td>
+                    <td>{{ item.Etat}}</td>
+                    <td>{{ item.NumeroIdentification}}</td>
+                    <td>{{ item.Civilite }}</td>
+                    <td>{{ item.Nom }}</td>
+                    <td>{{ item.Prenom }}</td>
+                    <td>{{ item.DateNaissance }}</td>
+                    <td>{{ item.VilleNaissance }}</td>
+                    <td>{{ item.PaysNaissance }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <br></br>
+
+    </div>
+
+
+{% endblock content %}

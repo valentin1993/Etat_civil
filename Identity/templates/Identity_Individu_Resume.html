@@ -1,0 +1,157 @@
+{% extends 'Base_Identity.html' %}
+
+{% load staticfiles %}
+{% load static %}
+
+{% block title %}
+<div class="title">
+    <h3><span class="glyphicon glyphicon-user"></span> </span> L'individu {{personne.Nom}} {{personne.Prenom}} a été enregistré dans la Base de Données</h3>
+</div>
+{% endblock %} 
+
+{% block content %}
+
+    <div class="title_subtitle_space"></div>
+
+    {% for message in messages %}
+        <div class="alert {{ message.tags }} alert-dismissible alert-error alert-success" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    <script type="text/javascript" src="{% get_static_prefix %}{{ mytheme }}/js/notifications.js"></script>
+
+    <div class="resume">
+
+        Votre personne porte le numéro : <b> {{ personne.id}} </b> <p></p>
+        N° identification attribué : <b>{{personne.NumeroIdentification}}</b> <br></br>
+
+    <table style="width:100%">
+                <tbody>
+                    <p></p>
+                <tr>
+                    <th> Informations sur l'individu </th>
+                    <th> Données renseignées </th>
+                </tr>
+                <tr>
+                    <td>ID</td>
+                    <td>{{personne.id}}</td>
+                </tr>
+                <tr>
+                    <td>État</td>
+                    <td>{{personne.Etat}}</td>
+                </tr>
+                <tr>
+                    <td>N° Identification</td>
+                    <td>{{personne.NumeroIdentification}}</td>
+                </tr>
+                <tr>
+                    <td>Civilité</td>
+                    <td>{{personne.Civilite}}</td>
+                </tr>
+                <tr>
+                    <td>Nom de famille</td>
+                    <td>{{personne.Nom}}</td>
+                </tr>
+                <tr>
+                    <td>Prénom(s)</td>
+                    <td>{{personne.Prenom}}</td>
+                </tr>
+                <tr>
+                    <td>Statut</td>
+                    <td>{{personne.Statut}}</td>
+                </tr>
+                <tr>
+                    <td>Sexe</td>
+                    <td>{{personne.Sexe}}</td>
+                </tr>
+                <tr>
+                    <td>Date de naissance</td>
+                    <td>{{personne.DateNaissance}}</td>
+                </tr>
+                <tr>
+                    <td>Ville de naissance</td>
+                    <td>{{personne.VilleNaissance}}</td>
+                </tr>
+                <tr>
+                    <td>Pays de naissance</td>
+                    <td>{{personne.PaysNaissance}}</td>
+                </tr>
+                <tr>
+                    <td>Nationalité 1</td>
+                    <td>{{personne.Nationalite1}}</td>
+                </tr>
+                <tr>
+                    <td>Nationalité 2</td>
+                    <td>{{personne.Nationalite2}}</td>
+                </tr>
+                <tr>
+                    <td>Profession</td>
+                    <td>{{personne.Profession}}</td>
+                </tr>
+                <tr>
+                    <td>Adresse</td>
+                    <td>{{personne.Adresse}}</td>
+                </tr>
+                <tr>
+                    <td>Ville</td>
+                    <td>{{personne.Ville}}</td>
+                </tr>
+                <tr>
+                    <td>Code postal</td>
+                    <td>{{personne.Zip}}</td>
+                </tr>
+                <tr>
+                    <td>Pays</td>
+                    <td>{{personne.Pays.name}}</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>{{personne.Email}}</td>
+                </tr>
+                <tr>
+                    <td>Téléphone</td>
+                    <td>{{personne.Telephone}}</td>
+                </tr>
+                <tr>
+                    <td>Image</td>
+                    <td>
+                        {% if personne.Image %}
+                            <img src='{{personne.Image.url}}'/>
+                        {% endif %}
+                    </td>
+                </tr>
+                <br />
+                <tr>
+                    <td>Pièce Identité</td>
+                    <td>
+                        {% if personne.CarteIdentite %}
+                            <img src='{{personne.CarteIdentite.url}}' height="300" width="400"/>
+                        {% endif %}
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            
+<br></br> 
+
+    <form method='POST' action="{% url "IndividuPDF" personne.id %}">{% csrf_token %}
+    {% csrf_token %}
+    <button>Générer le PDF de la Fiche d'Identification</button> <a><span title="Génération de la Fiche d'Identification au format PDF de l'individu. Celle-ci sera immédiatement envoyée vers DatasystemsDOC"
+        class="glyphicon glyphicon-info-sign"></a>
+    </form>
+
+    <script>
+    $(function() {
+    $('button').click(function() {
+        alert("Votre PDF a été généré dans DatasystemsDOC");
+    });
+    })(jQuery);
+    </script>
+
+</div>
+
+{% endblock content %}

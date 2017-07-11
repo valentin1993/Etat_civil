@@ -6,6 +6,11 @@
         margin-left : 6vw;
     }*/
 
+    .row{
+        margin-right:0;
+    }
+
+
     table, th, td {
         border: 1px solid black;
         padding-left : 1vw;
@@ -34,10 +39,15 @@
         background-color: #0083A2;
         }
 
-    /* DatasystemsEC tab */
+    /* DatasystemsCORE tab */
     .navbar-inverse .container-fluid .navbar-header .navbar-brand {
         color : white !important;
         }
+
+    /* Gestion des onglets de la navbar */
+    .navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:focus, .navbar-inverse .navbar-nav>.open>a:hover {
+        background-color: black;
+    }
 
     /* Tab properties from navbar */
     .navbar .nav > li > a {
@@ -50,9 +60,9 @@
         color:  #454545;
         }
 
-    .active {
+    /*.active {
         background-color: #454545;
-        }
+        }*/
 
     .navbar .sub-menu:before {
         border-bottom: 7px solid transparent;
@@ -98,22 +108,18 @@
         }
 
     /* Define form fields properties */
-    #id_sex, #id_status, #id_country, #id_birthcountry, #id_title{
+    #id_Sexe, #id_Statut, #id_Pays, #id_PaysNaissance, #id_Civilite, #id_Etat, #id_CHOIX_TVA, #id_Type, #id_Effectif, #id_test{
         width:25.83vw;
     }
 
-    /*#id {
-        width:25.83vw;
-    }*/
+    #id_search{
+        width:19.55vw;
+    }
 
-
-    /* Define form fields properties */
-    /*.form-fields {
-        border-radius: 4px;
-        margin-right: auto;
-        background-color: #f5f5f5;
-        width:25.83vw;
-        }*/
+    #id_Image, #id_CarteIdentite{
+        width:41vw;
+        margin-bottom : 2vh;
+    }
 
     .form {
         padding-left:10vw;
@@ -144,6 +150,12 @@
         margin-bottom: -20px; 
         }
 
+    #id_vie_0, #id_vie_1  {
+        width: 6vw;
+        border-radius: 8px; 
+        margin-bottom: -20px; 
+        }
+
     .list {
         color: #fff;
         list-style: none;
@@ -163,15 +175,20 @@
         text-decoration: none;
     }
 
-    ul.list li a:hover, ul.list li a:active {
+    /*ul.list li a:hover, ul.list li a:active {
         color: white !important;
         text-decoration: none;
 
     }
 
+
     ul.list li.active a {
         color: white !important;
         text-decoration: none;
+    }*/
+
+    ul.list > li > ul.submenu1.nav.collapse.in>li>a {
+        background-color: transparent;
     }
 
     .list > h5 > strong {
@@ -185,8 +202,19 @@
         background-color: #454545 ;
     }
 
+    .list > h6 > strong {
+        color : white;
+        padding: 2% 0% 2% 5%;
+        font-size: 15px;
+    }
+
+    .list > h6 {
+        padding: 2% 0% 2% 20%;
+        background-color: #454545 ;
+    }
+
     .list>li:hover {
-        background-color: #454545;
+        
         border-left: 5px solid white;
         color: white;
         font-weight: bolder;
@@ -230,7 +258,7 @@
     .navbar-right {
             /*padding-left: 400px;*/
             position:absolute; 
-            right: 3vw;
+            right: 1vw;
         }
 
     .marginBottom-0 {
@@ -246,8 +274,27 @@
     .dropdown-submenu{
         position:relative;
         }
+    
+    /* Gestion de chaque ligne du menu avec sous-menu */
+    .sidebar-only ul.dropdown-menu > li.dropdown-submenu.open > a.dropdown-toggle {
+        background-color: black;
+        margin-right:15%;
+        }
 
-    .dropdown-submenu>.dropdown-menu{
+    ul.dropdown-menu > li.dropdown-submenu:hover > a.dropdown-toggle {
+        background-color: black;
+        }
+    /* Gestion de chaque ligne du menu sans sous-menu */
+    ul.dropdown-menu > li:hover > a{
+        background-color: black;
+    }
+
+    ul.dropdown-menu {
+        background-color: #0083A2;
+    }
+
+    /* Gestion du sous-menu (dernier niveau) */
+    .dropdown-submenu>.dropdown-menu{ 
         top:0;
         left:100%;
         margin-top:0%;
@@ -266,7 +313,7 @@
         border-color:transparent;
         border-style:solid;
         border-width:3% 0 5px 5px;
-        border-left-color:#cccccc;
+        border-left-color:#cccccc; /* Fleche indiquant un sous-menu */
         margin-top:5px;
         margin-right:-10px;
         }
@@ -324,3 +371,7 @@
     .resume {
         padding-left:6vw;
     }
+
+    html, body {
+    height: 100%;
+}

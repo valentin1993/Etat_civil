@@ -1,0 +1,98 @@
+<!-- Copyright (C) 2017     Valentin JUNGBLUTH  <valentin@datasystems.fr>
+     Copyright (C) 2017     Alexis MOLTER       <amolter@datasystems.fr>
+
+This script lets to define a basic template for "Mairie" -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+
+        {% load staticfiles %}
+        {% load static %}
+        {% load user_tags %}
+        {% load variables %}
+
+        <title> DatasystemsCORE - Mairie </title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link rel="stylesheet" type="text/css" href="{% get_static_prefix %}{{ mytheme }}/css/Base_Informations.css"/>
+    
+    </head>
+    
+    <!-- #################### -->
+    <!-- Upper navigation bar -->
+    <!-- #################### -->
+
+    {% include 'Common/Navbar.html' %}
+
+    {% if user.is_authenticated %}
+
+    <body>
+
+        <div class="row">
+            {% include 'Common/Logo.html' %}
+            <div class="col-lg-8 col-lg-offset-1">
+                {% block title %}
+                {% endblock %}
+            </div>
+        </div>
+
+
+        {% include 'Common/Blank.html' %}
+
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-lg-4 sidebar1">
+                        <div class="left-navigation">
+
+                            <ul class="list">
+                                <h5><strong><span class="glyphicon glyphicon-home"></span> Accueil</strong></h5>
+                                <li><a href="{% url "accueil" %}"> Accueil</a></li>
+                            </ul>
+
+                            <ul class="list">
+                                <h5><strong><span class="glyphicon glyphicon-info-sign"></span> Informations Mairie</strong></h5>
+                                {% if request.user|has_group:"admin" %}
+                                <li><a href="{% url "InstitutionFormulaire" %}">Créer/Editer informations</a></li>
+                                {% endif %}
+                                <li><a href="{% url "InstitutionResume" %}">Consulter les informations</a></li>
+                            </ul>
+                            <ul class="list">
+                                <h5><strong><span class="glyphicon glyphicon-book"></span> DatasystemsDOC</strong></h5>
+                                <li><a target="_blank" href="{% GED_url %}/frontend.jsp?folderId=11304975">Individus</a></li>
+                                </ul>
+                        </div>
+                    </div>
+                    
+                    {% endif %}
+                            
+                    {% if user.is_authenticated %}
+                        <div class="row">
+                            <div class="blank"> </div>
+                            <div class="col-lg-7 col-lg-offset-1"> 
+                    {% else %}
+                            <div class="row">
+                                <div class="blank"> </div>
+                                <div class="col-lg-8 col-lg-offset-2"> 
+                    {% endif %}
+                                {% block content %}
+                                {% endblock content %}
+                
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <footer>
+    {% include 'Common/Footer.html' %}
+    </footer>
+    
+    </body>
+
+</html> 

@@ -1,0 +1,51 @@
+{% extends 'Base_Identity.html' %}
+
+{% load staticfiles %}
+{% load static %}
+
+{% block title %}
+<div class="title">
+    <h3><span class="glyphicon glyphicon-user"></span> </span> Suppression Intégrale de la Fiche d'Identification </h3>
+</div>
+{% endblock %}
+
+{% block content %}
+
+<style>
+    #searchbox, .button {
+        width:15vw;
+    }
+</style>
+
+    <div style="border:3px; border-style:solid; border-color:#FF0000; padding: 1em;">
+    La suppression intégrale d'une fiche d'identification ne permet pas de revenir en arrière.
+    Toute suppression sera considérée comme définitive et ne pourra donner lieu à une restauration de la fiche.
+    </div>
+
+    <div class="title_subtitle_space"></div>
+
+    <form class = "form" method='GET' action=''> {% csrf_token %}
+
+    <h4> Rechercher l'individu à supprimer : </h4>
+
+        <input id="searchbox" type="text"  name="q6" placeholder="Numero Identification" value="{{ request.GET.q6 }}"> 
+        <input class="button" type="submit" value="Rechercher l'individu">
+
+        <br></br>
+
+    </form>
+
+    <form class = "form" method='POST' action= "" > {% csrf_token %}
+    <h4> Suppresion de la Fiche d'Identification : </h4>
+
+    {{form.as_p}}
+
+    <br></br>
+
+
+    <input class="button" type ="submit" name ="Supprimer" value="Supprimer la fiche" /> 
+    </form>
+
+</div>
+
+{% endblock %}

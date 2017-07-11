@@ -12,7 +12,7 @@ This script lets to define the homepage template for "Identity" -->
 
 
 {% block title %}
-<h2 class="hometitle" align="center"> Gestion des Fiches individuelles </align> </h2>
+<h2 class="hometitle" align="center"> Gestion des Fiches d'Identifications </align> </h2>
 {% endblock %}
 
 <br></br>
@@ -28,23 +28,21 @@ This script lets to define the homepage template for "Identity" -->
         <br></br>
 
          {% if mytheme == "Datasystems" %}
-            <p> <a style="color:#0083A2" href="{% url 'form' %}"> Créer une nouvelle fiche individuelle (sans n° identification unique)</a></p>
-            <p> <a style="color:#0083A2" href="{% url 'form2' %}"> Créer une nouvelle fiche individuelle (à partir n° identification unique)</a></p>
-            <p> <a style="color:#0083A2" href="{% url 'BCnotfound' %}"> Créer une copie/extrait de fiche individuelle </a></p>
-            <p> <a style="color:#0083A2" href="{% url 'searched' %}"> Consulter une fiche individuelle</a></p>
+            <p> <a style="color:#0083A2" href="{% url 'IndividuFormulaire' %}"> Créer une nouvelle Fiche d'Identification pour les individus</a></p>
+            <p> <a style="color:#0083A2" href="#"> Créer une nouvelle Fiche d'Identification pour les sociétés</a></p>
+            <p> <a style="color:#0083A2" href="#"> Consulter une Fiche d'Identification</a></p>
          {% elif mytheme == "Cameroun" %}
-            <p> <a style="color:#007A5E" href="{% url 'form' %}"> Créer une nouvelle fiche individuelle (sans n° identification unique)</a></p>
-            <p> <a style="color:#007A5E" href="{% url 'form2' %}"> Créer une nouvelle fiche individuelle (à partir n° identification unique)</a></p>
-            <p> <a style="color:#007A5E" href="{% url 'BCnotfound' %}"> Créer une copie/extrait de fiche individuelle</a></p>
-            <p> <a style="color:#007A5E" href="{% url 'searched' %}"> Consulter une fiche individuelle</a></p>
+            <p> <a style="color:#007A5E" href="{% url 'IndividuFormulaire' %}"> Créer une nouvelle Fiche d'Identification pour les individus</a></p>
+            <p> <a style="color:#007A5E" href="#"> Créer une nouvelle Fiche d'Identification pour les sociétés</a></p>
+            <p> <a style="color:#007A5E" href="#"> Consulter une Fiche d'Identification</a></p>
         {% endif %}
 
         {% if  mytheme == "Datasystems" and request.user|has_group:"admin" %}
-            <p> <a style="color:#0083A2" href="{% url 'edited' %}"> Editer une fiche individuelle</a></p>
-            <p> <a style="color:#0083A2" href="{% url 'deleted' %}">Supprimer une fiche individuelle </a></p>
+            <p> <a style="color:#0083A2" href="#"> Editer une Fiche d'Identification</a></p>
+            <p> <a style="color:#0083A2" href="#">Supprimer une Fiche d'Identification </a></p>
         {% elif  mytheme == "Datasystems" and request.user|has_group:"admin" %}
-            <p> <a style="color:#007A5E" href="{% url 'edited' %}"> Editer une fiche individuelle</a></p>
-            <p> <a style="color:#007A5E" href="{% url 'deleted' %}">Supprimer une fiche individuelle </a></p>
+            <p> <a style="color:#007A5E" href="#"> Editer une Fiche d'Identification</a></p>
+            <p> <a style="color:#007A5E" href="#">Supprimer une Fiche d'Identification </a></p>
         {% endif %}
 
 </div>
@@ -52,10 +50,10 @@ This script lets to define the homepage template for "Identity" -->
 
 <div class="col-lg-5 offset-2">
 
-    Partie statistique concernant les fiches individuelles
+    Partie statistique concernant les Fiches d'Identifications
         <br></br>
         <br></br>
-        <a href="{% url 'statistics' %}"><img class="stats" src="{% get_static_prefix %}{{ mytheme }}/images/stats.jpeg"> </a>
+        <a href="{% url 'Statistiques' %}"><img class="stats" src="{% get_static_prefix %}{{ mytheme }}/images/stats.jpeg"> </a>
 
 </div>
 

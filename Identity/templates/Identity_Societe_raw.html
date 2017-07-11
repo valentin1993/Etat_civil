@@ -1,0 +1,73 @@
+<html>
+    <head>
+    {% load staticfiles %}
+    {% load static %}
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />   
+    <link rel="stylesheet" type="text/css" href="{% static 'css/Base_Identity.css' %}"/>
+
+    <style>
+            
+            body {
+                font-family: Courier New, Courier, monospace;
+                text-align: justify;
+                list-style-type: none;
+            }
+
+    </style>
+
+    </head>
+
+    <body>
+        
+        <img src="{{MEDIA_ROOT}}Logo/logo.jpeg" width="250" height="66"/>
+
+        <h2 align="center"> <font size="6"> Fiche d'Identification - SOCIETE</font></align> </h2>
+
+        <br></br>
+        <br></br>
+
+        {% block content %} 
+
+        <h3 align="left"> Au nom de {{societe.Nom}}</align> </h3>
+        <h3 align="left"> Responsable de la Société : {{societe.Responsable.Nom}} {{societe.Responsable.Prenom}} {{societe.Responsable.NumeroIdentification}}</align> </h3>
+        <h3 align="left"> N° SIREN {{societe.SIREN}} </align> </h3>
+        <h3 align="left"> Etabli le {{societe.Creation.date}} à {{societe.Creation.hour}}:{{societe.Creation.minute}} heure locale</align> </h3>
+
+        <br></br>
+
+        <h3> Informations concernant la société : </h3>
+        <li>Nom de la société : {{societe.Nom}}</li>
+        <li>État : {{societe.Etat}}</li>
+        <li>N° SIREN : {{societe.SIREN}}</li>
+        <li>N° SIRET : {{societe.SIRET}}</li>
+        <li>Code NAF-APE : {{societe.NAF_APE}}</li>
+        <li>RCS : {{societe.RCS}}</li>
+        <li>Assujeti à la TVA : {{societe.CHOIX_TVA}}</li>
+        <li>N° TVA Intracommunaitaire : {{societe.TVA}}</li>
+        <br></br>
+        <li>Société résidant au : {{societe.Adresse}}</li>
+        <li>A : {{societe.Ville}} ({{societe.Zip}})</li>
+        <li>Pays de résidence : {{societe.Pays.name}} ({{societe.Pays}})</li>
+        <br></br>
+        <li>Email : {{societe.Mail}}</li>
+        <li>Téléphone : {{societe.Telephone}} </li>
+        <li>Fax : {{societe.Fax}} </li>
+        <li>Site Web : {{societe.Web}} </li>
+        <br></br>
+        <li>Type de société : {{societe.Type}} </li>
+        <li>Effectif : {{societe.Effectif}} </li>
+        <li>Capital : {{societe.Capital}} </li>
+       
+        <br></br>
+
+        <h3> Par la présente, Monsieur, Madame {{societe.Utilisateur}} certifie la conformité de la déclaration </h3>
+
+        <br></br>
+
+        <h3 align="right"> Monsieur, Madame {{societe.Utilisateur}} </align> </h3>
+        <h3 align="right"> Signature et tampon </align> </h3>
+
+        {% endblock %}
+    </body>
+</html>

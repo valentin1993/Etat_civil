@@ -1,0 +1,80 @@
+{% extends 'Base_Identity.html' %}
+
+{% load staticfiles %}
+{% load static %}
+{% load variables %}
+
+{% block title %}
+<div class="title">
+    <h3><span class="glyphicon glyphicon-user"></span> </span> Recherche de Fraude au niveau des Sociétés </h3>
+</div>
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="title_subtitle_space"></div>
+
+    {% for message in messages %}
+        <div class="alert {{ message.tags }} alert-dismissible alert-error alert-success" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    <div class="resume">
+
+        <h4> <b> <span class="glyphicon glyphicon-user"></span></span> Recherche de l'ensemble des sociétés d'un individu <a><span title="Outil permettant de rechercher le N° Identification d'un individu. Il est nécessaire d'inscrire au minimum le Nom et le Prénom (entièrement ou en partie) pour effectuer une recherche."
+        class="glyphicon glyphicon-info-sign"></a>
+        </b></h4>
+
+    <script type="text/javascript" src="{% get_static_prefix %}{{ mytheme }}/js/notifications.js"></script>
+
+        <form autocomplete="off" method="GET" action="">
+            <input type="text"  name="q1ID" placeholder="N° Identification" value="{{ request.GET.q1ID }}">
+            <input class="button" type="submit" value="Rechercher">&nbsp;
+        </form>
+
+        <br></br>
+
+        {% if query_Individu %}
+        L'individu {{query_Individu.Nom}} {{query_Individu.Prenom}} (n° identification : {{query_Individu.NumeroIdentification}}) possède actuellement {{NombreSociete}} sociétés en qualité de responsable.
+        {% endif %}
+        <br></br>
+
+        <table style="width:125%">
+                <tbody>
+                <tr>
+                    <th>ID</th>
+                    <th>Nom</th>
+                    <th>État</th>
+                    <th>SIRET</th>
+                    <th>SIREN</th>
+                    <th>NAF-APE</th>
+                    <th>Adresse</th>
+                    <th>Ville</th>
+                    <th>Pays</th>
+                    <th>Responsable</th>
+                </tr>
+                {% for item in query_ID_list %}
+                <tr>
+                    <td>{{ item.id}}</td>
+                    <td>{{ item.Nom}}</td>
+                    <td>{{ item.Etat}}</td>
+                    <td>{{ item.SIRET }}</td>
+                    <td>{{ item.SIREN }}</td>
+                    <td>{{ item.NAF_APE }}</td>
+                    <td>{{ item.Adresse }}</td>
+                    <td>{{ item.Ville}}</td>
+                    <td>{{ item.Pays.name }}</td>
+                    <td>{{item.Responsable.Nom}} {{item.Responsable.Prenom}}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+    </div>
+
+
+{% endblock content %}

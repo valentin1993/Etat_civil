@@ -1,1 +1,0 @@
-GEDurl = 'http://demoged.datasystems.fr:8080'

@@ -11,9 +11,5 @@ from django.shortcuts import render
 def Choice(request):
     return render(request, 'Choice.html')
 
-
 def Accueil(request):
     return render(request, 'Accueil.html')
-
-def Test(request):
-    return render(request, 'test.html')

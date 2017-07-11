@@ -1,0 +1,124 @@
+<!-- Copyright (C) 2017     Valentin JUNGBLUTH  <valentin@datasystems.fr>
+     Copyright (C) 2017     Alexis MOLTER       <amolter@datasystems.fr>
+
+This script lets to define a navbar template located on the top of each template page -->
+
+{% load staticfiles %}
+{% load static %}
+{% load user_tags %}
+{% load variables %}
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="http://www.datasystems.fr/"> DatasystemsCORE </a>
+                </div>
+
+
+                <ul class="nav navbar-nav">
+                    <li><a class="dropdown-toggle" href="{% url "accueil" %}"> <span class="glyphicon glyphicon-home"></span> Accueil </a></li> 
+                    {% if user.is_authenticated %}
+                    <li class = "dropdown">
+                        <a href = "#" class = "dropdown-toggle" data-toggle = "dropdown">
+                            <span class="glyphicon glyphicon-info-sign"> </span> Informations Institution
+                            <b class = "caret"></b>
+                        </a>
+                            <ul class = "dropdown-menu">
+                                <li><a href = "{% url "InstitutionFormulaire" %}"> <span class="glyphicon glyphicon-pencil"></span> Créer/Editer les informations de l'institution </a></li>
+                                <li><a href = "{% url "InstitutionResume" %}"> <span class="glyphicon glyphicon-home"></span> Consulter les informations de l'institution </a></li>
+                            </ul>
+                    </li>
+
+
+                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> <span class="glyphicon glyphicon-file">
+                        </span>  Gestion des Fiches d'Identifications <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+
+                            <li><a href="{% url 'Home' %}"> <span class="glyphicon glyphicon-home"></span> Accueil Fiches d'Identifications</a></li>
+                            <li><a href="{% url 'Statistiques' %}"> <span class="glyphicon glyphicon-cog"></span> Statistiques</a></li>
+
+                            <li class="dropdown-submenu">
+
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <span class="glyphicon glyphicon-user"></span>
+                                    </span> Partie Individus 
+                                </a>
+                                    <ul class="dropdown-menu">
+										<li><a href="{% url "IndividuFormulaire" %}">Création Fiches d'Identifications </a></li>
+                                        <li><a href="{% url "IndividuRecherche" %}">Recherche Fiches d'Identifications</a></li>
+                                        <li><a href="{% url "Consultation" %}">Consultation Fiches d'Identifications</a></li>
+                                        <li><a href="{% url "IdentityChoice" %}">Edition partielle Fiches d'Identifications</a></li>
+                                        {% if request.user|has_group:"admin" %}
+                                        <li><a href="{% url "Edition" %}">Edition Fiches d'Identifications</a></li>
+                                        <li><a href="{% url "Suppression" %}">Suppression Fiches d'Identifications</a></li>
+                                        {% endif %}
+                                    </ul>
+                            </li>
+                            <li class="dropdown-submenu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <span class="glyphicon glyphicon-home">
+                                    </span> Partie Entreprises 
+                                </a>
+                                    <ul class="dropdown-menu">
+										<li><a href="{% url "SocieteFormulaire" %}">Création Fiches d'Identifications </a></li>
+                                        <li><a href="{% url "SocieteRecherche" %}">Recherche Fiches d'Identifications</a></li>
+                                        <li><a href="{% url "SocieteRechercheFraude" %}">Recherche Fraude Fiches d'Identifications</a></li>
+                                        <li><a href="#">Consultation Fiches d'Identifications</a></li>
+                                        <li><a href="#">Edition partielle Fiches d'Identifications</a></li>
+                                        {% if request.user|has_group:"admin" %}
+                                        <li><a href="#">Edition Fiches d'Identifications</a></li>
+                                        <li><a href="#">Suppression Fiches d'Identifications</a></li>
+                                        {% endif %}
+                                    </ul>
+                            </li>
+                        </ul>
+                    </li>
+                        <li class = "dropdown">
+                                <a href = "#" class = "dropdown-toggle" data-toggle = "dropdown">
+                                    <span class="glyphicon glyphicon-book">
+                                            </span> DatasystemsDOC
+                                <b class = "caret"></b>
+                                </a>
+                                <ul class = "dropdown-menu">
+                                    <li><a target="_blank" href = "{% GED_url %}/frontend.jsp?folderId=11304975"> <span class="glyphicon glyphicon-user"></span></span> Consultation des Individus </a></li>
+                                </ul>
+                            </li>
+                        </li>
+
+                            {% endif %}
+                        <ul class="nav navbar-nav navbar-right">
+                                        {% if user.is_authenticated %}
+                                        <li class = "dropdown">
+                                        <a href = "#" class = "dropdown-toggle" data-toggle = "dropdown">
+                                            <span class="glyphicon glyphicon-user"></span>
+                                                    </span> {{user.username}} ({{user.first_name}} {{user.last_name}})                     
+                                        <b class = "caret"></b>
+                                        </a>
+                                        <ul class = "dropdown-menu">
+                                            <li><a href="{% url "help" %}"><span class="glyphicon glyphicon-globe"></span> Besoin d'aide ?</a></li>
+                                            <li><a href="{% url "logout" %}" ><span class="glyphicon glyphicon-log-out"></span> Déconnexion </a></li>
+                                        {% if request.user|has_group:"admin" %}
+                                            <li><a href="{% url "admin:index" %}" ><span class="glyphicon glyphicon-folder-close"></span> Administration </a></li>
+                                        {% endif %}
+                                        {% else %}
+                                            <li><a href="{% url "login" %}" ><span class="glyphicon glyphicon-log-in"></span> Connexion </align></a></li>
+                                        {% endif %}
+                        </ul> 
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <script>
+            (function($){
+                $(document).ready(function(){
+                    $('ul.dropdown-menu [data-toggle=dropdown]').on('mouseenter', function(event) {
+                        event.preventDefault(); 
+                        event.stopPropagation(); 
+                        $(this).parent().siblings().removeClass('open');
+                        $(this).parent().toggleClass('open');
+                    });
+                });
+            })(jQuery);
+        </script>   

@@ -1,0 +1,49 @@
+{% extends 'Base_Identity.html' %}
+
+{% load staticfiles %}
+{% load static %}
+
+{% block title %}
+<div class="title">
+    <h3><span class="glyphicon glyphicon-user"></span> </span> Modification Intégrale de la Fiche Identification </h3>
+</div>
+{% endblock %}
+
+{% block content %}
+
+<style>
+    #searchbox, .button {
+        width:15vw;
+    }
+</style>
+
+<div style="border:3px; border-style:solid; border-color:#FF0000; padding: 1em;">
+    La modification intégrale d'une fiche d'identification ne permet pas de revenir en arrière.
+    Toute modification sera considérée comme définitive. Si vous souhaitez changer seulement un ou quelques champs, vérifiez que cette modification n'est pas disponible dans la rubrique <b> Edition Partielle des Fiches d'Identifications </b>.
+    </div>
+
+<div class="title_subtitle_space"></div>
+
+    <form class = "form" method="GET" action="">
+
+    <h4> Rechercher l'individu à modifier : </h4>
+
+        <input id="searchbox" type="text"  name="q4" placeholder="N° Identification" value="{{ request.GET.q4 }}"> 
+        <input class="button" type="submit" value="Rechercher l'individu">
+
+        <br></br>
+
+    </form>
+
+    <form class = "form" method='POST' action= "" > {% csrf_token %}
+    <h4> Modification du formulaire : </h4>
+
+    {{form.as_p}}
+
+    <br></br>
+
+    <input class="button" type ="submit" name ="save" value="Modifier la fiche" /> 
+
+    </form>
+
+{% endblock %}

@@ -1,0 +1,958 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="166a2ec4-1ff3-41f2-9cbc-14b736dd890a" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/Base.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/Base_Accueil.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/Base_Birthcertificate.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/Base_Configurations.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/Base_Identity.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/Base_Informations.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/Base_Recensement.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/Base_Table.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/Cameroun/css/Base.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/Cameroun/css/Base_Accueil.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/Cameroun/css/Base_Birthcertificate.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/Cameroun/css/Base_Configurations.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/Cameroun/css/Base_Identity.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/Cameroun/css/Base_Informations.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/Cameroun/css/Base_Recensement.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/Cameroun/css/Base_Table.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/Cameroun/images/admin.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/Cameroun/images/chantier.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/Cameroun/images/chantier.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/Cameroun/images/employé.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/Cameroun/images/logo.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/Cameroun/images/maire.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/Cameroun/images/officier.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/Cameroun/images/stats.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/Cameroun/images/visiteur.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/Datasystems/css/Base.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/Datasystems/css/Base_Accueil.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/Datasystems/css/Base_Birthcertificate.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/Datasystems/css/Base_Configurations.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/Datasystems/css/Base_Identity.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/Datasystems/css/Base_Informations.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/Datasystems/css/Base_Recensement.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/Datasystems/css/Base_Table.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/Datasystems/images/admin.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/Datasystems/images/chantier.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/Datasystems/images/chantier.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/Datasystems/images/employé.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/Datasystems/images/logo.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/Datasystems/images/maire.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/Datasystems/images/officier.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/Datasystems/images/stats.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/Datasystems/images/visiteur.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/admin/css/base.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/admin/css/changelists.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/admin/css/dashboard.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/admin/css/fonts.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/admin/css/forms.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/admin/css/login.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/admin/css/rtl.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/admin/css/widgets.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/admin/fonts/LICENSE.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/admin/fonts/README.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/admin/fonts/Roboto-Bold-webfont.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/admin/fonts/Roboto-Light-webfont.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/admin/fonts/Roboto-Regular-webfont.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/admin/img/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/admin/img/README.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/admin/img/calendar-icons.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/admin/img/gis/move_vertex_off.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/admin/img/gis/move_vertex_on.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/admin/img/icon-addlink.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/admin/img/icon-alert.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/admin/img/icon-calendar.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/admin/img/icon-changelink.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/admin/img/icon-clock.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/admin/img/icon-deletelink.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/admin/img/icon-no.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/admin/img/icon-unknown-alt.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/admin/img/icon-unknown.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/admin/img/icon-yes.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/admin/img/inline-delete.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/admin/img/search.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/admin/img/selector-icons.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/admin/img/sorting-icons.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/admin/img/tooltag-add.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/admin/img/tooltag-arrowright.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/admin/js/SelectBox.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/admin/js/SelectFilter2.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/admin/js/actions.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/admin/js/actions.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/admin/js/admin/DateTimeShortcuts.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/admin/js/admin/RelatedObjectLookups.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/admin/js/calendar.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/admin/js/cancel.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/admin/js/change_form.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/admin/js/collapse.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/admin/js/collapse.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/admin/js/core.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/admin/js/inlines.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/admin/js/inlines.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/admin/js/jquery.init.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/admin/js/popup_response.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/admin/js/prepopulate.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/admin/js/prepopulate.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/admin/js/prepopulate_init.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/admin/js/timeparse.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/admin/js/urlify.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/admin/js/vendor/jquery/LICENSE-JQUERY.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/admin/js/vendor/jquery/jquery.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/admin/js/vendor/jquery/jquery.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/admin/js/vendor/xregexp/LICENSE-XREGEXP.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/admin/js/vendor/xregexp/xregexp.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/admin/js/vendor/xregexp/xregexp.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/css/BC_base.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/css/Base_Informations.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/__.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/ad.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/ae.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/af.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/ag.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/ai.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/al.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/am.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/ao.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/aq.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/ar.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/as.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/at.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/au.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/aw.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/ax.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/az.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/ba.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/bb.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/bd.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/be.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/bf.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/bg.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/bh.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/bi.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/bj.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/bl.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/bm.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/bn.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/bo.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/bq.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/br.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/bs.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/bt.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/bv.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/bw.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/by.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/bz.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/ca.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/cc.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/cd.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/cf.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/cg.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/ch.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/ci.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/ck.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/cl.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/cm.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/cn.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/co.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/cr.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/cu.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/cv.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/cw.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/cx.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/cy.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/cz.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/de.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/dj.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/dk.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/dm.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/do.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/dz.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/ec.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/ee.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/eg.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/eh.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/er.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/es.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/et.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/eu.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/fi.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/fj.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/fk.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/fm.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/fo.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/fr.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/ga.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/gb.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/gd.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/ge.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/gf.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/gg.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/gh.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/gi.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/gl.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/gm.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/gn.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/gp.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/gq.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/gr.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/gs.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/gt.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/gu.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/gw.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/gy.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/hk.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/hm.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/hn.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/hr.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/ht.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/hu.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/id.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/ie.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/il.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/im.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/in.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/io.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/iq.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/ir.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/is.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/it.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/je.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/jm.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/jo.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/jp.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/ke.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/kg.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/kh.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/ki.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/km.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/kn.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/kp.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/kr.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/kw.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/ky.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/kz.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/la.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/lb.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/lc.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/li.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/lk.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/lr.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/ls.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/lt.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/lu.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/lv.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/ly.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/ma.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/mc.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/md.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/me.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/mf.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/mg.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/mh.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/mk.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/ml.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/mm.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/mn.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/mo.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/mp.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/mq.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/mr.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/ms.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/mt.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/mu.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/mv.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/mw.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/mx.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/my.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/mz.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/na.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/nc.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/ne.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/nf.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/ng.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/ni.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/nl.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/no.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/np.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/nr.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/nu.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/nz.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/om.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/pa.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/pe.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/pf.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/pg.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/ph.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/pk.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/pl.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/pm.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/pn.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/pr.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/ps.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/pt.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/pw.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/py.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/qa.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/re.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/ro.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/rs.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/ru.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/rw.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/sa.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/sb.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/sc.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/sd.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/se.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/sg.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/sh.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/si.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/sj.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/sk.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/sl.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/sm.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/sn.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/so.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/sr.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/ss.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/st.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/sv.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/sx.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/sy.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/sz.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/tc.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/td.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/tf.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/tg.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/th.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/tj.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/tk.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/tl.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/tm.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/tn.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/to.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/tr.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/tt.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/tv.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/tw.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/tz.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/ua.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/ug.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/um.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/us.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/uy.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/uz.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/va.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/vc.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/ve.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/vg.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/vi.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/vn.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/vu.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/wf.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/ws.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/ye.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/yt.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/za.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/zm.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/flags/zw.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/images/admin.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/images/chantier.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/images/chantier.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/images/employé.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/images/logo.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/images/logo.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/images/maire.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/images/officier.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/images/stats.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Etat_civil/staticold/images/visiteur.png" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Accueil/context_processors.py" afterPath="$PROJECT_DIR$/Accueil/context_processors.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Accueil/templates/Accueil.html" afterPath="$PROJECT_DIR$/Accueil/templates/Accueil.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Accueil/urls.py" afterPath="$PROJECT_DIR$/Accueil/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Accueil/views.py" afterPath="$PROJECT_DIR$/Accueil/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BirthCertificate/Docs.py" afterPath="$PROJECT_DIR$/BirthCertificate/Docs.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BirthCertificate/Gedurl.py" afterPath="$PROJECT_DIR$/BirthCertificate/Gedurl.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BirthCertificate/templates/BC_PDF.html" afterPath="$PROJECT_DIR$/BirthCertificate/templates/BC_PDF.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BirthCertificate/templates/BC_accueil.html" afterPath="$PROJECT_DIR$/BirthCertificate/templates/BC_accueil.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BirthCertificate/templates/BC_form.html" afterPath="$PROJECT_DIR$/BirthCertificate/templates/BC_form.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BirthCertificate/templates/BC_raw.html" afterPath="$PROJECT_DIR$/BirthCertificate/templates/BC_raw.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BirthCertificate/templates/BC_resume.html" afterPath="$PROJECT_DIR$/BirthCertificate/templates/BC_resume.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BirthCertificate/templates/Not_Found.html" afterPath="$PROJECT_DIR$/BirthCertificate/templates/Not_Found.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BirthCertificate/views.py" afterPath="$PROJECT_DIR$/BirthCertificate/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Etat_civil/settings.py" afterPath="$PROJECT_DIR$/Etat_civil/settings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Etat_civil/urls.py" afterPath="$PROJECT_DIR$/Etat_civil/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Etat_civil/wsgi.py" afterPath="$PROJECT_DIR$/Etat_civil/wsgi.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Identity/Gedurl.py" afterPath="$PROJECT_DIR$/Identity/Gedurl.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Identity/context_processors.py" afterPath="$PROJECT_DIR$/Identity/context_processors.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Identity/templates/Identity_PDF.html" afterPath="$PROJECT_DIR$/Identity/templates/Identity_PDF.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Identity/templates/Identity_home.html" afterPath="$PROJECT_DIR$/Identity/templates/Identity_home.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Identity/templates/delete.html" afterPath="$PROJECT_DIR$/Identity/templates/delete.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Identity/templates/edit.html" afterPath="$PROJECT_DIR$/Identity/templates/edit.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Identity/templates/form_Identity.html" afterPath="$PROJECT_DIR$/Identity/templates/form_Identity.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Identity/templates/identity_resume.html" afterPath="$PROJECT_DIR$/Identity/templates/identity_resume.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Identity/templates/resume.html" afterPath="$PROJECT_DIR$/Identity/templates/resume.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Identity/views.py" afterPath="$PROJECT_DIR$/Identity/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Mairie/templates/Mairie_Resume.html" afterPath="$PROJECT_DIR$/Mairie/templates/Mairie_Resume.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Mairie/templates/Mairie_form.html" afterPath="$PROJECT_DIR$/Mairie/templates/Mairie_form.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Mairie/views.py" afterPath="$PROJECT_DIR$/Mairie/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Recensement/Gedurl.py" afterPath="$PROJECT_DIR$/Recensement/Gedurl.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Recensement/templates/Recensement.html" afterPath="$PROJECT_DIR$/Recensement/templates/Recensement.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Recensement/templates/Recensement_PDF.html" afterPath="$PROJECT_DIR$/Recensement/templates/Recensement_PDF.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Recensement/views.py" afterPath="$PROJECT_DIR$/Recensement/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Table/Gedurl.py" afterPath="$PROJECT_DIR$/Table/Gedurl.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Table/templates/Table.html" afterPath="$PROJECT_DIR$/Table/templates/Table.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Table/views.py" afterPath="$PROJECT_DIR$/Table/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/templates/connexion.html" afterPath="$PROJECT_DIR$/log/templates/connexion.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/Theme/Datasystems/css/Base_Accueil.css" afterPath="$PROJECT_DIR$/static/Theme/Datasystems/css/Base_Accueil.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/Theme/Datasystems/css/Base_Birthcertificate.css" afterPath="$PROJECT_DIR$/static/Theme/Datasystems/css/Base_Birthcertificate.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/Theme/Datasystems/css/Base_Identity.css" afterPath="$PROJECT_DIR$/static/Theme/Datasystems/css/Base_Identity.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/Theme/Datasystems/css/Base_Informations.css" afterPath="$PROJECT_DIR$/static/Theme/Datasystems/css/Base_Informations.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/Base_Accueil.html" afterPath="$PROJECT_DIR$/templates/Base_Accueil.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/Base_BirthCertificate_Naissance.html" afterPath="$PROJECT_DIR$/templates/Base_BirthCertificate_Naissance.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/Base_Configurations.html" afterPath="$PROJECT_DIR$/templates/Base_Configurations.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/Base_Connexion.html" afterPath="$PROJECT_DIR$/templates/Base_Connexion.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/Base_Identity.html" afterPath="$PROJECT_DIR$/templates/Base_Identity.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/Base_Informations.html" afterPath="$PROJECT_DIR$/templates/Base_Informations.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/Base_Not_Found.html" afterPath="$PROJECT_DIR$/templates/Base_Not_Found.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/Base_Recensement.html" afterPath="$PROJECT_DIR$/templates/Base_Recensement.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/Base_Table.html" afterPath="$PROJECT_DIR$/templates/Base_Table.html" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/Etat_civil$views.coverage" NAME="views Coverage Results" MODIFIED="1493937298879" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Accueil" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_TABLE_DETAILS" value="true" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="Etat_civil" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Identity/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="94">
+              <caret line="498" column="84" lean-forward="true" selection-start-line="498" selection-start-column="84" selection-end-line="498" selection-end-column="84" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Global_variables.py" />
+        <option value="$PROJECT_DIR$/Accueil/views.py" />
+        <option value="$PROJECT_DIR$/Accueil/urls.py" />
+        <option value="$PROJECT_DIR$/Accueil/context_processors.py" />
+        <option value="$PROJECT_DIR$/BirthCertificate/views.py" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="y" value="22" />
+    <option name="width" value="1680" />
+    <option name="height" value="960" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers ProjectPane="true" />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Etat_civil" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Etat_civil" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Etat_civil" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Etat_civil" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Accueil" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.web.browsers" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="node.js.path.for.package.stylelint" value="project" />
+    <property name="node.js.detected.package.stylelint" value="true" />
+    <property name="node.js.selected.package.stylelint" value="" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Django server.Etat_civil">
+    <configuration default="false" name="views" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Accueil" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Etat_civil" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Accueil/views.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="DjangoTestsConfigurationType" factoryName="Django tests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Etat_civil" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="TARGET" value="" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="false" />
+      <option name="OPTIONS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerJest" factoryName="Jest">
+      <node-interpreter value="project" />
+      <working-dir value="" />
+      <envs />
+      <scope-kind value="ALL" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
+      <config-file value="" />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="PyBehaveRunConfigurationType" factoryName="Behave">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Etat_civil" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="ADDITIONAL_ARGS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="PyLettuceRunConfigurationType" factoryName="Lettuce">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Etat_civil" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="ADDITIONAL_ARGS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Python.DjangoServer" factoryName="Django server">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Etat_civil" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Etat_civil" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Tox" factoryName="Tox">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <module name="Etat_civil" />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Doctests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Etat_civil" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Unittests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Etat_civil" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;.&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Etat_civil" type="Python.DjangoServer" factoryName="Django server" singleton="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="Etat_civil.settings" />
+      </envs>
+      <option name="SDK_HOME" value="/System/Library/Frameworks/Python.framework/Versions/2.7/bin/python2.7" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="false" />
+      <option name="ADD_SOURCE_ROOTS" value="false" />
+      <module name="Etat_civil" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="localhost" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="http://localhost:8000/" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method />
+    </configuration>
+    <list size="2">
+      <item index="0" class="java.lang.String" itemvalue="Django server.Etat_civil" />
+      <item index="1" class="java.lang.String" itemvalue="Python.views" />
+    </list>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="Python.views" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="166a2ec4-1ff3-41f2-9cbc-14b736dd890a" name="Default" comment="" />
+      <created>1493935963108</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1493935963108</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="22" width="1680" height="960" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16130953" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21212122" sideWeight="0.50238097" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21212122" sideWeight="0.49761903" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2626728" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39955106" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3778999" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Concurrent Activities Diagram" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32996634" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32996634" sideWeight="0.50238097" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21212122" sideWeight="0.49761903" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16130953" sideWeight="0.5" order="5" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Concurrent Activities Diagram" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32996634" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39955106" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="processedProjectFiles" value="true" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/BirthCertificate/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#24#49#0" expanded="true" />
+            <element signature="e#636#677#0" expanded="false" />
+            <element signature="e#745#785#0" expanded="false" />
+            <element signature="e#856#894#0" expanded="false" />
+            <element signature="e#953#2265#0" expanded="false" />
+            <element signature="e#2343#4692#0" expanded="false" />
+            <element signature="e#4777#4968#0" expanded="false" />
+            <element signature="e#5046#6751#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BirthCertificate/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="34" lean-forward="false" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
+          <folding>
+            <element signature="e#24#49#0" expanded="true" />
+            <element signature="e#636#677#0" expanded="false" />
+            <element signature="e#745#785#0" expanded="false" />
+            <element signature="e#856#894#0" expanded="false" />
+            <element signature="e#953#2265#0" expanded="false" />
+            <element signature="e#2343#4692#0" expanded="false" />
+            <element signature="e#4777#4968#0" expanded="false" />
+            <element signature="e#5046#6751#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.project" />
+    <entry file="file://$PROJECT_DIR$/Accueil/templates/Choice.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Accueil/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Accueil/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Accueil/context_processors.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="12" lean-forward="true" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Global_variables.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BirthCertificate/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="492">
+          <caret line="229" column="84" lean-forward="false" selection-start-line="229" selection-start-column="84" selection-end-line="229" selection-end-column="84" />
+          <folding>
+            <element signature="e#24#49#0" expanded="true" />
+            <element signature="e#636#677#0" expanded="false" />
+            <element signature="e#745#785#0" expanded="false" />
+            <element signature="e#856#894#0" expanded="false" />
+            <element signature="e#953#2265#0" expanded="false" />
+            <element signature="e#2343#4692#0" expanded="false" />
+            <element signature="e#4777#4968#0" expanded="false" />
+            <element signature="e#5046#6751#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Identity/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="498" column="84" lean-forward="true" selection-start-line="498" selection-start-column="84" selection-end-line="498" selection-end-column="84" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

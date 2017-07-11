@@ -1,0 +1,158 @@
+{% extends 'Base_Identity.html' %}
+
+{% load staticfiles %}
+{% load static %}
+
+{% block title %}
+<div class="title">
+    <h3><span class="glyphicon glyphicon-user"></span> </span> Modification des champs de la Fiche d'Identification </h3>
+</div>
+{% endblock %}
+
+{% block content %}
+
+<style>
+    #searchbox, .button {
+        width:15vw;
+    }
+</style>
+
+<div class="title_subtitle_space"></div>
+
+    <form class = "form" method="GET" action="">
+
+    <h4> Rechercher l'individu à modifier : 
+        <a><span title="Saisir le n° d'identification de la personne à modifier."
+        class="glyphicon glyphicon-info-sign"></a> 
+    </h4>
+
+        <input id="searchbox" type="text"  name="social_number" placeholder="Numéro Identification" value="{{ request.GET.social_number }}">  
+        <input type="submit" onclick="return confirm('Valider la recherche ?')" /> 
+
+        <br></br>
+
+        Vous avez sélectionné la personne suivante :
+        
+        <div class="row">
+
+            <div class="col-lg-2">
+                <p></p>
+                <p></p>
+                
+                {% if individu.Image %}
+                    <img src='{{individu.Image.url}}' width="152" height="220"/>
+                {% endif %}
+            </div>
+            <div class="col-lg-9 col-lg-offset-1">
+                <p></p>
+                <table style="width:110%">
+                        <tbody>
+                            <p></p>
+                        <tr>
+                            <th> Informations sur l'individu </th>
+                            <th> Données renseignées </th>
+                        </tr>
+                        <tr>
+                            <td>ID</td>
+                            <td>{{individu.id}}</td>
+                        </tr>
+                        <tr>
+                            <td>N° Identification</td>
+                            <td>{{individu.NumeroIdentification}}</td>
+                        </tr>
+                        <tr>
+                            <td>État</td>
+                            <td>{{individu.Etat}}</td>
+                        </tr>
+                        <tr>
+                            <td>Civilité</td>
+                            <td>{{individu.Civilite}}</td>
+                        </tr>
+                        <tr>
+                            <td>Nom de famille</td>
+                            <td>{{individu.Nom}}</td>
+                        </tr>
+                        <tr>
+                            <td>Prénom(s)</td>
+                            <td>{{individu.Prenom}}</td>
+                        </tr>
+                        <tr>
+                            <td>Statut</td>
+                            <td>{{individu.Statut}}</td>
+                        </tr>
+                        <tr>
+                            <td>Sexe</td>
+                            <td>{{individu.Sexe}}</td>
+                        </tr>
+                        <tr>
+                            <td>Date de naissance</td>
+                            <td>{{individu.DateNaissance}}</td>
+                        </tr>
+                        <tr>
+                            <td>Ville de naissance</td>
+                            <td>{{individu.VilleNaissance}}</td>
+                        </tr>
+                        <tr>
+                            <td>Pays de naissance</td>
+                            <td>{{individu.PaysNaissance}}</td>
+                        </tr>
+                        <tr>
+                            <td>Nationalité 1</td>
+                            <td>{{individu.Nationalite1}}</td>
+                        </tr>
+                        <tr>
+                            <td>Nationalité 2</td>
+                            <td>{{individu.Nationalite2}}</td>
+                        </tr>
+                        <tr>
+                            <td>Profession</td>
+                            <td>{{individu.Profession}}</td>
+                        </tr>
+                        <tr>
+                            <td>Adresse</td>
+                            <td>{{individu.Adresse}}</td>
+                        </tr>
+                        <tr>
+                            <td>Ville</td>
+                            <td>{{individu.Ville}}</td>
+                        </tr>
+                        <tr>
+                            <td>Code postal</td>
+                            <td>{{individu.Zip}}</td>
+                        </tr>
+                        <tr>
+                            <td>Pays</td>
+                            <td>{{individu.Pays}}</td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>{{individu.Mail}}</td>
+                        </tr>
+                        <tr>
+                            <td>Téléphone</td>
+                            <td>{{individu.Telephone}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            
+        <br></br>
+
+    </form>
+    </div>
+            </div>
+
+    <form class = "form" method='POST' action= "" > {% csrf_token %}
+    <h4> Modification du/des champ(s) : 
+        <a><span title="Modifier uniquement les champs nécessaires. Sinon laisser les champs vides."
+        class="glyphicon glyphicon-info-sign"></a> 
+    </h4>
+
+    {{form.as_p}}
+
+    <br></br>
+
+    <input class="button" type ="submit" name ="save" value="Modifier la fiche" /> 
+
+    </form>
+   
+{% endblock %}

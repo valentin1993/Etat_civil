@@ -1,0 +1,203 @@
+{% extends 'Base_Identity.html' %}
+
+{% load staticfiles %}
+{% load static %}
+{% load variables %}
+
+{% block title %}
+<div class="title">
+    <h3><span class="glyphicon glyphicon-user"></span> </span> Consultation des Fiches d'Identifications </h3>
+</div>
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="title_subtitle_space"></div>
+
+    {% for message in messages %}
+        <div class="alert {{ message.tags }} alert-dismissible alert-error alert-success" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    <div class="resume">
+
+            <h4><b> <span class="glyphicon glyphicon-user"></span></span> Récapitulatif des 3 dernières Fiches d'Identifications Sociétés créées : <a><span title="Récapitulatif des 3 dernières fiches d'identification créées dans la Base de Données Nationale tout type d'administration confondue."
+        class="glyphicon glyphicon-info-sign"></a>
+            </b></h4>
+            <table style="width:125%">
+                <tbody>
+                <tr>
+                    <th>Nom</th>
+                    <th>État</th>
+                    <th>SIRET</th>
+                    <th>SIREN</th>
+                    <th>NAF-APE</th>
+                    <th>Adresse</th>
+                    <th>Ville</th>
+                    <th>Pays</th>
+                    <th>Responsable</th>
+                </tr>
+                {% for item in societe %}
+                <tr>
+                    <td>{{ item.Nom}}</td>
+                    <td>{{ item.Etat}}</td>
+                    <td>{{ item.SIRET }}</td>
+                    <td>{{ item.SIREN }}</td>
+                    <td>{{ item.NAF_APE }}</td>
+                    <td>{{ item.Adresse }}</td>
+                    <td>{{ item.Ville}}</td>
+                    <td>{{ item.Pays.name }}</td>
+                    <td>{{item.Responsable.Nom}} {{item.Responsable.Prenom}}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            <br></br>
+
+
+        <h4> <b> <span class="glyphicon glyphicon-user"></span></span> Récapitulatif des 3 dernières Fiches d'Identifications Société créées en France : <a><span title="Récapitulatif des 3 dernières fiches d'identification créées dans la Base de Données Nationale tout type d'administration confondue avec l'individu habitant en France. "
+        class="glyphicon glyphicon-info-sign"></a>
+        </b> </h4>
+        <table style="width:125%">
+                <tbody>
+                <tr>
+                    <th>Nom</th>
+                    <th>État</th>
+                    <th>SIRET</th>
+                    <th>SIREN</th>
+                    <th>NAF-APE</th>
+                    <th>Adresse</th>
+                    <th>Ville</th>
+                    <th>Pays</th>
+                    <th>Responsable</th>
+                </tr>
+                {% for item in societe_France %}
+                <tr>
+                    <td>{{ item.Nom}}</td>
+                    <td>{{ item.Etat}}</td>
+                    <td>{{ item.SIRET }}</td>
+                    <td>{{ item.SIREN }}</td>
+                    <td>{{ item.NAF_APE }}</td>
+                    <td>{{ item.Adresse }}</td>
+                    <td>{{ item.Ville}}</td>
+                    <td>{{ item.Pays.name }}</td>
+                    <td>{{item.Responsable.Nom}} {{item.Responsable.Prenom}}}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+
+
+        <!-- ######################################### -->
+        <!-- Recherche par nom dans la Base de Données -->
+        <!-- ######################################### -->
+
+        <br></br>
+        <h4> <b> <span class="glyphicon glyphicon-user"></span></span> Rechercher les informations d'une Société <a><span title="Outil permettant de rechercher le N° Identification d'un individu. Il est nécessaire d'inscrire au minimum le Nom et le Prénom (entièrement ou en partie) pour effectuer une recherche."
+        class="glyphicon glyphicon-info-sign"></a>
+        </b></h4>
+
+    <script type="text/javascript" src="{% get_static_prefix %}{{ mytheme }}/js/notifications.js"></script>
+
+        <form autocomplete="off" method="GET" action="">
+            <input type="text"  name="q1ID" placeholder="Nom (ex:TEST) " value="{{ request.GET.q1ID }}"> et
+            <input type="text"  name="q1bisID" placeholder="Ville" value="{{ request.GET.q1bisID }}"> &nbsp;
+            <input class="button" type="submit" value="Rechercher">&nbsp;
+        </form>
+
+        <br></br>
+
+        <table style="width:125%">
+                <tbody>
+                <tr>
+                    <th>Nom</th>
+                    <th>État</th>
+                    <th>SIRET</th>
+                    <th>SIREN</th>
+                    <th>NAF-APE</th>
+                    <th>Adresse</th>
+                    <th>Ville</th>
+                    <th>Pays</th>
+                    <th>Responsable</th>
+                </tr>
+                {% for item in query_ID_list %}
+                <tr>
+                    <td>{{ item.Nom}}</td>
+                    <td>{{ item.Etat}}</td>
+                    <td>{{ item.SIRET }}</td>
+                    <td>{{ item.SIREN }}</td>
+                    <td>{{ item.NAF_APE }}</td>
+                    <td>{{ item.Adresse }}</td>
+                    <td>{{ item.Ville}}</td>
+                    <td>{{ item.Pays.name }}</td>
+                    <td>{{item.Responsable.Nom}} {{item.Responsable.Prenom}}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+        <br></br>
+
+        <h4> <b> <span class="glyphicon glyphicon-user"></span></span> Rechercher une Société dans DatasystemsDOC <a><span title="Outil permettant d'être directement redirigé vers le dossier de l'individu recherché dans DatasystemsDOC. En renseignant obligatoirement le Nom, Prénom et N° Identification intégralement, vous pourrez accéder au dossier dans DatasystemsDOC."
+        class="glyphicon glyphicon-info-sign"></a>
+        </b></h4>
+
+    <script type="text/javascript" src="{% get_static_prefix %}{{ mytheme }}/js/notifications.js"></script>
+
+        <form method="GET" action="">
+            <input type="text"  name="q1" placeholder="Nom (ex:TEST) " value="{{ request.GET.q1 }}"> et
+            <input type="text"  name="q1bis" placeholder="N° SIRET" value="{{ request.GET.q1bis }}"> 
+            <input class="button" type="submit" value="Rechercher">&nbsp;
+        </form>
+
+        <br></br>
+        <p class = "texte"> Lien vers le dossier de la Société {{ request.GET.q1 }} {{request.GET.q1bis}} : 
+        
+        <a target="_blank" href="{% GED_url %}/frontend.jsp?folderId={{folderId}}">Accéder au dossier</a>
+        <p></p>
+        <p class = "texte" >N° du dossier de la Société : {{folderId}} </p>
+
+        Informations complémentaires concernant la société recherchée :
+        <br></br>
+
+        <table style="width:125%">
+                <tbody>
+                <tr>
+                    <th>Nom</th>
+                    <th>État</th>
+                    <th>SIRET</th>
+                    <th>SIREN</th>
+                    <th>NAF-APE</th>
+                    <th>Adresse</th>
+                    <th>Ville</th>
+                    <th>Pays</th>
+                    <th>Responsable</th>
+                </tr>
+                {% for item in query_societe_list %}
+                <tr>
+                    <td>{{ item.Nom}}</td>
+                    <td>{{ item.Etat}}</td>
+                    <td>{{ item.SIRET }}</td>
+                    <td>{{ item.SIREN }}</td>
+                    <td>{{ item.NAF_APE }}</td>
+                    <td>{{ item.Adresse }}</td>
+                    <td>{{ item.Ville}}</td>
+                    <td>{{ item.Pays.name }}</td>
+                    <td>{{item.Responsable.Nom}} {{item.Responsable.Prenom}}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+        <br></br>
+
+    </div>
+
+
+{% endblock content %}

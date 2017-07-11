@@ -5,20 +5,22 @@
 {% load static %} 
 
 {% block title %}
-    <h3> <span class="glyphicon glyphicon-file"></span> Choix du thème DatasystemsEC </align> </h3>
+<div class="title">
+    <h3> <span class="glyphicon glyphicon-file"></span> Choix du thème DatasystemsCORE </align> </h3>
+</div>
 {% endblock %}
 
 {% block content %}
 
 <style>    
 
-    .col-sm-9 li {
+    .col-lg-9 li {
         display : inline;
         list-style-type: none;
-        padding-left : 8vw;
+        padding-left : 6vw;
     }
 
-    .col-sm-9 .button {
+    .col-lg-9 .button {
         padding-left : 8vw;
     }
 
@@ -27,7 +29,7 @@
         width: 20vw;
         height: 20vh;
         margin-left: 3vw;
-        margin-top: 8vh;
+        margin-top: 10vh;
     }
     
     .img2 {
@@ -35,7 +37,7 @@
         width: 20vw;
         height: 20vh;
         margin-left: 34vw;
-        margin-top: 7vh;
+        margin-top: 9vh;
     }
 
 </style>
@@ -47,12 +49,13 @@
         <div class="container-fluid">
             <div class="row">
                 {% for field in form  %}
-                    <div class="col-sm-9">
+                    <div class="col-lg-9">
                         <li>{{ field.label_tag }}</li>  {{ field }} 
                     </div>
                 {% endfor %}
             </div>  
         </div>
+        <br></br>
         <br></br>
         <br></br>
         <br></br>

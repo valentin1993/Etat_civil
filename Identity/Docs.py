@@ -77,9 +77,9 @@ def create(path, sid, **parameters):
     _document.update(parameters)
     doc = client.service.create(sid, _document, Buffer.reader(path))
 
-    Workflow.workflow(sid, [doc['id']])
+    # Workflow.workflow(sid, [doc['id']])
 
-    time.sleep(10)
+    time.sleep(3)
 
     client.service.reindex(sid, doc['id'], None) 
 
@@ -93,11 +93,11 @@ def upload(path, sid, fileid, filename):
     rien = zeep.xsd.SkipValue
     doc = client.service.upload(sid, fileid, rien, False, filename, "fr", Buffer.reader(path))
 
-    Workflow.workflow(sid, [fileid])
+    # Workflow.workflow(sid, [fileid])
 
-    time.sleep(10)
+    #time.sleep(3)
 
-    client.service.reindex(sid, fileid, None) 
+    #client.service.reindex(sid, fileid, None) 
     
     return doc
 

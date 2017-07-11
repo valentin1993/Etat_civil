@@ -1,0 +1,74 @@
+<!-- Copyright (C) 2017     Valentin JUNGBLUTH  <valentin@datasystems.fr>
+     Copyright (C) 2017     Alexis MOLTER       <amolter@datasystems.fr>
+
+This script lets to define the form template for "Reconnaissance" -->
+
+{% extends 'Base_Identity.html' %}
+
+<!-- Load static part -->
+{% load staticfiles %}
+{% load static %}
+
+<!--HTML template bloc title-->
+{% block title %}
+    <div class="title">
+        <h3> <span class="glyphicon glyphicon-file"></span>Choix du type de modification</align> </h3>
+    </div>
+{% endblock %}
+
+{% block content %}
+
+    <div class="title_subtitle_space"></div>
+
+    {% for message in messages %}
+        <div class="alert {{ message.tags }} alert-dismissible alert-error alert-success" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    <style>
+
+        span.title{
+            display:bloc;
+        }
+
+    </style>
+
+    <script type="text/javascript" src="{% get_static_prefix %}{{ mytheme }}/js/notifications.js"></script>
+
+    <div class="subtitle-form">
+        <h4>Choisir le type de modification que vous souhaitez effectuer : 
+            <a><span title="- Modification des informations de civilité (Etat, Nom, Statut civil, Nationalité(s), Profession, Photo identité et Carte identité). 
+- Modification des informations de coordonnées (Adresse, Ville, Code Postal, Pays).
+- Modification des informations de contact (Adresse Mail, Téléphone)."
+        class="glyphicon glyphicon-info-sign"></a>
+        </h4>
+    </div>
+
+    <br></br>
+    <br></br>
+    <br></br>
+    
+    <div class="col-lg-4">
+        <form class="form" action="{% url "EditionCivilite" %}" method="GET">{% csrf_token %}
+            <button>Modifier les informations de civilité</button>
+        </form>
+    </div>
+    
+    <div class="col-lg-4 offset-1">
+    <form class="form" action="{% url "EditionCoordonnees" %}" method="GET">{% csrf_token %}
+        <button>Modifier les informations de coordonnées</button>
+    </form>
+    </div>
+
+    <div class="col-lg-4 offset-1">
+    <form class="form" action="{% url "EditionContact" %}" method="GET">{% csrf_token %}
+        <button>Modifier les informations de contact</button>
+    </form>
+    </div>
+
+
+{% endblock content %}  

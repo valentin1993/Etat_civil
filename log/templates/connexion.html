@@ -13,12 +13,12 @@
             margin-left : auto;
             margin-right : auto;
             margin-top: 10%;
-            padding-top: 9px;
+            padding-top: 0.7vw;
             text-align : center;
             border: 2px solid black;
             border-radius: 1em;
-            height: 120px;
-            width:400px;
+            height: 8.12vw;
+            width:25vw;
             list-style: none;
             
         }
@@ -33,10 +33,14 @@
         }
 
         .test {
-            margin-top : 100px;
-            margin-left : auto;
-            margin-right : auto;
+            
+            margin : 0 auto;
             color: red;
+        }
+
+        img {
+            display: block;
+            margin: 0 auto;
         }
     </style> 
     </head>
@@ -44,10 +48,22 @@
     <body>
 
 
-    <h2 align="center"> Page de connexion à DatasystemsEC</align></h2>
+    {% comment %}<h2 align="center"> Page de connexion </align></h2>{% endcomment %}
 
-    <p align="center"><img src="{% get_static_prefix %}{{ mytheme }}/images/logo.png"></p>
+    <br></br>
 
+    <div><img src="{% get_static_prefix %}{{ mytheme }}/images/DatasystemsCORE.png"></div>
+
+        <form autocomplete="off" class = "rectangle" method="post" action="">{% csrf_token %}
+            <table>
+                {{ form.as_p }}
+            </table>
+
+            <p></p>
+
+            <button> Se connecter </button>
+
+        </form>
 
         {% if error %}
 
@@ -58,21 +74,9 @@
 
         {% if user.is_authenticated %}
 
-        <h3 align="center"> Bienvenue {{ user.username }}, vous êtes maintenant connecté à DatasystemsEC ! </align></h3>
+        <h3 align="center"> Bienvenue {{ user.username }}, vous êtes maintenant connecté à DatasystemsCORE ! </align></h3>
 
         {% else %}
-
-
-        <form autocomplete="off" class = "rectangle" method="post" action="">{% csrf_token %}
-        <table>
-        {{ form.as_ul }}
-        </table>
-
-        <p></p>
-
-        <button> Se connecter </button>
-
-        </form>
 
         </body>
 

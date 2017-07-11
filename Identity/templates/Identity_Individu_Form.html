@@ -1,0 +1,103 @@
+<!-- Copyright (C) 2017     Valentin JUNGBLUTH  <valentin@datasystems.fr>
+     Copyright (C) 2017     Alexis MOLTER       <amolter@datasystems.fr>
+
+This script lets to define the form template for "Identity" -->
+
+{% extends 'Base_Identity.html' %}
+
+<!-- Load static part -->
+{% load staticfiles %}
+{% load static %}
+
+<!--HTML template bloc title-->
+{% block title %}
+    <div class="title">
+        <h3><span class="glyphicon glyphicon-user"></span> </span>  Gestion des Fiches d'Identifications pour les Individus</h3>
+    </div>
+{% endblock %}
+
+{% block content %}
+
+    <div class="title_subtitle_space"></div>
+
+    {% for message in messages %}
+        <div class="alert {{ message.tags }} alert-dismissible alert-error alert-success" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    <script type="text/javascript" src="{% get_static_prefix %}{{ mytheme }}/js/notifications.js"></script>
+
+    <!-- ######################################### -->
+    <!-- Recherche par nom dans la Base de Données -->
+    <!-- ######################################### -->
+    <div class="subtitle-form">
+        <h4> <span class="glyphicon glyphicon-user"></span></span> Rechercher le n° identification d'un individu <a><span title="Outil permettant de vérifier si un individu est déjà enregistré dans la Base de Données Nationale. Saisir au minimum Nom et Prénom (entièrement ou en partie). Si la personne recherchée est trouvée, ne pas remplir le formulaire de création de fiche !"
+        class="glyphicon glyphicon-info-sign"></a>
+        </h4>
+    </div>
+
+    <div class="form">
+        <form autocomplete="off" method="GET" action="">
+            <input type="text" name="q1NomID" placeholder="Nom (ex:TEST) " value="{{ request.GET.q1NomID }}"> &nbsp;
+            <input type="text" name="q1PrenomID" placeholder="Prénom (ex:Test)" value="{{ request.GET.q1PrenomID }}"> &nbsp;
+            <p></p>
+            <input id="id_search" type="text" name="q1DateNaissanceID" placeholder="Date de Naissance (YY-mm-dd) " value="{{ request.GET.q1DateNaissanceID }}"> (optionnel) &nbsp;
+            <p></p>
+            <input id="id_search" type="text" name="q1VilleNaissanceID" placeholder="Ville de Naissance" value="{{ request.GET.q1VilleNaissanceID }}"> (optionnel) &nbsp;
+            <br></br>
+            <input class="button" type="submit" value="Rechercher">&nbsp;
+        </form>
+
+        <br></br>
+
+        <table style="width:120%">
+            <tbody>
+                <tr>
+                    <th>ID</th>
+                    <th>État</th>
+                    <th>N° Identification</th>
+                    <th>Civilité</th>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Date de Naissance</th>
+                    <th>Ville de Naissance</th>
+                    <th>Pays de Naissance</th>
+                </tr>
+                {% for item in query_ID_list %}
+                <tr>
+                    <td>{{ item.id}}</td>
+                    <td>{{ item.Etat}}</td>
+                    <td>{{ item.NumeroIdentification}}</td>
+                    <td>{{ item.Civilite }}</td>
+                    <td>{{ item.Nom }}</td>
+                    <td>{{ item.Prenom }}</td>
+                    <td>{{ item.DateNaissance }}</td>
+                    <td>{{ item.VilleNaissance }}</td>
+                    <td>{{ item.PaysNaissance.name }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+        <br></br>
+
+    <div class="subtitle-form">
+        <h4><span class="glyphicon glyphicon-user"></span></span> Créer la fiche d'identification d'un individu <a><span title="Outil permettant de créer la fiche d'identification d'un individu. Remplir le formulaire avec les informations de la personne et prendre/scanner la photo de l'individu ainsi que sa pièce d'identité."
+        class="glyphicon glyphicon-info-sign"></a>
+        </b></h4>
+    </div>
+
+
+        <form class = "form" method='POST' action='' enctype="multipart/form-data"> {% csrf_token %} <br></br>
+            {{ form.as_p}} 
+            {{birthday|date:"%d/%m/%Y" }} <br></br>
+
+            <input type="submit" onclick="return confirm('Valider le formulaire ?')" /> 
+        </form>
+
+{% endblock content %} 

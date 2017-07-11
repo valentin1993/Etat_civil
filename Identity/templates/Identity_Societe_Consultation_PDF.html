@@ -1,0 +1,162 @@
+{% extends 'Base_Identity.html' %}
+
+{% load staticfiles %}
+{% load static %}
+{% load variables %}
+
+{% block title %}
+<div class="title">
+    <h3><span class="glyphicon glyphicon-user"></span> </span> Consultation des Fiches d'Identifications Sociétés</h3>
+</div>
+{% endblock %}
+
+
+{% block content %}
+
+    <style>
+
+        #searchbox {
+            width : 14.7vw;
+        }
+
+        .div-col-lg-2 {
+            padding-top : 100px;
+        }
+
+    </style>
+
+    <div class="title_subtitle_space"></div>
+
+    {% for message in messages %}
+        <div class="alert {{ message.tags }} alert-dismissible alert-error alert-success" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    <div class="resume">
+
+        <h4> <b> <span class="glyphicon glyphicon-user"></span></span> Consulter la fiche d'identification d'une société <a><span title="Veuillez entrer le numéro SIRET de la Société pour consulter sa fiche d'identification. Pour connaitre ce numéro, vous pouvez l'obtenir via la page ''Recherche Fiches Identifications''."
+        class="glyphicon glyphicon-info-sign"></a>
+        </b></h4> 
+        <form autocomplete="off" method="GET" action="">
+            <input id = "searchbox" type="text"  name="q1idID" placeholder="N° SIRET" value="{{ request.GET.q1idID }}"> 
+            <input class="button" type="submit" value="Rechercher">&nbsp;
+        </form>
+
+        <br></br>
+
+        
+
+        {% comment %}{% for personne in query_ID_list %}
+
+        <div class="row">
+
+            <div class="col-lg-2">
+                
+                {% if personne.Image %}
+                    <img src='{{personne.Image.url}}' width="152" height="220"/>
+                {% endif %}
+            </div>
+            <div class="col-lg-9 col-lg-offset-1">
+
+                <table style="width:110%">
+                        <tbody>
+                            <p></p>
+                        <tr>
+                            <th> Informations sur l'individu </th>
+                            <th> Données renseignées </th>
+                        </tr>
+                        <tr>
+                            <td>ID</td>
+                            <td>{{personne.id}}</td>
+                        </tr>
+                        <tr>
+                            <td>État</td>
+                            <td>{{personne.Etat}}</td>
+                        </tr>
+                        <tr>
+                            <td>N° Identification</td>
+                            <td>{{personne.NumeroIdentification}}</td>
+                        </tr>
+                        <tr>
+                            <td>Civilité</td>
+                            <td>{{personne.Civilite}}</td>
+                        </tr>
+                        <tr>
+                            <td>Nom de famille</td>
+                            <td>{{personne.Nom}}</td>
+                        </tr>
+                        <tr>
+                            <td>Prénom(s)</td>
+                            <td>{{personne.Prenom}}</td>
+                        </tr>
+                        <tr>
+                            <td>Statut</td>
+                            <td>{{personne.Statut}}</td>
+                        </tr>
+                        <tr>
+                            <td>Sexe</td>
+                            <td>{{personne.Sexe}}</td>
+                        </tr>
+                        <tr>
+                            <td>Date de naissance</td>
+                            <td>{{personne.DateNaissance}}</td>
+                        </tr>
+                        <tr>
+                            <td>Ville de naissance</td>
+                            <td>{{personne.VilleNaissance}}</td>
+                        </tr>
+                        <tr>
+                            <td>Pays de naissance</td>
+                            <td>{{personne.PaysNaissance}}</td>
+                        </tr>
+                        <tr>
+                            <td>Nationalité 1</td>
+                            <td>{{personne.Nationalite1}}</td>
+                        </tr>
+                        <tr>
+                            <td>Nationalité 2</td>
+                            <td>{{personne.Nationalite2}}</td>
+                        </tr>
+                        <tr>
+                            <td>Profession</td>
+                            <td>{{personne.Profession}}</td>
+                        </tr>
+                        <tr>
+                            <td>Adresse</td>
+                            <td>{{personne.Adresse}}</td>
+                        </tr>
+                        <tr>
+                            <td>Ville</td>
+                            <td>{{personne.Ville}}</td>
+                        </tr>
+                        <tr>
+                            <td>Code postal</td>
+                            <td>{{personne.Zip}}</td>
+                        </tr>
+                        <tr>
+                            <td>Pays</td>
+                            <td>{{personne.Pays.name}}</td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>{{personne.Email}}</td>
+                        </tr>
+                        <tr>
+                            <td>Téléphone</td>
+                            <td>{{personne.Telephone}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+            </div>
+        </div>
+
+        {% endfor %}{% endcomment %}
+
+    </div>
+
+
+{% endblock content %}

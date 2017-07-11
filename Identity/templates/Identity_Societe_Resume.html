@@ -1,0 +1,147 @@
+{% extends 'Base_Identity.html' %}
+
+{% load staticfiles %}
+{% load static %}
+
+{% block title %}
+<div class="title">
+    <h3><span class="glyphicon glyphicon-user"></span> </span> La Société {{societe.Nom}} a été enregistré</h3>
+</div>
+{% endblock %} 
+
+{% block content %}
+
+    <div class="title_subtitle_space"></div>
+
+    {% for message in messages %}
+        <div class="alert {{ message.tags }} alert-dismissible alert-error alert-success" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    <script type="text/javascript" src="{% get_static_prefix %}{{ mytheme }}/js/notifications.js"></script>
+
+    <div class="resume">
+
+        Votre société porte le numéro : <b> {{ societe.id}} </b> <p></p>
+        N° SIRET de {{societe.Nom}} : <b>{{societe.SIRET}}</b> <br></br>
+
+    <table style="width:90%">
+                <tbody>
+                    <p></p>
+                <tr>
+                    <th> Informations sur la société </th>
+                    <th> Données renseignées </th>
+                </tr>
+                <tr>
+                    <td>ID</td>
+                    <td>{{societe.id}}</td>
+                </tr>
+                <tr>
+                    <td>Nom</td>
+                    <td>{{societe.Nom}}</td>
+                </tr>
+                <tr>
+                    <td>État</td>
+                    <td>{{societe.Etat}}</td>
+                </tr>
+                <tr>
+                    <td>Adresse</td>
+                    <td>{{societe.Adresse}}</td>
+                </tr>
+                <tr>
+                    <td>Ville</td>
+                    <td>{{societe.Ville}}</td>
+                </tr>
+                <tr>
+                    <td>Zip</td>
+                    <td>{{societe.Zip}}</td>
+                </tr>
+                <tr>
+                    <td>Région</td>
+                    <td>{{societe.Region}}</td>
+                </tr>
+                <tr>
+                    <td>Pays</td>
+                    <td>{{societe.Pays}}</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>{{societe.Mail}}</td>
+                </tr>
+                <tr>
+                    <td>Site Web</td>
+                    <td>{{societe.Web}}</td>
+                </tr>
+                <tr>
+                    <td>Téléphone</td>
+                    <td>{{societe.Telephone}}</td>
+                </tr>
+                <tr>
+                    <td>Fax</td>
+                    <td>{{societe.Fax}}</td>
+                </tr>
+                <tr>
+                    <td>SIREN</td>
+                    <td>{{societe.SIREN}}</td>
+                </tr>
+                <tr>
+                    <td>SIRET</td>
+                    <td>{{societe.SIRET}}</td>
+                </tr>
+                <tr>
+                    <td>NAF-APE</td>
+                    <td>{{societe.NAF_APE}}</td>
+                </tr>
+                <tr>
+                    <td>RCS</td>
+                    <td>{{societe.RCS}}</td>
+                </tr>
+                <tr>
+                    <td>Assujeti à la TVA</td>
+                    <td>{{societe.CHOIX_TVA}}</td>
+                </tr>
+                <tr>
+                    <td>N° TVA</td>
+                    <td>{{societe.TVA}}</td>
+                </tr>
+                <tr>
+                    <td>Type de Société</td>
+                    <td>{{societe.Type}}</td>
+                </tr>
+                <tr>
+                    <td>Effectif</td>
+                    <td>{{societe.Effectif}}</td>
+                </tr>
+                <tr>
+                    <td>Capital</td>
+                    <td>{{societe.Capital}} euros</td>
+                </tr>
+                <tr>
+                    <td>Responsable de la Société</td>
+                    <td>{{societe.Responsable.Nom}} {{societe.Responsable.Prenom}} {{societe.Responsable.NumeroIdentification}}</td>
+                </tr>
+                </tbody>
+            </table>
+
+<br></br> 
+
+    <form method='POST' action="{% url "SocietePDF" societe.id %}">{% csrf_token %}
+    {% csrf_token %}
+    <button>Générer le PDF de la Fiche d'Identification </button>
+    </form>
+
+    <script>
+    $(function() {
+    $('button').click(function() {
+        alert("Votre PDF a été généré dans DatasystemsDOC");
+    });
+    })(jQuery);
+    </script>
+
+</div>
+
+{% endblock content %}
