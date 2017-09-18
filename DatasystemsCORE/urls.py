@@ -34,6 +34,7 @@ urlpatterns = [
         name='choice'),
     url(r'^admin/', admin.site.urls),
     url(r'^Identity/', include('Identity.urls')),
+    url(r'^api/Identity/', include('Identity.api.urls', namespace='Identity-api')),
     url(r'^Accueil/', include('Accueil.urls')),
     url(r'^Home/', include('log.urls')),
     url(r'^Informations/', include('Informations.urls')), 

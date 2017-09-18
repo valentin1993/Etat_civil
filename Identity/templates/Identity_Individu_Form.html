@@ -40,16 +40,12 @@ This script lets to define the form template for "Identity" -->
         </h4>
     </div>
 
-    <div class="form">
+    <div class="form" >
         <form autocomplete="off" method="GET" action="">
-            <input type="text" name="q1NomID" placeholder="Nom (ex:TEST) " value="{{ request.GET.q1NomID }}"> &nbsp;
-            <input type="text" name="q1PrenomID" placeholder="Prénom (ex:Test)" value="{{ request.GET.q1PrenomID }}"> &nbsp;
-            <p></p>
-            <input id="id_search" type="text" name="q1DateNaissanceID" placeholder="Date de Naissance (YY-mm-dd) " value="{{ request.GET.q1DateNaissanceID }}"> (optionnel) &nbsp;
-            <p></p>
-            <input id="id_search" type="text" name="q1VilleNaissanceID" placeholder="Ville de Naissance" value="{{ request.GET.q1VilleNaissanceID }}"> (optionnel) &nbsp;
-            <br></br>
-            <input class="button" type="submit" value="Rechercher">&nbsp;
+            <input type="text" name="q1NomID" placeholder="Nom" value="{{ request.GET.q1NomID }}"> &nbsp;
+            <input type="text" name="q1PrenomID" placeholder="Prénom" value="{{ request.GET.q1PrenomID }}"> &nbsp; 
+            <input id="id_search" type="text" name="q1VilleNaissanceID" placeholder="Ville de Naissance" value="{{ request.GET.q1VilleNaissanceID }}"> &nbsp; <p></p>
+            <input class="button" type="submit" name='recherche' value="Rechercher">&nbsp;
         </form>
 
         <br></br>
@@ -94,7 +90,11 @@ This script lets to define the form template for "Identity" -->
 
 
         <form class = "form" method='POST' action='' enctype="multipart/form-data"> {% csrf_token %} <br></br>
-            {{ form.as_p}} 
+            <div style="border:3px; border-style:solid; border-color:#FF0000; padding: 1em;">
+                Pour le champ <b>Ville de Naissance</b>, si l'individu est non ressortissant vous devez écrire : <b>ETRANGER</b>.
+            </div>
+            <br></br>
+            {{ form.as_p }} 
             {{birthday|date:"%d/%m/%Y" }} <br></br>
 
             <input type="submit" onclick="return confirm('Valider le formulaire ?')" /> 

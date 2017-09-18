@@ -13,3 +13,4 @@ def Choice(request):
 
 def Accueil(request):
     return render(request, 'Accueil.html')
+

@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from .forms import ConnexionForm
 from django.shortcuts import render, reverse, get_object_or_404, redirect
 from django.http import HttpResponseRedirect, HttpResponse
+from log.models import LoggedUsers
 
 
 
@@ -31,3 +32,17 @@ def deconnexion(request):
     logout(request)
 
     return redirect(reverse('choice'))
+
+
+def ConnectedUsers(request) :
+
+    logged_users=LoggedUsers.objects.all()
+
+    logged_users_number = LoggedUsers.objects.all().count()
+
+    context = {
+        "logged_users":logged_users,
+        "logged_users_number":logged_users_number,
+    }
+
+    return render(request, "UtilisateursConnectes.html", context)

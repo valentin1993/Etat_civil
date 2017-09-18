@@ -1,0 +1,52 @@
+<!-- Copyright (C) 2017     Valentin JUNGBLUTH  <valentin@datasystems.fr>
+     Copyright (C) 2017     Alexis MOLTER       <amolter@datasystems.fr>
+
+This script lets to define the homepage template for "Identity" -->
+
+{% extends 'Base_Identity.html' %}
+
+{% load staticfiles %}
+{% load static %}
+{% load user_tags %}
+{% load variables %}
+
+
+
+{% block title %}
+<h2 class="hometitle" align="center"> Affichage des utilisateurs connectés </align> </h2>
+{% endblock %}
+
+<br></br>
+
+{% block content %}
+
+<br></br>
+
+<p class="blue_element">Nombre d'utilisateurs actuellement connectés à DatasystemsCORE :</p> {{logged_users_number}}
+
+<p></p>
+
+<p class="blue_element">Liste des utilisateurs actuellement connectés à DatasystemsCORE :</p>
+
+    <p></p>
+
+    <table style="width:40%">
+                <tbody>
+                <tr>
+                    <th>Utilisateur</th>
+                </tr>
+                {% for user in logged_users %}
+                <tr>
+                    <td>{{ user }}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+    </table>
+
+    <!-- {% for user in logged_users %} 
+    <ul>
+        <li>{{ user }}</li>
+    </ul>
+    {% endfor %} -->
+
+{% endblock %}

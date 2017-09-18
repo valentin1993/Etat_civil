@@ -1,57 +1,61 @@
 #-*- coding: utf-8 -*-
 
-import requests, os, json, glob
+#Import from Project file 
+from models import Individu, CountryField
+from forms import *
+from Informations import *
+from DatasystemsCORE import settings
+import Ville
+import Global_variables
+import Individu_Recherche 
+import Logger, Search, Folds, Docs, Buffer
+
+#Import from Django
 from django.shortcuts import render, reverse, get_object_or_404, render_to_response
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect, HttpResponse
-from models import Individu, CountryField
-from forms import *
-from django.views.generic.edit import UpdateView
+from django.views.generic import TemplateView, ListView
+from django.views.generic.edit import UpdateView, FormView, CreateView
 from django.template.loader import get_template
 from django.template import Context
-from xhtml2pdf import pisa
-
-from Informations import *
-
-import re 
-import Logger, Search, Folds, Docs, Buffer
-
-from chartit import DataPool, Chart
-
 from django.db.models import Count
 from django_countries import countries
-
-import time, datetime
-from random import randint
 from django.contrib import messages 
 
-import Global_variables
-from DatasystemsCORE import settings
-import StringIO
 
-
-import cStringIO as StringIO
+#Import from others lib
+import requests, os, json, glob
 from xhtml2pdf import pisa
-from django.template.loader import get_template
-from django.template import Context
-from django.http import HttpResponse
+import re 
+from chartit import DataPool, Chart
+import time, datetime
+from random import randint
+import cStringIO as StringIO
 from cgi import escape
 
+
+###################################################################################################################################################################################################
 
 def link_callback(uri, rel):
     if uri.find('chart.apis.google.com') != -1:
         return uri
     return os.path.join(settings.MEDIA_ROOT, uri.replace(settings.MEDIA_URL, ""))
 
+###################################################################################################################################################################################################
+
 @login_required
 def Identity_Choice(request) :
 
     return render(request, 'Identity_Choice.html')
 
+###################################################################################################################################################################################################
+
 @login_required
 def Identity_Home(request) :
     
     return render(request, 'Identity_home.html')
+
+###################################################################################################################################################################################################
 
 @login_required
 def Chartview(request) :
@@ -84,8 +88,6 @@ def Chartview(request) :
                 'xAxis': {
                     'title': {
                        'text': 'Villes'}}})
-
-
     ds = \
         DataPool(
            series=
@@ -145,72 +147,36 @@ def Chartview(request) :
 
     return render(request, 'Identity_Statistics.html', {'charts': [cht, cht2, cht3],})
 
+###################################################################################################################################################################################################
+
 @login_required
 def Identity_Individu_Form(request) :
-    
+
+    #################################################################
+    #               Initialisation des variables                    #
     success = False
+    query_Nom_ID = query_Prenom_ID = query_VilleNaissance_ID = None
+    #################################################################
 
-    ##########################
-    # People searching n° ID #
-    ##########################
 
-    query_Nom_ID = request.GET.get('q1NomID')
-    query_Prenom_ID = request.GET.get('q1PrenomID')
-    query_DateNaissance_ID = request.GET.get('q1DateNaissanceID')
-    query_VilleNaissance_ID = request.GET.get('q1VilleNaissanceID')
+    if 'recherche' in request.GET:
+        
+        query_Nom_ID = request.GET.get('q1NomID')
+        query_Prenom_ID = request.GET.get('q1PrenomID')
+        query_VilleNaissance_ID = request.GET.get('q1VilleNaissanceID')
 
-    if query_Prenom_ID and query_Nom_ID and query_DateNaissance_ID and query_VilleNaissance_ID :
-        
-        query_ID_list = Individu.objects.filter(
-                                                Nom__icontains=query_Nom_ID, 
-                                                Prenom__icontains=query_Prenom_ID, 
-                                                DateNaissance__icontains=query_DateNaissance_ID,
-                                                VilleNaissance__icontains=query_VilleNaissance_ID)
-        if len(query_ID_list) != 0 :
-            messages.success(request, 'Vous avez un résultat')
-        else :
-            messages.error(request, "Vous n'avez aucun résultat")
-        
+        sort_params = {}
 
-    elif query_Prenom_ID and query_Nom_ID :
-        
-        query_ID_list = Individu.objects.filter(
-                                                Nom__icontains=query_Nom_ID, 
-                                                Prenom__icontains=query_Prenom_ID, 
-                                                DateNaissance__icontains=query_DateNaissance_ID,
-                                                VilleNaissance__icontains=query_VilleNaissance_ID)
-        if len(query_ID_list) != 0 :
-            messages.success(request, 'Vous avez un résultat')
-        else :
-            messages.error(request, "Vous n'avez aucun résultat")
+        Individu_Recherche.set_if_not_none(sort_params, 'Nom__icontains', query_Nom_ID)
+        Individu_Recherche.set_if_not_none(sort_params, 'Prenom__icontains', query_Prenom_ID)
+        Individu_Recherche.set_if_not_none(sort_params, 'VilleNaissance__icontains', query_VilleNaissance_ID)
 
-    elif query_Prenom_ID and query_Nom_ID and query_DateNaissance_ID :
-        
-        query_ID_list = Individu.objects.filter(
-                                                Nom__icontains=query_Nom_ID, 
-                                                Prenom__icontains=query_Prenom_ID, 
-                                                DateNaissance__icontains=query_DateNaissance_ID)
-        if len(query_ID_list) != 0 :
-            messages.success(request, 'Vous avez un résultat')
-        else :
-            messages.error(request, "Vous n'avez aucun résultat")
+        query_ID_list = Individu.objects.filter(**sort_params) 
 
-    elif query_Prenom_ID and query_Nom_ID and query_VilleNaissance_ID :
-        
-        query_ID_list = Individu.objects.filter(
-                                                Nom__icontains=query_Nom_ID, 
-                                                Prenom__icontains=query_Prenom_ID, 
-                                                VilleNaissance__icontains=query_VilleNaissance_ID)
-        if len(query_ID_list) != 0 :
-            messages.success(request, 'Vous avez un résultat')
-        else :
-            messages.error(request, "Vous n'avez aucun résultat")
-        
 
     else :
-        query_ID_list = Individu.objects.none() # == []
-    
-    ######
+        query_ID_list = Individu.objects.none()
+
 
     if request.method == 'POST':
 
@@ -226,21 +192,24 @@ def Identity_Individu_Form(request) :
 
         else:
             messages.error(request, "Le formulaire est invalide !")
-    
-    else:
+        
+    else :
         form = IndividuFormulaire()
         form.fields['Utilisateur'].initial = request.user.last_name + " " + request.user.first_name
 
     context = {
         "form" : form,
+        "Individu" : Individu,
         "query_Nom_ID" : query_Nom_ID,
         "query_Prenom_ID" : query_Prenom_ID,
-        "query_DateNaissance_ID" : query_DateNaissance_ID,
-        "query_VilleNaissanceID" : query_VilleNaissance_ID,
+        "query_VilleNaissance_ID" : query_VilleNaissance_ID,
         "query_ID_list" : query_ID_list,
-        "Individu" : Individu
     }
+
     return render(request, 'Identity_Individu_Form.html', context)
+
+###################################################################################################################################################################################################
+
 
 @login_required
 def Identity_Societe_Form(request) :
@@ -270,8 +239,10 @@ def Identity_Societe_Form(request) :
         Responsable = Individu.objects.filter(NumeroIdentification=query_Responsable)
         form.fields['Responsable'].queryset = Responsable
         form.fields['Utilisateur'].initial = request.user.last_name + " " + request.user.first_name
+
     return render(request, 'Identity_Societe_Form.html', {"form" : form, "query_Responsable" : query_Responsable})
 
+###################################################################################################################################################################################################
 
 @login_required
 def Identity_Individu_Resume(request, id) :
@@ -307,8 +278,9 @@ def Identity_Individu_Resume(request, id) :
         else :
             birthmonth = birthmonth_temp
 
-        #Récupère N° Mairie (ici récupère nom mais sera changé en n°)
-        birth_city = personne.VilleNaissance
+        #Récupère N° Ville de Naissance
+        birth_city = Ville.Villes[personne.VilleNaissance]
+        print birth_city
 
         #Génère un nombre aléaloire :
         key_temp = randint(0,999999)
@@ -325,7 +297,16 @@ def Identity_Individu_Resume(request, id) :
         else :
             key = key_temp
 
-        NumeroIdentification = str(sex_number) + str(birthyear) + str(birthmonth) + str(birth_city) + '-' + str(key)
+        birth_country = personne.PaysNaissance
+        birth_country_id = None
+        print birth_country
+        if birth_country == "CM" :
+            birth_country_id = 1
+        else :
+            birth_country_id = 2
+
+
+        NumeroIdentification = str(sex_number) + str(birthyear) + str(birthmonth) + '-' + str(birth_city) + '-' + str(key) + '-' + str(birth_country_id)
 
         #Mise à jour du champ numéro sécurité social
         personne.NumeroIdentification = NumeroIdentification
@@ -379,6 +360,7 @@ def Identity_Individu_Resume(request, id) :
 
     return render(request, 'Identity_Individu_Resume.html', context)
 
+###################################################################################################################################################################################################
 
 @login_required
 def Identity_Societe_Resume(request, id) :
@@ -392,73 +374,74 @@ def Identity_Societe_Resume(request, id) :
     return render(request, 'Identity_Societe_Resume.html', context)
 
 
+###################################################################################################################################################################################################
+
+
 @login_required
 def Identity_Individu_Researching(request) :
-    
-    
+
+
     folderId = None
     success = False
     error = False
+    recherche = None
+        
+        #######################
+        # Display some arrays #
+        #######################
     
-    #######################
-    # Display some arrays #
-    #######################
+    persons = Individu_Recherche.Recherche_Order(Individu, "-id")
+    person_France = persons.filter(Pays=64)
+    
+   
+        #############################################
+        # People searching n° Numero Identification #
+        #############################################
 
-    persons = Individu.objects.order_by("-id")
-    person = persons[:3] #The 3 last created forms
-    person_France = persons.filter(Pays=64)[:3] #The 3 last created form with BirthCity = France
+    if 'recherche' in request.GET:
+    
+        query_lastname_ID = request.GET.get('q1ID')
+        query_firstname_ID = request.GET.get('q1bisID')
+        query_naissance_ID = request.GET.get('q1terID')
 
-    #############################################
-    # People searching n° Numero Identification #
-    #############################################
+        sort_params = {}
 
-    query_lastname_ID = request.GET.get('q1ID')
-    query_firstname_ID = request.GET.get('q1bisID')
-    query_naissance_ID = request.GET.get('q1terID')
+        Individu_Recherche.set_if_not_none(sort_params, 'Nom__icontains', query_lastname_ID)
+        Individu_Recherche.set_if_not_none(sort_params, 'Prenom__icontains', query_firstname_ID)
+        Individu_Recherche.set_if_not_none(sort_params, 'VilleNaissance__icontains', query_naissance_ID)
 
-    if query_firstname_ID and query_lastname_ID and query_naissance_ID :
-        
-        query_ID_list = Individu.objects.filter(
-                                                Nom__icontains=query_lastname_ID, 
-                                                Prenom__icontains=query_firstname_ID,
-                                                VilleNaissance__icontains=query_naissance_ID)
-        if len(query_ID_list) != 0 :
-            messages.success(request, 'Miracle .. Vous avez un résultat !')
-        else :
-            messages.error(request, "Oh non .. Vous n'avez aucun résultat !")
+        query_ID_list = Individu_Recherche.Recherche_Filter(Individu, sort_params)
 
-    elif query_firstname_ID and query_lastname_ID :
-        
-        query_ID_list = Individu.objects.filter(
-                                                Nom__icontains=query_lastname_ID, 
-                                                Prenom__icontains=query_firstname_ID)
-        if len(query_ID_list) != 0 :
-            messages.success(request, 'Miracle .. Vous avez un résultat !')
-        else :
-            messages.error(request, "Oh non .. Vous n'avez aucun résultat !")
+        context = {
+            "query_lastname_ID" : query_lastname_ID,
+            "query_firstname_ID": query_firstname_ID,
+            "query_ID_list" : query_ID_list,
+            "query_naissance_ID" : query_naissance_ID,
+            }
 
-    else :
-        query_ID_list = Individu.objects.none() # == []
+        return render(request, 'Identity_Individu_Recherche.html', context)
 
-    ##############################################
-    # People searching process in DatasystemsDOC #
-    ##############################################
+
+
+        ##############################################
+        # People searching process in DatasystemsDOC #
+        ##############################################
 
     query_lastname = request.GET.get('q1')
     query_firstname = request.GET.get('q1bis')
     query_social_number = request.GET.get('q1social')
 
     if query_lastname and query_firstname and query_social_number:
-        
+            
         query_lastname_list = Individu.objects.filter(Nom__iexact=query_lastname, Prenom__iexact=query_firstname, NumeroIdentification__iexact=query_social_number) 
 
         social_number2 = query_social_number.replace(" ", "")
         title = str(query_lastname + "_" + query_firstname + "_" + social_number2)
 
 
-        ##########################################
-        # Look if people directory already exist #
-        ##########################################
+    ##########################################
+    # Look if people directory already exist #
+    ##########################################
 
         url = Global_variables.GED_url.url + '/services/rest/folder/listChildren?folderId=11304975'
         payload = {'folderId': 11304975}
@@ -479,9 +462,9 @@ def Identity_Individu_Researching(request) :
                 list = [data[i]]
             i = i+1
 
-        ############################################
-        # We have correspondance, use ID directory #
-        ############################################
+    ############################################
+    # We have correspondance, use ID directory #
+    ############################################
 
         if len(list) == 1 :
             folderId = list[0]["id"]
@@ -494,21 +477,24 @@ def Identity_Individu_Researching(request) :
 
 
     context = {
-        "person" : person,
-        "query_lastname_ID" : query_lastname_ID,
-        "query_firstname_ID": query_firstname_ID,
-        "query_ID_list" : query_ID_list,
-        "query_naissance_ID" : query_naissance_ID,
+        "persons" : persons,
+        "person" : persons[:3],
+        #"query_lastname_ID" : query_lastname_ID,
+        #"query_firstname_ID": query_firstname_ID,
+        #"query_ID_list" : query_ID_list,
+        #"query_naissance_ID" : query_naissance_ID,
         "person_France" : person_France,
         "query_lastname" : query_lastname,
         "query_firstname" : query_firstname,
-        # "query_firstname2" : query_firstname2,
+       # "query_firstname2" : query_firstname2,
         "query_social_number" : query_social_number,
         "query_lastname_list" : query_lastname_list,
         "folderId" : folderId,
         }
    
     return render(request, 'Identity_Individu_Recherche.html', context)
+
+###################################################################################################################################################################################################
 
 @login_required
 def Identity_Societe_Researching(request) :
@@ -629,12 +615,15 @@ def Identity_Societe_Researching(request) :
    
     return render(request, 'Identity_Societe_Recherche.html', context)
 
+###################################################################################################################################################################################################
+
 @login_required
 def Identity_Societe_Recherche_Fraude(request) :
     
     query_Individu = None
 
     query_NumeroIdentification = request.GET.get('q1ID')
+    NombreSociete = None
 
     if query_NumeroIdentification :
             
@@ -664,6 +653,8 @@ def Identity_Societe_Recherche_Fraude(request) :
         }
 
     return render(request, 'Identity_Societe_Recherche_Fraude.html', context)
+
+###################################################################################################################################################################################################
 
 @login_required
 def Identity_Consultation_PDF(request) :
@@ -699,6 +690,8 @@ def Identity_Consultation_PDF(request) :
 
     return render(request, 'Identity_Consultation_PDF.html', context)
 
+###################################################################################################################################################################################################
+
 @login_required
 def Identity_Societe_Consultation_PDF(request) :
     
@@ -733,6 +726,8 @@ def Identity_Societe_Consultation_PDF(request) :
 
     return render(request, 'Identity_Societe_Consultation_PDF.html', context)
 
+###################################################################################################################################################################################################
+
 @login_required
 def Identity_Update(request) :
     
@@ -765,7 +760,7 @@ def Identity_Update(request) :
     }
     return render(request, template_name, context)
 
-
+###################################################################################################################################################################################################
 
 @login_required 
 def Identity_Deleting(request) : 
@@ -795,6 +790,7 @@ def Identity_Deleting(request) :
     }
     return render(request, template_name, context)
 
+###################################################################################################################################################################################################
 
 @login_required
 def Identity_Individu_PDF(request, id) :
@@ -979,6 +975,9 @@ def Identity_Individu_PDF(request, id) :
     return render(request, 'Identity_Individu_PDF.html', context) # Template page générée après PDF
 
 
+###################################################################################################################################################################################################
+
+
 @login_required
 def Identity_Societe_PDF(request, id) :
     
@@ -1104,7 +1103,7 @@ def Identity_Societe_PDF(request, id) :
     return render(request, 'Identity_Societe_PDF.html', context) # Template page générée après PDF
 
 
-
+###################################################################################################################################################################################################
 
 
 @login_required
@@ -1127,11 +1126,11 @@ def Identity_UpdateCivility(request):
         form = IndividuFormCivility(request.POST or None, request.FILES or None, instance = query_social_number_list.first())
         
         form.fields['Utilisateur'].initial = request.user.last_name + " " + request.user.first_name
-        
+
         if form.is_valid() :
             SID = Logger.login("etatcivil", "100%EC67")
             if 'save' in request.POST :
-                start = time.clock()
+
                 if 'Image' in request.FILES:
                     form.Image = request.FILES['Image']
 
@@ -1149,23 +1148,9 @@ def Identity_UpdateCivility(request):
                     else :
                         print 'Le document ' + filename_Image_init + " n'existe pas"
 
-                    #step1 = time.clock()
-
                     path_Image = Global_variables.Individu_Image_path_RAW.path + filename_Image_init
 
-                    #Folder_research = Search.find_folder(SID, filename_directory)
-
-                    #step2 = time.clock()
-
-                    #if Folder_research != [] :
-                        
-                    #    folderId = Folder_research[0]['id']
-            
-                    #    print "Le dossier " + filename_directory + u" existe déjà sous le n° : " + str(folderId)
-                    #    print " "
                     Search_Docs_Image = Search.find_doc(SID, filename = filename_Image)
-
-                        #step3 = time.clock()
 
                     print "Recherche des occurences de documents : " 
                     print "     - " + filename_Image
@@ -1201,14 +1186,12 @@ def Identity_UpdateCivility(request):
                         print " "
 
 
-                for element in glob.glob(path_Image) :
-                    os.remove(element)
+                    for element in glob.glob(path_Image) :
+                        os.remove(element)
 
-                
-
-                
 
                 print "################################################"
+
 
                 if 'CarteIdentite' in request.FILES:
                     form.CarteIdentite = request.FILES['CarteIdentite']
@@ -1282,25 +1265,12 @@ def Identity_UpdateCivility(request):
                         os.remove(element)
 
                 print "################################################"
-                
+
+
                 for element in settings.BDD :
                     post = form.save(commit=False)
                     post.save(using=element)
 
-                end = time.clock()
-
-                general = end - start
-       # etape1 = step1 - start
-       # etape2 = step2 - step1
-       # etape3 = step3 - step2
-       # etape4 = step4 - step3
-
-                print "General : " + str(general)
-      #  print "Etape 1 : " + str(etape1)
-      #  print "Etape 2 : " + str(etape2)
-      #  print "Etape 3 : " + str(etape3)
-      #  print "Etape 4 : " + str(etape4)
-                    
                 return HttpResponseRedirect(reverse('Home'))
             Logger.logout(SID)
                 
@@ -1317,6 +1287,8 @@ def Identity_UpdateCivility(request):
         "form": form
     }
     return render(request, "Identity_UpdateCivility.html", context)
+
+###################################################################################################################################################################################################
 
 @login_required
 def Identity_UpdateCoordonates(request):
@@ -1358,6 +1330,8 @@ def Identity_UpdateCoordonates(request):
     }
     return render(request, "Identity_UpdateCoordonates.html", context)
 
+###################################################################################################################################################################################################
+
 @login_required
 def Identity_UpdateContact(request):
     
@@ -1395,3 +1369,4 @@ def Identity_UpdateContact(request):
         "form": form
     }
     return render(request, "Identity_UpdateContact.html", context)
+

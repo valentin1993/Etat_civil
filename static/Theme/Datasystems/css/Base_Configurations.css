@@ -259,6 +259,11 @@
         border-radius:6px 0 6px 6px;
         }
 
+    ul.dropdown-menu > li.dropdown-submenu:hover > a.dropdown-toggle, a.dropdown-toggle:hover, a.dropdown-toggle:visited {
+        background-color: black !important;
+        color : white;
+        }
+
     div.alert.alert-success.alert-dismissible {
         width:63%;
         margin-left: 10%;   

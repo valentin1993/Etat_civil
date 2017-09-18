@@ -76,7 +76,7 @@ def upload_location(instance, filename) :
 
 class Individu(models.Model):
 
-    NumeroIdentification = models.CharField(max_length=30, null=True, verbose_name='Numéro Identification physique', unique=True)
+    NumeroIdentification = models.CharField(max_length=30, null=True, verbose_name='Numero Identification physique', unique=True)
     Civilite = models.CharField(max_length=12,choices=CHOIX_TITRE, verbose_name='Civilité')
     NomJeuneFille = models.CharField(max_length=30, verbose_name='Nom de jeune fille', blank=True)
     Nom = models.CharField(max_length=30, verbose_name='Nom de famille')
@@ -96,11 +96,11 @@ class Individu(models.Model):
     Mail = models.CharField(max_length=30, verbose_name='Email', blank=True)
     Telephone = models.CharField(max_length=20, verbose_name='Téléphone', blank=True)
     Creation = models.DateTimeField(auto_now_add=True)
-    InformationsInstitution = models.CharField(max_length=30, null=False, verbose_name='Informations Institution')
+    InformationsInstitution = models.CharField(max_length=30, null=False, verbose_name='Informations Institution', default="")
     Utilisateur = models.CharField(max_length=100, null=False, verbose_name="Utilisateur", default=" ")
     Etat = models.CharField(max_length=30, choices=CHOIX_ETAT, default=" ", null=False, verbose_name="Etat")
-    Image = models.ImageField(upload_to='pictures/', null=True, blank=True, width_field=None, height_field=None, verbose_name="Photo Identité")
-    CarteIdentite = models.ImageField(upload_to='Carte_Identite/', null=True, blank=True, width_field=None, height_field=None, verbose_name="Carte Identité")
+    Image = models.ImageField(upload_to='pictures/', null=False, blank=True, width_field=None, height_field=None, verbose_name="Photo Identité", default=" ")
+    CarteIdentite = models.ImageField(upload_to='Carte_Identite/', null=False, blank=True, width_field=None, height_field=None, verbose_name="Carte Identité", default=" ")
 
     def save(self, *args, **kwargs):
         for field_name in ['NomJeuneFille' ,'Nom', 'VilleNaissance', 'Nationalite1', 'Nationalite2', 'Ville', 'Profession']:
@@ -123,7 +123,7 @@ class Individu(models.Model):
             
 
     def __unicode__(self):
-        return '%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s' % (self.id, self.NumeroIdentification, self.Civilite, self.NomJeuneFille ,self.Nom, self.Statut, self.Prenom, 
+        return '%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s' % (self.id, self.NumeroIdentification, self.Civilite, self.NomJeuneFille ,self.Nom, self.Statut, self.Prenom, 
                                                                             self.Sexe, self.DateNaissance, self.VilleNaissance, self.PaysNaissance, self.Nationalite1, self.Nationalite2, 
                                                                             self.Profession, self.Adresse, self.Ville, self.Zip, self.Pays, self.Mail, self.Telephone, self.Etat, 
                                                                             self.InformationsInstitution, self.Image, self.Utilisateur, self.CarteIdentite)

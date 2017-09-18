@@ -40,7 +40,12 @@
         <br></br>
 
         {% if query_Individu %}
-        L'individu {{query_Individu.Nom}} {{query_Individu.Prenom}} (n° identification : {{query_Individu.NumeroIdentification}}) possède actuellement {{NombreSociete}} sociétés en qualité de responsable.
+            L'individu {{query_Individu.Nom}} {{query_Individu.Prenom}} (n° identification : {{query_Individu.NumeroIdentification}}) possède actuellement 
+            {% if NombreSociete > 0 %}
+                {{NombreSociete}} société(s) en qualité de responsable.
+            {% else %}
+                aucune société en qualité de responsable.
+            {% endif %}
         {% endif %}
         <br></br>
 

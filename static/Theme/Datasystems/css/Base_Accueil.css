@@ -12,6 +12,10 @@
         color : white !important;
         }
 
+    ul.nav.navbar.nav > li.dropdown.open > ul.dropdown-menu.forAnimate > li.dropdown.open > a.dropdown-toggle:hover {
+        color : white;
+    }
+
     /* Tab properties from navbar */
     .navbar .nav > li > a {
         /*padding-right: -20px;*/
@@ -35,6 +39,10 @@
         left: -7px;
         top: 10px;
         }
+
+    .nav .open>a, .nav .open>a:focus, .nav .open>a:hover{
+        color : black;
+    }
 
     .navbar .sub-menu:after {
         border-top: 6px solid ;
@@ -260,6 +268,27 @@
     div.alert.alert-success.alert-dismissible {
         width:63%;
         margin-left: 10%;   
+    }
+
+    ul.dropdown-menu {
+        background-color: #0083A2;
+    }
+
+
+    ul.dropdown-menu:active {
+        background-color: black;
+    }
+
+    ul.dropdown-menu > li.dropdown-submenu:hover > a.dropdown-toggle, a.dropdown-toggle:hover, a.dropdown-toggle:visited {
+        background-color: black !important;
+        color : white;
+        }
+
+
+    /* Gestion de chaque ligne du menu sans sous-menu */
+    ul.dropdown-menu > li:hover > a{
+        background-color: black !important;
+        color: white;
     }
 
     .title {

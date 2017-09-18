@@ -71,6 +71,7 @@ INSTALLED_APPS = [
     'Accueil',
     'log',
     'Identity',
+    'rest_framework',
 ]
 
 
@@ -86,6 +87,7 @@ MIDDLEWARE_CLASSES = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'DatasystemsCORE.middleware.OnlineNowMiddleware',
 ]
 
 DEBUG_TOOLBAR_PANELS = [

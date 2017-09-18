@@ -49,6 +49,10 @@
         background-color: black;
     }
 
+/*    ul.nav.navbar.nav > li.dropdown.open > ul.dropdown-menu.forAnimate > li.dropdown.open > a.dropdown-toggle:hover {
+        color : red;
+    }*/
+
     /* Tab properties from navbar */
     .navbar .nav > li > a {
         padding-right: -20px;
@@ -318,6 +322,11 @@
         margin-right:-10px;
         }
 
+    ul.dropdown-menu > li.dropdown-submenu:hover > a.dropdown-toggle, a.dropdown-toggle:hover, a.dropdown-toggle:visited {
+        background-color: black !important;
+        color : white;
+        }
+
     .dropdown-submenu:hover>a:after{
         border-left-color:#555;
         }
@@ -370,6 +379,10 @@
 
     .resume {
         padding-left:6vw;
+    }
+
+    .blue_element {
+        color: #0083A2;
     }
 
     html, body {
